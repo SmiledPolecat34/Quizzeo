@@ -17,10 +17,10 @@ body{
 
 .menu{
     color: black;
-    width: 35%;
-    height: 1000px;
+    /* width: 35%;
+    height: 1000px; */
     position: relative;
-    background-color: #137995;
+    /* background-color: #137995; */
     font-size: 35px;
     display: flex;
     flex-direction: column;
@@ -41,11 +41,11 @@ body{
 #profil{
     font-size: 30px;
     margin-top: 20px;
-    background-color: #137995;
+    /* background-color: #137995; */
     border: #137995;
 }
 #profil:hover{
-    background-color: #4A1AB2;
+    background-color: #826ab7;
 }
 #profil:active{
     background-color: #9074d1;
@@ -53,8 +53,8 @@ body{
 #mes_Quizz{
     font-size: 30px;
     margin-top: 20px;
-    background-color: #137995;
-    border: #137995;
+    /* background-color: #137995; */
+    /* border: #137995; */
 }
 #mes_Quizz:hover{
     background-color: #4A1AB2;
@@ -65,8 +65,8 @@ body{
 #quizz{
     font-size: 30px;
     margin-top: 20px;
-    background-color: #137995;
-    border: #137995;
+    /* background-color: #137995; */
+    /* border: #137995; */
 }
 #quizz:hover{
     background-color: #4A1AB2;
@@ -77,8 +77,8 @@ body{
 #deconnexion{
     font-size: 30px;
     margin-top: 20px;
-    background-color: #137995;
-    border: #137995;
+    /* background-color: #137995; */
+    /* border: #137995; */
 }
 #deconnexion:hover{
     background-color: #4A1AB2;
@@ -86,8 +86,27 @@ body{
 #deconnexion:active{
     background-color: #9074d1;
 }
+.texte{
+    color: black;
+    position: relative;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start ;
+    margin-top: 100px;
+}
 
-
+@media (max-width:1400px){
+    h1{
+        font-size: large;
+    }
+    .menu{
+        font-size: large;
+    }
+    .rechercher{
+        font-size: large;
+    }
+}
 
 
 

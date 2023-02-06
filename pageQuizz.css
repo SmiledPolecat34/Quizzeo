@@ -1,0 +1,22 @@
+.title{
+    color: black;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #137995;
+    width: 100%;
+}
+.categorie{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.quizz{
+    /* display: flex;
+    flex-direction: row; */
+    column-count: 2;
+    column-width: 100px;
+}
