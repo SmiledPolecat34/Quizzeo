@@ -1,0 +1,11 @@
+body{
+    background-color: #4A1AB2;
+}
+
+.titre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
