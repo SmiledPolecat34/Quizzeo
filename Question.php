@@ -1,4 +1,17 @@
 <?php
+ $nomserv = 'localhost';
+ $utinom = 'root';
+ $servmdp = '';
+ 
+ //Establish the connection
+ $conn = new mysqli($nomserv, $utinom, $servmdp);
+ 
+ //Checking the connection
+ if($conn->connect_error){
+     die('Erreur : ' .$conn->connect_error);
+ }
+ echo 'Connexion réussie';
+
 class Utilisateur{
     private $mail;
     private $pseudo;
@@ -35,52 +48,26 @@ class Utilisateur{
         return $this->motdepasse;
     }
 }
-class Quizzer extends Utilisateur{
-    
+class Quizzer extends Utilisateur
+{
+    public function __construct($mail,$pseudo,$datenaissance,$mdp)
+    {
+        parent::__construct($mail,$pseudo,$datenaissance,$mdp);
+    }
+    //Re-set the questionnaire on a blank table
+    function SupprimerQuestionnaire($questionnaire){
+        print_r($questionnaire);
+        $questionnaire = array();
+        print_r($questionnaire);
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Administrateur extends Utilisateur{
+    public function __construct($mail,$pseudo,$datenaissance,$mdp)
+    {
+        parent::__construct($mail,$pseudo,$datenaissance,$mdp);
+    }
+}
 
 //Creating a question class
 class Question {
@@ -185,12 +172,7 @@ function CreerQuestionnaire(){
     }
     print_r($questionnaire);
 }
-//Re-set the questionnaire on a blank table
-function SupprimerQuestionnaire($questionnaire){
-    print_r($questionnaire);
-    $questionnaire = array();
-    print_r($questionnaire);
-}
+
 //Calculating the player’s percentage score
 function Score($nbrquest,$score){
     $total = $score / $nbrquest * 100;
