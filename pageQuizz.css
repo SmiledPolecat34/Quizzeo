@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(178, 212, 240);
+}
 .title{
     color: black;
     font-size: 30px;
@@ -27,53 +30,53 @@
     
 }
 .sport:hover{
-    border: solid #8ac8da 2px;
+    border: solid #137995 2px;
     border-radius: 50%;
 }
 .sport:active{
-    background-color: #bad7df;
+    background-color: #81c6da;
 }
 .musique{
     margin-left: 30%;
     margin-right: 30%;
 }
 .musique:hover{
-    border: solid #8ac8da 2px;
+    border: solid #137995 2px;
     border-radius: 50%;
 }
 .musique:active{
-    background-color: #bad7df;
+    background-color: #81c6da;
 }
 .cinema{
     margin-left: 30%;
     margin-right: 30%;
 }
 .cinema:hover{
-    border: solid #8ac8da 2px;
+    border: solid #137995 2px;
     border-radius: 50%;
 }
 .cinema:active{
-    background-color: #bad7df;
+    background-color: #81c6da;
 }
 .culture_generale{
     margin-left: 30%;
     margin-right: 30%;
 }
 .culture_generale:hover{
-    border: solid #8ac8da 2px;
+    border: solid #137995 2px;
     border-radius: 50%;
 }
 .culture_generale:active{
-    background-color: #bad7df;
+    background-color: #81c6da;
 }
 .hist_geo{
     margin-left: 30%;
     margin-right: 30%;
 }
 .hist_geo:hover{
-    border: solid #8ac8da 2px;
+    border: solid #137995 2px;
     border-radius: 50%;
 }
 .hist_geo:active{
-    background-color: #bad7df;
+    background-color: #81c6da;
 }
