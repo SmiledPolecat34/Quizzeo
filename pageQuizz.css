@@ -17,6 +17,63 @@
 .quizz{
     /* display: flex;
     flex-direction: row; */
-    column-count: 2;
+    column-count: 1;
     column-width: 100px;
+    cursor: pointer;
+}
+.sport{
+    margin-left: 30%;
+    margin-right: 30%;
+    
+}
+.sport:hover{
+    border: solid #8ac8da 2px;
+    border-radius: 50%;
+}
+.sport:active{
+    background-color: #bad7df;
+}
+.musique{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.musique:hover{
+    border: solid #8ac8da 2px;
+    border-radius: 50%;
+}
+.musique:active{
+    background-color: #bad7df;
+}
+.cinema{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.cinema:hover{
+    border: solid #8ac8da 2px;
+    border-radius: 50%;
+}
+.cinema:active{
+    background-color: #bad7df;
+}
+.culture_generale{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.culture_generale:hover{
+    border: solid #8ac8da 2px;
+    border-radius: 50%;
+}
+.culture_generale:active{
+    background-color: #bad7df;
+}
+.hist_geo{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.hist_geo:hover{
+    border: solid #8ac8da 2px;
+    border-radius: 50%;
+}
+.hist_geo:active{
+    background-color: #bad7df;
 }
