@@ -12,11 +12,12 @@ body{
 }
 .organisation{
     background-color: rgba(248, 248, 248, 0.875);
-    width: 1000px;
+    width: 500px;
     margin-top: 50px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
 }
-#choix{
-    margin-left: 5px;
+#categorie{
+    font-size: 30px;
 }
