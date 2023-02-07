@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(178, 212, 240);
+}
+.title{
+    color: black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #137995;
+    width: 100%;
+}
+.organisation{
+    background-color: rgba(248, 248, 248, 0.875);
+    width: 1000px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+#choix{
+    margin-left: 5px;
+}

@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(178, 212, 240);
+}
+.title{
+    color: black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #137995;
+    width: 100%;
+}
+.organisation{
+    background-color: rgba(248, 248, 248, 0.875);
+    width: 1000px;
+    margin-top: 50px;
+}
+#Crea{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 30px;
+    color: black; 
+}
+.bouton{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+.suivant{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    border: solid #137995 1px;
+    align-items: center;
+    width: 10%;
+}
+#case{
+    font-size: 30px;
+    margin-left: 10px;
+}

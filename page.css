@@ -12,7 +12,6 @@ body{
     justify-content: center;
     background-color: #137995;
     width: 100%;
-    
 }
 
 .menu{
@@ -38,11 +37,15 @@ body{
 #profil{
     font-size: 30px;
     margin-top: 20px;
-    border: #137995;
     font-size: 50px;
+    border:solid  #137995 1px;
+    border-radius: 25%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
 }
 #profil:hover{
-    background-color: #826ab7;
+    background-color: #a492cc;
 }
 #profil:active{
     background-color: #9074d1;
@@ -51,19 +54,45 @@ body{
 #quizz{
     font-size: 50px;
     margin-top: 20px;
+    border:solid  #137995 1px;
+    border-radius: 25%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
 }
 #quizz:hover{
-    background-color: #826ab7;
+    background-color: #a492cc;
 }
 #quizz:active{
+    background-color: #9074d1;
+}
+#creer{
+    font-size: 50px;
+    margin-top: 20px;
+    border:solid  #137995 1px;
+    border-radius: 25%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#creer:hover{
+    background-color: #a492cc;
+}
+#creer:active{
     background-color: #9074d1;
 }
 #deconnexion{
     font-size: 50px;
     margin-top: 20px;
+    border:solid  #137995 1px;
+    border-radius: 25%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
 }
 #deconnexion:hover{
-    background-color: #826ab7;
+    background-color: #a492cc;
 }
 #deconnexion:active{
     background-color: #9074d1;
@@ -103,6 +132,15 @@ body{
         font-size: large;
     }
     .rechercher{
+        font-size: large;
+    }
+    .profil{
+        font-size: large;
+    }
+    .quizz{
+        font-size: large;
+    }
+    .deconnexion{
         font-size: large;
     }
 }
