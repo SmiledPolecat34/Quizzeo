@@ -12,6 +12,12 @@
  }
  echo 'Connexion réussie';
 
+ $sql = "INSERT INTO utilisateur(pseudo,email,motDePAsse,rolee)
+ VALUES('Giraud','Pierre@hmail.com','blala','1')";
+
+echo 'Entrée ajoutée dans la table';
+
+ //$sql = "INSERT INTO quizzeo.utilisateur (id, pseudo, email, motDePasse, role) VALUES ('ID','Pseudo', 'Mail', 'mdp', 'role')";
 class Utilisateur{
     private $mail;
     private $pseudo;
@@ -152,7 +158,7 @@ function CreerQuestion(){
     $c1=readline("Donner un choix :");
     $c2 = readline("Donner le choix 2 :");
     $c3 = readline("Donner le choix 3 :");
-    $c4=readline("Donner le choix4 :");
+    $c4=readline("Donner le choix 4 :");
     //Check that the player has entered the answer among the choices
     if ($r==$c1 or $r==$c2 or $r==$c3 or $r==$c4){
         echo ("Votre question a bien été ajoutée");
