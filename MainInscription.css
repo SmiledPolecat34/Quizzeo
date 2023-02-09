@@ -77,7 +77,7 @@
     align-items: flex-start;
     color: #4A1AB2;
     background-color: rgba(0, 0, 0, 0);
-    margin: 350px 0 0 0;
+    margin: 190px 0 0 0;
     width: 101%;
     height: 50%;
 }
@@ -89,6 +89,6 @@
     font-size: 20px;
     color: black;
     width: 650px;
-    height: 100px;
+    height: 90px;
     background-color: rgba(248, 248, 248, 0.875);
 }
