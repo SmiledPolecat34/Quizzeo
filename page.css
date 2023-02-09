@@ -11,7 +11,9 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #137995;
-    width: 100%;
+    width: 100.5%;
+    margin-top: -.5% ;
+    
 }
 
 .menu{
@@ -22,6 +24,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start ;
+    margin-bottom: 200px;
+    margin-top: 50px;
 }
 
 .rechercher{
@@ -127,8 +131,10 @@ body{
     background-color: black;
     color: white;
     font-size: 50px ;
-    width: 100%;
+    width: 100.5%;
     height: 1230px;
+    margin-top: 600px;
+    margin-bottom: -.5%;
 }
 .organisation{
     margin: 30px;
