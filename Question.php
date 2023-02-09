@@ -1,23 +1,46 @@
+<form action="Inscription.html" method="post">
 <?php
- $nomserv = 'localhost';
- $utinom = 'root';
- $servmdp = '';
+echo "Coucou";
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
+
+//$mysqli->query("INSERT INTO utilisateur VALUES ('Plat','Pi@hmail.com','fhfhg','4')");
+//$mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('hgf', 'nkjbh', 'nhukh', '2');");
+
+
+
+
+
+
+
+
+
+
+ //$nomserv = 'localhost';
+ //$utinom = 'root';
+ //$servmdp = '';
  
  //Establish the connection
- $conn = new mysqli($nomserv, $utinom, $servmdp);
+ //$conn = new mysqli($nomserv, $utinom, $servmdp);
  
  //Checking the connection
- if($conn->connect_error){
-     die('Erreur : ' .$conn->connect_error);
- }
- echo 'Connexion réussie';
+ //if($conn->connect_error){
+     //die('Erreur : ' .$conn->connect_error);
+ //}
+ //echo 'Connexion réussie';
 
- $sql = "INSERT INTO utilisateur(pseudo,email,motDePAsse,rolee)
- VALUES('Giraud','Pierre@hmail.com','blala','1')";
+//$sql = "SELECT ALL FROM quizzeo.utilisateur;";
+//$conn->query("SELECT * FROM quizzeo.utilisateur;");
+//$conn->execut($sql);
 
-echo 'Entrée ajoutée dans la table';
-
+ //INSERT INTO Utilisateur(Id_utilisateur, pseudo,email,motDePasse,role) VALUES('2','Giraud','Pierre@hmail.com','blala','1');
  //$sql = "INSERT INTO quizzeo.utilisateur (id, pseudo, email, motDePasse, role) VALUES ('ID','Pseudo', 'Mail', 'mdp', 'role')";
+ //Backup functions
+ function sauvegarde($joueur) {
+    $data = $joueur->getPseudo().",".$joueur->getMail().",".$joueur->getMotDePasse().",".$joueur->getDateDeNaissance()."," .$joueur->getRole()."\n";
+    file_put_contents("save.txt",$data,FILE_APPEND);
+}
 class Utilisateur{
     private $mail;
     private $pseudo;
@@ -68,11 +91,39 @@ class Quizzer extends Utilisateur
     }
 }
 
-class Administrateur extends Utilisateur{
+class Administrateur extends Quizzer{
     public function __construct($mail,$pseudo,$datenaissance,$mdp)
     {
         parent::__construct($mail,$pseudo,$datenaissance,$mdp);
     }
+}
+function CreerJoueur (){
+    $choix = $_POST['choix'];
+    $mail = $_POST['mail'];
+    $pseudo = $_POST['pseudo'];
+    $datenaissance = $_POST['dateDeNaissance'];
+    $mdp = $_POST['mdp'];
+    if($choix=="Quizzeur"){
+        $role = 2;
+    }elseif($choix=="Utilisatur classique"){
+        $role = 1;
+    }
+    if ($role=1){
+        $joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
+    }else{
+        $joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
+    }
+}
+CreerJoueur();
+if(isset($_POST['valider']))
+{
+    CreerJoueur();
 }
 
 //Creating a question class
