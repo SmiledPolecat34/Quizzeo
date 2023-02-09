@@ -82,6 +82,22 @@ body{
 #creer:active{
     background-color: #9074d1;
 }
+#mes_quizz{
+    font-size: 50px;
+    margin-top: 20px;
+    border:solid  #137995 1px;
+    border-radius: 25%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mes_quizz:hover{
+    background-color: #a492cc;
+}
+#mes_quizz:active{
+    background-color: #9074d1;
+}
 #deconnexion{
     font-size: 50px;
     margin-top: 20px;
