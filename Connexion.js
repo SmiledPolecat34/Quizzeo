@@ -10,6 +10,7 @@ class Alerte{
     alert_conn(){
         if (this.pseudo_conn.value == "" || this.mdp_conn.value == ""){
             alert("Vous n'avez pas rempli tous les champs !");
+            event.preventDefault();
         }
     }
 
@@ -18,7 +19,6 @@ class Alerte{
         this.connexion.addEventListener("click",()=>{
             console.log("connexion click");
             this.alert_conn();
-            event.preventDefault();
         })
     }
 }
