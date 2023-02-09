@@ -12,6 +12,7 @@ class Alerte{
     alert_insc(){
         if (this.pseudo_insc.value == "" || this.mdp_insc.value == ""|| this.mail_insc.value == ""|| this.date_naissance_insc.value == ""){
             alert("Vous n'avez pas rempli tous les champs !");
+            event.preventDefault();
         }
     }
 
@@ -20,7 +21,7 @@ class Alerte{
         this.valider.addEventListener("click",()=>{
             console.log("valider click");
             this.alert_insc();
-            event.preventDefault();
+            
         })
     }
 }
