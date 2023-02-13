@@ -84,6 +84,17 @@ body{
 }
 .hist_geo:active{
     background-color: #81c6da;
+}.autres{
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 30px;
+}
+.autres:hover{
+    border: solid #137995 2px;
+    border-radius: 50%;
+}
+.autres:active{
+    background-color: #81c6da;
 }
 .contacter{
     background-color: black;
