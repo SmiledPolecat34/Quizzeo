@@ -142,6 +142,19 @@ function Connexion (){
     
 Connexion();
 
+function NouvelleQuestion(){
+    $nomQuizz = $_POST['nom_Quizz'];
+    $nbrQuestion = $_POST['nb_question'];
+    $niveauQuest=$_POST['niveau'];
+    $categorieQuest=$_POST['categorie'];
+    $dateCreation=date('d-m-y');
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `nbr_question`, `categorie`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$nbrQuestion', '$categorieQuest');");
+
+}
+NouvelleQuestion();
+
 //Creating a question class
 class Question {
     //The variables are in private because they are not called outside the class and it allows a better security than public
