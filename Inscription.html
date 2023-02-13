@@ -26,20 +26,17 @@
                 </div>
             </div>
         </div>
-        <form action="" method="">
+        <form action="Question.php" method="post">
             <div class="backInscription">
                 <div class ="pageInscription">
                     <!-- Choix -->
-                    <div id="Insc" class="choix">
-                        <label for="choix">Choix <em>* </em></label>
-                        <div class="choix">
-                            <input type="checkbox" id="case" name="case" value="quizzeur">
-                            <label for="case">Quizzeur</label>
-                        </div>
-                        <div class="choix">
+                    <div id="Insc" class="choix" name="choix">
+                        <input type="checkbox" id="case" name="case" value="quizzeur">
+                        <label for="case">Quizzeur</label>
+                    </div>
+                    <div  class="choix" id="choix" name="choix">
                           <input type="checkbox" id="case" name="case" value="classique" checked>
                           <label for="case">Utilisateur classique</label>
-                        </div>
                     </div>
                     
                         <!-- Pseudo -->
@@ -72,7 +69,8 @@
                     </div>
                     <!-- Valider -->
                     <div id="Insc" class="valider">
-                            <a href="page.html">Valider</a>
+                            <!-- <a href="page.html">Valider</a> -->
+                            <input type="submit" value="valider">
                     </div>
                 </div>
             </div>
