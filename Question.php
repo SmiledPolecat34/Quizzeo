@@ -1,4 +1,5 @@
-<form action="Inscription.html" method="post">
+<!-- <form action="Inscription.html" method="post"> -->
+<form action="Connexion.html" method="post">
 <?php
 echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -7,15 +8,6 @@ $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
 //$mysqli->query("INSERT INTO utilisateur VALUES ('Plat','Pi@hmail.com','fhfhg','4')");
 //$mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('hgf', 'nkjbh', 'nhukh', '2');");
-
-
-
-
-
-
-
-
-
 
  //$nomserv = 'localhost';
  //$utinom = 'root';
@@ -124,11 +116,31 @@ function CreerJoueur (){
         $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
     }
 }
-CreerJoueur();
-if(isset($_POST['valider']))
-{
-    CreerJoueur();
-}
+
+// if(isset($_POST['valider']))
+// {
+//     CreerJoueur();
+// }
+
+function Connexion (){
+    $pseudoco = $_POST['pseudo1'];
+    $mdpco = $_POST['mdp1'];
+        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $resultat=$mysqli->query("SELECT pseudutilisateuro, motDePasse FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+
+        if (mysqli_num_rows($resultat) > 0) {
+            // Affichage des données de chaque ligne
+            while ($ligne = mysqli_fetch_assoc($resultat)) {
+                echo " - nom : " . $ligne["pseudutilisateuro"]. " " . $ligne["motDePasse"];
+            }
+        } else {
+            echo "0 résultats";
+        }
+    }
+    
+Connexion();
 
 //Creating a question class
 class Question {

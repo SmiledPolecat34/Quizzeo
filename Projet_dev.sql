@@ -1,0 +1,1 @@
+SELECT * FROM quizzeo.utilisateur;
