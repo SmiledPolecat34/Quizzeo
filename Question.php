@@ -1,5 +1,5 @@
 <!-- <form action="Inscription.html" method="post"> -->
-<form action="Connexion.html" method="post">
+<!-- <form action="Connexion.html" method="post"> -->
 <?php
 echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -222,10 +222,10 @@ function CreerQuestion(){
     $qID = 1;
     $q = readline("Quel est votre question ? :");
     $r = readline("Quel est la réponse à votre question ? :");
-    $c1=readline("Donner un choix :");
+    $c1= readline("Donner un choix :");
     $c2 = readline("Donner le choix 2 :");
     $c3 = readline("Donner le choix 3 :");
-    $c4=readline("Donner le choix 4 :");
+    $c4= readline("Donner le choix 4 :");
     //Check that the player has entered the answer among the choices
     if ($r==$c1 or $r==$c2 or $r==$c3 or $r==$c4){
         echo ("Votre question a bien été ajoutée");
