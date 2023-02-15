@@ -1,4 +1,7 @@
 <?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
 function CreerJoueur (){
     $choix = $_POST['case'];
     //var_dump($_POST[$choix]);
