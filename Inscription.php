@@ -75,7 +75,7 @@ $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     <!-- Valider -->
                     <div id="Insc" class="valider">
                             <!-- <a href="page.html">Valider</a> -->
-                            <input type="submit" value="valider">
+                            <input type="submit" value="valider" name="valider">
                     </div>
                 </div>
             </div>

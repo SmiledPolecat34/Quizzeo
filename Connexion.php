@@ -1,5 +1,5 @@
 <?php
-// echo "Coucou";
+echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
@@ -30,12 +30,12 @@ function CreerJoueur (){
         $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
     }
 }
-CreerJoueur();
+// CreerJoueur();
 
-// if(isset($_POST['valider']))
-// {
-//     CreerJoueur();
-// }
+if(isset($_POST['valider']))
+{
+    CreerJoueur();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
