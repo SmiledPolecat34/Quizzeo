@@ -92,3 +92,13 @@
     height: 90px;
     background-color: rgba(248, 248, 248, 0.875);
 }
+#choix{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    width: 650px;
+    height: 90px;
+    background-color: rgba(248, 248, 248, 0.875);
+}

@@ -39,7 +39,7 @@ $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                         <input type="checkbox" id="case" name="case" value="quizzeur">
                         <label for="case">Quizzeur</label>
                     </div>
-                    <div  class="choix" id="choix" name="choix">
+                    <div  class="choix" id="Insc" name="choix">
                           <input type="checkbox" id="case" name="case" value="classique" checked>
                           <label for="case">Utilisateur classique</label>
                     </div>
