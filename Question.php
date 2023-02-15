@@ -7,29 +7,6 @@ echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-
-//$mysqli->query("INSERT INTO utilisateur VALUES ('Plat','Pi@hmail.com','fhfhg','4')");
-//$mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('hgf', 'nkjbh', 'nhukh', '2');");
-
- //$nomserv = 'localhost';
- //$utinom = 'root';
- //$servmdp = '';
- 
- //Establish the connection
- //$conn = new mysqli($nomserv, $utinom, $servmdp);
- 
- //Checking the connection
- //if($conn->connect_error){
-     //die('Erreur : ' .$conn->connect_error);
- //}
- //echo 'Connexion réussie';
-
-//$sql = "SELECT ALL FROM quizzeo.utilisateur;";
-//$conn->query("SELECT * FROM quizzeo.utilisateur;");
-//$conn->execut($sql);
-
- //INSERT INTO Utilisateur(Id_utilisateur, pseudo,email,motDePasse,role) VALUES('2','Giraud','Pierre@hmail.com','blala','1');
- //$sql = "INSERT INTO quizzeo.utilisateur (id, pseudo, email, motDePasse, role) VALUES ('ID','Pseudo', 'Mail', 'mdp', 'role')";
  //Backup functions
  function sauvegarde($joueur) {
     $data = $joueur->getPseudo().",".$joueur->getMail().",".$joueur->getMotDePasse().",".$joueur->getDateDeNaissance()."," .$joueur->getRole()."\n";
@@ -151,11 +128,6 @@ function NouveauQuizz($pseudoco,$mdpco){
     $niveauQuest=$_POST['niveau'];
     $categorieQuest=$_POST['categorie'];
     $dateCreation=date('y-m-d');
-    // print_r ($nomQuizz);
-    // print_r($nbrQuestion);
-    // print_r($niveauQuest);
-    // print_r ($categorieQuest);
-    // print_r($dateCreation);
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
@@ -168,25 +140,41 @@ function NouveauQuizz($pseudoco,$mdpco){
 }
 //NouveauQuizz($pseudoco,$mdpco);
 $nomQuizz="Testy";
-$nbrQuestion="3";
+$nbrQuestion=3;
 $categorieQuest="hist_geo";
 $dateCreation="2023-02-13";
-function NouvelleQuestion ($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation){
-    $intituleQuestion = $_POST['question'];
-    $choix_1 = $_POST['choix1'];
-    $choix_2=$_POST['choix2'];
-    $choix_3=$_POST['choix3'];
-    $choix_4=$_POST['choix4'];
-    $reponse=$_POST['reponse'];
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-    $idQuizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where titre='$nomQuizz' AND nbr_question='$nbrQuestion' AND categorie='$categorieQuest' AND date_creation='$dateCreation';");
-    // $id_utilisateur = $idUti['Id_utilisateur'];
-    $user = mysqli_fetch_array($idQuizz);
-    $id_quizz = $user["Id_quizz"];
-    $mysqli->query("INSERT INTO `quizzeo`.`question` (`intituleQuestion`, `choix_1`, `choix_2`, `choix_3`, `choix_4`, `reponse`, `Id_quizz`) VALUES ('$intituleQuestion', '$choix_1', '$choix_2', '$choix_3', '$choix_4','$reponse', '$id_quizz');");
+function NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation){
+        $intituleQuestion = $_POST['question'];
+        $choix_1 = $_POST['choix1'];
+        $choix_2=$_POST['choix2'];
+        $choix_3=$_POST['choix3'];
+        $choix_4=$_POST['choix4'];
+        $reponse=$_POST['reponse'];
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $idQuizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where titre='$nomQuizz' AND categorie='$categorieQuest' AND date_creation='$dateCreation';");
+        $user = mysqli_fetch_array($idQuizz);
+        $id_quizz = $user["Id_quizz"];
+        $mysqli->query("INSERT INTO `quizzeo`.`question` (`intituleQuestion`, `choix_1`, `choix_2`, `choix_3`, `choix_4`, `reponse`, `Id_quizz`) VALUES ('$intituleQuestion', '$choix_1', '$choix_2', '$choix_3', '$choix_4','$reponse', '$id_quizz');");
+    }
+ function Question($nomQuizz,$categorieQuest,$dateCreation){
 
+    
+        if(isset($_POST["question_suivante"])){
+            NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
+            header("Location: http://localhost/Quizzeo/creationQuizzSuivant.html");
+        }
+        if(isset($_POST["stop_question"])){
+            NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
+            header("Location: http://localhost/Quizzeo/Inscription.html");
+        }  
+        
 }
+
+
+
+Question($nomQuizz,$categorieQuest,$dateCreation);
+// NouvelleQuestion($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation);
 // function SupprimerQuestion ($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation){
 //     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 //     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
