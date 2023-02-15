@@ -1,0 +1,73 @@
+body{
+    /* background-image: url(https://static.thenounproject.com/png/3993694-200.png);
+    background-size: 1px; */
+    
+    /* ///////// */
+    /* ///////// */
+    /* ///////// */
+    
+    /* background-image: url(https://www.freeiconspng.com/thumbs/triangle-png/black-and-white-triangle-png-13.png);
+    background-size: 1px; */
+    
+    /* ///////// */
+    /* ///////// */
+    /* ///////// */
+    
+    /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Regular_hexagon.svg/2048px-Regular_hexagon.svg.png);
+    background-size: 22px; */
+    
+    /* ///////// */
+    
+    /* background-image: url(https://cdn.pixabay.com/photo/2017/07/21/13/42/octagon-2525760_960_720.png);
+    background-size: .05px; */
+    
+    /* ///////// */
+    
+    background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 17px;
+    
+    /* ///////// */
+    
+    /* background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 12px; */
+    
+    /* ///////// */
+    background-repeat: repeat;
+    background-color: rgb(15, 179, 127);
+    display: flex;
+    justify-content: center;
+}
+
+#container{
+    position: relative;
+    margin-top: -.3em;
+    width: 105em;
+    height: 63.4em;
+    background-color: rgb(137, 23, 55);
+    display: flex;
+    justify-content: center;
+}
+
+.statistiques{
+    position: fixed;
+    transition: all 2s;
+    margin-top: 5em;
+    background-color: #8fb21a;
+    background-image: none;
+    width: 89%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statistiques:hover{
+    background-color: aqua;
+}
+h1{
+    transition: all 3s;
+}
+h1:hover{
+    scale: 1.2;
+    color: antiquewhite;
+}
