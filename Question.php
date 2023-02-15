@@ -1,7 +1,7 @@
 <!-- <form action="Inscription.html" method="post"> -->
-
-
-<form action="Connexion.html" method="post">
+<!-- <form action="Connexion.html" method="post"> -->
+<!-- <form action="creationQuizz.html" method="post"> -->
+<form action="creationQuizzSuivant.html" method="post">
 <?php
 echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -141,11 +141,63 @@ function Connexion (){
             echo "0 résultats";
         }
     }
-
-
     
-Connexion();
+//Connexion();
+$pseudoco="Tom";
+$mdpco="jesuisquizzeur";
+function NouveauQuizz($pseudoco,$mdpco){
+    $nomQuizz = $_POST['nom_Quizz'];
+    $nbrQuestion = $_POST['nb_question'];
+    $niveauQuest=$_POST['niveau'];
+    $categorieQuest=$_POST['categorie'];
+    $dateCreation=date('y-m-d');
+    // print_r ($nomQuizz);
+    // print_r($nbrQuestion);
+    // print_r($niveauQuest);
+    // print_r ($categorieQuest);
+    // print_r($dateCreation);
 
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+        // $id_utilisateur = $idUti['Id_utilisateur'];
+        $user = mysqli_fetch_array($idUti);
+        $id_utilisateur = $user["Id_utilisateur"];
+        $mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `nbr_question`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$nbrQuestion', '$categorieQuest','$id_utilisateur');");
+
+}
+//NouveauQuizz($pseudoco,$mdpco);
+$nomQuizz="Testy";
+$nbrQuestion="3";
+$categorieQuest="hist_geo";
+$dateCreation="2023-02-13";
+function NouvelleQuestion ($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation){
+    $intituleQuestion = $_POST['question'];
+    $choix_1 = $_POST['choix1'];
+    $choix_2=$_POST['choix2'];
+    $choix_3=$_POST['choix3'];
+    $choix_4=$_POST['choix4'];
+    $reponse=$_POST['reponse'];
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+    $idQuizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where titre='$nomQuizz' AND nbr_question='$nbrQuestion' AND categorie='$categorieQuest' AND date_creation='$dateCreation';");
+    // $id_utilisateur = $idUti['Id_utilisateur'];
+    $user = mysqli_fetch_array($idQuizz);
+    $id_quizz = $user["Id_quizz"];
+    $mysqli->query("INSERT INTO `quizzeo`.`question` (`intituleQuestion`, `choix_1`, `choix_2`, `choix_3`, `choix_4`, `reponse`, `Id_quizz`) VALUES ('$intituleQuestion', '$choix_1', '$choix_2', '$choix_3', '$choix_4','$reponse', '$id_quizz');");
+
+}
+// function SupprimerQuestion ($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation){
+//     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+//     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+//     $idQuizz=$mysqli->query("SELECT Id_quizz FROM `quizzeo`.`question` WHERE titre='$nomQuizz' AND nbr_question='$nbrQuestion' AND categorie='$categorieQuest' AND date_creation='$dateCreation';);");
+//     $user = mysqli_fetch_array($idQuizz);
+//     $id_quizz = $user["Id_quizz"];
+//     $mysqli->query("DELETE FROM `quizzeo`.`question` WHERE Id_quizz=$id_quizz);");
+
+// }
+// SupprimerQuestion($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation);
+//NouvelleQuestion($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation);
 //Creating a question class
 class Question {
     //The variables are in private because they are not called outside the class and it allows a better security than public
@@ -226,10 +278,10 @@ function CreerQuestion(){
     $qID = 1;
     $q = readline("Quel est votre question ? :");
     $r = readline("Quel est la réponse à votre question ? :");
-    $c1=readline("Donner un choix :");
+    $c1= readline("Donner un choix :");
     $c2 = readline("Donner le choix 2 :");
     $c3 = readline("Donner le choix 3 :");
-    $c4=readline("Donner le choix 4 :");
+    $c4= readline("Donner le choix 4 :");
     //Check that the player has entered the answer among the choices
     if ($r==$c1 or $r==$c2 or $r==$c3 or $r==$c4){
         echo ("Votre question a bien été ajoutée");
