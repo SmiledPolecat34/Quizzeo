@@ -45,7 +45,7 @@ Connexion();
             <input type="submit" name="submit" class="bouton_recherche" value="Rechercher">
         </form> -->
         <div id="profil">
-            <a href="pageProfil.html">Profil</a>
+            <a href="pageProfil.php">Profil</a>
         </div>
         <div id="quizz">
             <a href="pageQuizz.html">Quizz</a>
