@@ -13,7 +13,7 @@ class Alerte{
             event.preventDefault();
         }
     }
-
+    
     activerAlertes(){
         console.log("bouton connexion");
         this.connexion.addEventListener("click",()=>{
