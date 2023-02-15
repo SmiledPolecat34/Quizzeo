@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <form action="Question.php" method="post">
+        <form action="Connexion.php" method="post">
             <div class="backInscription">
                 <div class ="pageInscription">
                     <!-- Choix -->
