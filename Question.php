@@ -1,10 +1,5 @@
 <!-- <form action="Inscription.html" method="post"> -->
 
-<form action="pageProfil2.php" method="post">
-    <?php
-    $var = "";
-    ?>
-</form>
 
 <form action="Connexion.html" method="post">
 <?php
