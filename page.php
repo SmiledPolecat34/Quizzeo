@@ -1,3 +1,29 @@
+<?php
+echo "Coucou";
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
+function Connexion (){
+    $pseudoco = $_POST['pseudo1'];
+    $mdpco = $_POST['mdp1'];
+        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $resultat=$mysqli->query("SELECT pseudutilisateuro, motDePasse FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+
+        if (mysqli_num_rows($resultat) > 0) {
+            // Affichage des données de chaque ligne
+            while ($ligne = mysqli_fetch_assoc($resultat)) {
+                echo " - nom : " . $ligne["pseudutilisateuro"]. " " . $ligne["motDePasse"];
+            }
+        } else {
+            echo "0 résultats";
+        }
+    }
+    
+Connexion();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
