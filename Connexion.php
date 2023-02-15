@@ -3,11 +3,16 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
+session_start();
+
+// $_SESSION["pseudutilisateuro"] = $pseudo;
+
 function CreerJoueur (){
-    $_SESSION["mail"] = $_POST["mail"];
+    
     $choix = $_POST['case'];
     //var_dump($_POST[$choix]);
     $mail = $_POST['mail'];
+    $_SESSION["mail"] = $_POST["mail"];
     echo $mail;
     $pseudo = $_POST['pseudo'];
     $datenaissance = $_POST['dateDeNaissance'];
@@ -37,6 +42,8 @@ if(isset($_POST['valider']))
 {
     CreerJoueur();
 }
+$pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisateuro');
+    $_SESSION['pseudo']=$pseudo;
 ?>
 <!DOCTYPE html>
 <html lang="en">
