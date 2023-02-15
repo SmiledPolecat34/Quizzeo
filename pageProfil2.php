@@ -67,7 +67,7 @@
         </div>
         <div class="button">
             <div class="accueil">
-                <a href="page.html">Accueil</a>
+                <a href="page.php">Accueil</a>
             </div>
         </div>
     </form>
