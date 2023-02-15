@@ -1,31 +1,29 @@
 <?php
-    function CreerJoueur (){
-        $choix = $_POST['case'];
-        //var_dump($_POST[$choix]);
-        $mail = $_POST['mail'];
-        echo $mail;
-        $pseudo = $_POST['pseudo'];
-        $datenaissance = $_POST['dateDeNaissance'];
-        $mdp = $_POST['mdp'];
-        if($choix=="quizzeur"){
-            $role = 2;
-            echo ("2");
-        }elseif($choix=="classique"){
-            $role = 1;
-            echo ("1");
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
+    $pseudo = $mysqli->query('SELECT pseudutilisateuro FROM quizzeo.utilisateur');
+    if (mysqli_num_rows($pseudo) > 0) {
+                // Affichage des données de chaque ligne
+                while ($ligne = mysqli_fetch_assoc($pseudo)) {
+                    echo " - nom : " . $ligne["pseudutilisateuro"];
+                }
+            } 
+        else {
+            echo "0 résultats";
         }
-        if ($role==1){
-            //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
-            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-            $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
-        }else{
-            //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
-            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-            $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
-        }
-    }
+    var_dump($pseudo);
+    // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
+    $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
+
+    
+
+    
+// if(isset($_POST['valider']))
+// {
+//     CreerJoueur();
+// }
+// echo $pseudo;
 ?>
 
 <!DOCTYPE html>
@@ -49,22 +47,23 @@
             <h2>Informations :</h2>
         </div>
         <div class="vos_infos">
-            <h3 id="pseudo">Pseudo : $pseudo
+            <!-- <h3 id="pseudo">Pseudo : $pseudo -->
                 <?php
-                    echo 'Pseudo : '.$_POST["pseudo"];
+                    echo 'Pseudo : '. $pseudo;
                 ?>
-            </h3>
+            <!-- </h3> -->
             <!-- <input type=hidden id=pseudoco value=  /> -->
-            <h3 id="email">Email : $email
+            <!-- <h3 id="email">Email : $email -->
                 <?php
-                    echo $mail;
+                    echo 'Mail : '. $mail;
                 ?>
-            </h3>
-            <h3 id="dateNaissance">Date de naissance : $date_de_naissance
-                <?php
+            <!-- </h3> -->
+            <!-- <h3 id="dateNaissance">Date de naissance : $date_de_naissance -->
+                <!-- <?php
+                    echo 'Pseudo : '. $_POST["pseudo"];
                     echo $datenaissance;
-                ?>
-            </h3>
+                ?> -->
+            <!-- </h3> -->
         </div>
         <div class="button">
             <div class="accueil">
