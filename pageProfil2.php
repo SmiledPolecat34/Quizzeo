@@ -2,20 +2,20 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-    $pseudo = $mysqli->query('SELECT pseudutilisateuro FROM quizzeo.utilisateur');
-    if (mysqli_num_rows($pseudo) > 0) {
-                // Affichage des données de chaque ligne
-                while ($ligne = mysqli_fetch_assoc($pseudo)) {
-                    echo " - nom : " . $ligne["pseudutilisateuro"];
-                }
-            } 
-        else {
-            echo "0 résultats";
-        }
-    var_dump($pseudo);
-    // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
-    $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
-
+    // $pseudo = $mysqli->query('SELECT pseudutilisateuro FROM quizzeo.utilisateur');
+    // if (mysqli_num_rows($pseudo) > 0) {
+    //             // Affichage des données de chaque ligne
+    //             while ($ligne = mysqli_fetch_assoc($pseudo)) {
+    //                 echo " - nom : " . $ligne["pseudutilisateuro"];
+    //             }
+    //         } 
+    //     else {
+    //         echo "0 résultats";
+    //     }
+    // var_dump($pseudo);
+    // // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
+    // $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
+    $mail = $_SESSION["mail"];
     
 
     
