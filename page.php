@@ -40,10 +40,6 @@ Connexion();
     </header>
     <div class="menu">
         <center><h2>Accueil</h2></center>
-        <!-- <form class="rechercher">
-            <input type="text" name="text" class="rechercher" placeholder="Recherchez ici !">
-            <input type="submit" name="submit" class="bouton_recherche" value="Rechercher">
-        </form> -->
         <div id="profil">
             <a href="pageProfil2.php">Profil</a>
         </div>
