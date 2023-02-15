@@ -65,7 +65,7 @@ if(isset($_POST['valider']))
                 <div class ="pageConnexion">
                     <h3>Veuillez entrer vos identifiants pour vous connecter.
                     </h3>
-                    <form class="form" action="Question.php" method="post">
+                    <form class="form" action="page.php" method="post">
                         <!-- Pseudo -->
                     <div id="Insc" class="pseudo">
                         <label for="pseudo">
