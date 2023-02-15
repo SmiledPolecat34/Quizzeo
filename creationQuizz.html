@@ -11,6 +11,7 @@
     <header class="title">
         <h1>Quizzeo</h1>
     </header>
+    <form action="Question.php" method="post">
     <div class="organisation">
         <div id="Crea" >
             <label for="nom_Quizz">
@@ -39,7 +40,7 @@
             <label for="categorie">
                 Choisissez la catégorie de votre quizz :
             </label>
-            <select name= "Choix" id="categorie">
+            <select name= "categorie" id="categorie">
                 <option value= "sport">Sport</option>
                 <option value= "musique">Musique</option>
                 <option value= "cinema">Cinéma</option>
@@ -48,11 +49,13 @@
             </select>
         </div>
     </div>
-    <div class="bouton">
+    <input type="submit" name="submit" value="Suivant" class="submit-suivant">
+    <!-- <div class="bouton">
         <div class="suivant">
-            <a href="creationQuizzSuivant.html">Suivant</a>
+            <a href="Question.php">Suivant</a>
         </div>
-    </div> 
+    </div> -->
+</form> 
     <script src="CreerQuizz.js"></script> 
 </body>
 </html>

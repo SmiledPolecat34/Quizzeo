@@ -12,6 +12,7 @@
         <h1>Quizzeo</h1>
     </header>
     <div class="organisation">
+        <form action="Question.php" method="post">
         <div id="Crea">
             <!-- boucle tant que i < nb_question -->
             <label for="question">
@@ -22,27 +23,29 @@
             <label for="choix">
                 Choix 1:
             </label>
-            <input id="choix" type="text" name="choix" placeholder="Choix"/>
+            <input id="choix" type="text" name="choix1" placeholder="Choix"/>
             <br>
             <label for="choix">
                 Choix 2:
             </label>
-            <input id="choix" type="text" name="choix" placeholder="Choix"/>
+            <input id="choix" type="text" name="choix2" placeholder="Choix"/>
             <br>
             <label for="choix">
                 Choix 3:
             </label>
-            <input id="choix" type="text" name="choix" placeholder="Choix"/>
+            <input id="choix" type="text" name="choix3" placeholder="Choix"/>
             <br>
             <label for="choix">
                 Choix 4:
             </label>
-            <input id="choix" type="text" name="choix" placeholder="Choix"/>
+            <input id="choix" type="text" name="choix4" placeholder="Choix"/>
             <br>
             <label for="reponse">
                 Réponse:
             </label>
             <input id="reponse" type="text" name="reponse" placeholder="Réponse"/>
+            <input type="submit" name="submit" value="Suivant" class="submit-suivant2">
         </div>
+        </form>
 </body>
 </html>
