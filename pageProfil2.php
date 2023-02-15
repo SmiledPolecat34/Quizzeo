@@ -51,8 +51,7 @@
         <div class="vos_infos">
             <h3 id="pseudo">Pseudo : $pseudo
                 <?php
-                    $pseudo =$_REQUEST['pseudo'];
-                    echo $pseudo;
+                    echo 'Pseudo : '.$_POST["pseudo"];
                 ?>
             </h3>
             <!-- <input type=hidden id=pseudoco value=  /> -->
