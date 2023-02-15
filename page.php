@@ -11,14 +11,15 @@ function Connexion (){
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $resultat=$mysqli->query("SELECT pseudutilisateuro, motDePasse FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
-        if (mysqli_num_rows($resultat) > 0) {
-            // Affichage des données de chaque ligne
-            while ($ligne = mysqli_fetch_assoc($resultat)) {
-                echo " - nom : " . $ligne["pseudutilisateuro"]. " " . $ligne["motDePasse"];
-            }
-        } else {
-            echo "0 résultats";
-        }
+        // if (mysqli_num_rows($resultat) > 0) {
+        //     // Affichage des données de chaque ligne
+        //     while ($ligne = mysqli_fetch_assoc($resultat)) {
+        //         echo " - nom : " . $ligne["pseudutilisateuro"]. " " . $ligne["motDePasse"];
+        //     }
+        // } 
+        // else {
+        //     echo "0 résultats";
+        // }
     }
     
 Connexion();
