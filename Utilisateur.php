@@ -45,7 +45,23 @@ function Supprimer(){
 }
 Supprimer();
 
-
+function Modifier(){
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+    $id = $_POST['Id_utilisateur'];
+    $pseudo = $_POST['pseudutilisateuro'];
+    $mail = $_POST['email'];
+    $mdp = $_POST['motDePasse'];
+    
+    $modif = "UPDATE quizzeo.utilisateur SET pseudutilisateuro='$pseudo', email='$mail', motDePasse='$mdp' WHERE id='$id' ";
+    $requete=mysqli_query($modif,$mysqli) or die (mysql_error());
+    if($requete){
+        echo("ok");
+    }else{
+        echo "error";
+    }
+}
+Modifier();
 
 ?>   
 
