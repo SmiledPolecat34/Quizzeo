@@ -1,3 +1,16 @@
+<?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
+// echo "Coucou";
+session_start();
+
+$profil_utili = $mysqli->query("SELECT * FROM quizzeo.utilisateur WHERE id <> ?");
+$profil_utili = $profil_utili->fetchAll();
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
