@@ -36,4 +36,9 @@ function AfficherProfil(){
         AfficherProfil();
     ?>
     </h2>
+    <div class="bouton">
+        <div class="accueil">
+            <a href="page.php">Accueil</a>
+        </div>
+    </div>
 </body>

@@ -15,3 +15,17 @@ body{
     margin-top: -.5% ;
     
 }
+.bouton{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+.accueil{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    border: solid #137995 1px;
+    align-items: center;
+    width: 10%;
+}
