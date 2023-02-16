@@ -4,21 +4,21 @@
 
 $pseudo = "franklin";
 $mail = "franklin@test.com";
-$mdp = "jesuismoi";
-function AfficherProfil(){
+
+function AfficherProfil($pseudo,$mail){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-    $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
-    if (mysqli_num_rows($Profil) > 0){
-        while ($ligne = mysqli_fetch_assoc($Profil)){
-            echo "- nom : " . $ligne["pseudutilisateuro"]." ".$ligne["email"]." ".$ligne["motDePasse"];
-        }
-    }else{
-        echo "0 resultats";
-    }
+    $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro = '$pseudo' AND email='$mail';");
+    // if (mysqli_num_rows($Profil) > 0){
+    //     while ($ligne = mysqli_fetch_assoc($Profil)){
+    //         echo "- nom : " . $ligne["pseudutilisateuro"]." ".$ligne["email"];
+    //     }
+    // }else{
+    //     echo "0 resultats";
+    // }
 }
 
-AfficherProfil();
+AfficherProfil($pseudo,$mail);
 
 ?>
 
@@ -43,24 +43,13 @@ AfficherProfil();
             <h2>Informations :</h2>
         </div>
         <div class="vos_infos">
-            <!-- <h3 id="pseudo">Pseudo : $pseudo -->
-                <?php
-                    
-                    echo 'Pseudo : '. $pseudo;
-                ?>
-            <!-- </h3> -->
-            <!-- <input type=hidden id=pseudoco value=  /> -->
-            <!-- <h3 id="email">Email : $email -->
-                <?php
-                    echo 'Mail : '. $mail;
-                ?>
-            <!-- </h3> -->
-            <!-- <h3 id="dateNaissance">Date de naissance : $date_de_naissance -->
-                <!-- <?php
-                    echo 'Pseudo : '. $_POST["pseudo"];
-                    echo $datenaissance;
-                ?> -->
-            <!-- </h3> -->
+            <?php 
+                echo 'Pseudo : '. $pseudo;
+            ?>
+            <br>
+            <?php
+                echo 'Mail : '. $mail;
+            ?>
         </div>
         <div class="button">
             <div class="accueil">
