@@ -3,21 +3,21 @@
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
     session_start();
-    // $pseudo = $_SESSION["pseudo"];
+    
     $pseudo = $_SESSION['pseudo'];
-    if (mysqli_num_rows($pseudo) > 0) {
+    $mail = $_SESSION["mail"];
+    if (mysqli_num_rows($resultat) > 0) {
                 // Affichage des données de chaque ligne
-                while ($ligne = mysqli_fetch_assoc($pseudo)) {
+                while ($ligne = mysqli_fetch_assoc($resultat)) {
                     echo " - nom : " . $ligne["pseudutilisateuro"];
                 }
             } 
         else {
             echo "0 résultats";
         }
-    var_dump($pseudo);
-    // // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
-    // $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
-    // $mail = $_SESSION["mail"];
+    var_dump($resultat);
+    // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
+    $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
     
 
     
