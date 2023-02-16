@@ -46,7 +46,7 @@
                                 } 
                         }
                     } else {
-                        echo "Il n'y a pas de quizz disponible pour le moment";
+                        echo "ERREUR NOM";
                     }
                 }
                 ModifierQuizzNom($pseudoco,$mdpco,$idQuizz)
@@ -59,7 +59,7 @@
             <?php
             $pseudoco="Tom";
             $mdpco="jesuisquizzeur";
-            $idQuizz="1";
+            $idQuizz="2";
             function ModifierQuizzNiveau($pseudoco,$mdpco,$idQuizz){
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
@@ -90,7 +90,7 @@
                             } 
                         }
                     } else {
-                        echo "Il n'y a pas de quizz disponible pour le moment";
+                        echo "ERREUR NIVEAU";
                     }
                 }
                 ModifierQuizzNiveau($pseudoco,$mdpco,$idQuizz)
@@ -103,7 +103,7 @@
             <?php
                         $pseudoco="Tom";
                         $mdpco="jesuisquizzeur";
-                        $idQuizz="1";
+                        $idQuizz="2";
                         function ModifierQuizzCategorie($pseudoco,$mdpco,$idQuizz){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                                 $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
@@ -135,19 +135,52 @@
                                         }
                                     }
                                 } else {
-                                    echo "Il n'y a pas de quizz disponible pour le moment";
+                                    echo "ERREUR CATEGORIE";
                                 }
                             }
                             ModifierQuizzCategorie($pseudoco,$mdpco,$idQuizz)
             ?> 
         </div>
     </div>
-    <input type="submit" name="submit" value="Suivant" class="submit-suivant">
-    <!-- <div class="bouton">
-        <div class="suivant">
-            <a href="Question.php">Suivant</a>
-        </div>
-    </div> -->
+            <?php
+            function AffichageQuestion ($pseudoco,$mdpco,$idQuizz){
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                $question=$mysqli->query("SELECT * FROM `quizzeo`.`question` where Id_quizz=$idQuizz;");
+                if (mysqli_num_rows($question) > 0) {
+                    $i=1;
+                    while ($ligne = mysqli_fetch_assoc($question)) {
+                        echo " Question $i : " . $ligne["intituleQuestion"]. " choix 1 : " . $ligne["choix_1"]. " Choix 2 : " . $ligne["choix_2"]." Choix 3 : " . $ligne["choix_3"]." Choix 4 : " . $ligne["choix_4"]." Reponse : " . $ligne["reponse"].""."\r\n";
+                        ?>
+                                <input type="submit" name="debut_quizz" value="Modifier les Questions" class="submitconnexion">
+                                <br>
+                            <?php 
+                            $i++;
+                        }
+                        
+                    } else {
+                        echo "Vous n'avez pas encore créé de quizz";
+                    }
+            }
+            AffichageQuestion($pseudoco,$mdpco,$idQuizz);
+            ?>
+            <input type="submit" name="supprimer" value="Supprimer le Quizz" class="submit-supprimer">
+            <input type="submit" name="retour" value="Retour" class="submit-retour">
+            <?php
+            function SupprimerQuizz($idQuizz){
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                $mysqli->query("DELETE FROM `quizzeo`.`quizz` WHERE (`Id_quizz` = '$idQuizz');");
+                $mysqli->query("DELETE FROM `quizzeo`.`question` WHERE (`Id_quizz` = '$idQuizz');");
+                header("Refresh:0");
+                //envoyer sur la page principale de la gestion de quizz
+                echo "Votre quizz à été supprimé";
+            } 
+        
+        if(isset($_POST["supprimer"])){
+            SupprimerQuizz($idQuizz);
+        }
+            ?>
+
 </form> 
     <script src="CreerQuizz.js"></script> 
 </body>
