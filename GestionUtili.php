@@ -1,12 +1,17 @@
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-// echo "Coucou";
-session_start();
-
-$profil_utili = $mysqli->query("SELECT * FROM quizzeo.utilisateur WHERE id <> ?");
-$profil_utili = $profil_utili->fetchAll();
+function AfficherProfil(){
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+    $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
+    if (mysqli_num_rows($Profil) > 0){
+        while ($ligne = mysqli_fetch_assoc($Profil)){
+            echo "- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<br>";
+        }
+    }else{
+        echo "0 resultats";
+    }
+}
 
     
 ?>
@@ -26,5 +31,9 @@ $profil_utili = $profil_utili->fetchAll();
             <h1>Quizzeo</h1>
     </header>
     <center><h1>Gestion des Utilisateurs</h1></center>
-    <p>Utilisateurs :</p>
+    <h2>Utilisateurs : <br>
+    <?php
+        AfficherProfil();
+    ?>
+    </h2>
 </body>

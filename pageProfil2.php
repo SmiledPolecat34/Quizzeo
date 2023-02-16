@@ -2,30 +2,24 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-    session_start();
-    
-    $pseudo = $_SESSION['pseudo'];
-    $mail = $_SESSION["mail"];
-    if (mysqli_num_rows($resultat) > 0) {
-                // Affichage des données de chaque ligne
-                while ($ligne = mysqli_fetch_assoc($resultat)) {
-                    echo " - nom : " . $ligne["pseudutilisateuro"];
-                }
-            } 
-        else {
-            echo "0 résultats";
+$pseudo = "franklin";
+$mail = "franklin@test.com";
+$mdp = "jesuismoi";
+function AfficherProfil(){
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+    $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
+    if (mysqli_num_rows($Profil) > 0){
+        while ($ligne = mysqli_fetch_assoc($Profil)){
+            echo "- nom : " . $ligne["pseudutilisateuro"]." ".$ligne["email"]." ".$ligne["motDePasse"];
         }
-    var_dump($resultat);
-    // $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudo' AND email='$mail';");
-    $resultat = $mysqli->query('SELECT * FROM quizzeo.utilisateur');
-    
+    }else{
+        echo "0 resultats";
+    }
+}
 
-    
-// if(isset($_POST['valider']))
-// {
-//     CreerJoueur();
-// }
-// echo $pseudo;
+AfficherProfil();
+
 ?>
 
 <!DOCTYPE html>
