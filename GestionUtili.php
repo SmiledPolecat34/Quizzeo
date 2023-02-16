@@ -1,4 +1,6 @@
 <?php
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
 function AfficherProfil(){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -13,7 +15,6 @@ function AfficherProfil(){
     }
 }
 
-    
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +37,13 @@ function AfficherProfil(){
         AfficherProfil();
     ?>
     </h2>
+    <form action="Utilisateur.php">
+        <div class="utilisateur">
+            <input type="submit" value="Modifier" name="Modifier">
+            <input type="submit" value="Supprimer" name="Supprimer">
+        </div>
+    </form>
+
     <div class="bouton">
         <div class="accueil">
             <a href="page.php">Accueil</a>

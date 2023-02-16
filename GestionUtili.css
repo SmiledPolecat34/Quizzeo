@@ -29,3 +29,10 @@ body{
     align-items: center;
     width: 10%;
 }
+.utilisateur{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 25px;
+    margin-left: 100px;
+    
+}
