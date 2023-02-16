@@ -2,7 +2,8 @@
 <!-- <form action="Connexion.html" method="post"> -->
 <!-- <form action="creationQuizz.html" method="post"> -->
 <!-- <form action="creationQuizzSuivant.html" method="post"> -->
-<form action="MesQuizz.html" method="post">
+<!-- <form action="MesQuizz.html" method="post"> -->
+    <form action="modificationQuizz.php" method=""post>
 
 <?php
 echo "Coucou";
@@ -215,7 +216,41 @@ function AffichageQuizz ($pseudoco,$mdpco){
             echo "Il n'y a pas de quizz disponible pour le moment";
         }
 }
-AffichageQuizz ($pseudoco,$mdpco);
+//AffichageQuizz ($pseudoco,$mdpco);
+
+
+function ModifierQuizz($pseudoco,$mdpco){
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz`");
+        if (mysqli_num_rows($Quizz) > 0) {
+            // Affichage des données de chaque ligne
+            while ($ligne = mysqli_fetch_assoc($Quizz)) {
+                echo " Nom : " . $ligne["titre"]. " Catégorie : " . $ligne["categorie"]. " Date de création : " . $ligne["date_creation"].""."\r\n";
+                ?>
+                    <input type="submit" name="debut_quizz" value="Lancer le Quizz" class="submitconnexion">
+                    <br>
+                <?php 
+            }
+        } else {
+            echo "Il n'y a pas de quizz disponible pour le moment";
+        }
+    
+    // $nomQuizz = $_POST['nom_Quizz'];
+    // $nbrQuestion = $_POST['nb_question'];
+    // $niveauQuest=$_POST['niveau'];
+    // $categorieQuest=$_POST['categorie'];
+    // $dateCreation=date('y-m-d');
+
+    // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    //     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+    //     $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+    //     // $id_utilisateur = $idUti['Id_utilisateur'];
+    //     $user = mysqli_fetch_array($idUti);
+    //     $id_utilisateur = $user["Id_utilisateur"];
+    //     $mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `nbr_question`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$nbrQuestion', '$categorieQuest','$id_utilisateur');");
+
+}
+ModifierQuizz($pseudoco,$mdpco);
 // NouvelleQuestion($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation);
 // function SupprimerQuestion ($nomQuizz,$nbrQuestion,$categorieQuest,$dateCreation){
 //     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
