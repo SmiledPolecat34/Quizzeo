@@ -46,11 +46,11 @@ Connexion();
         <div id="quizz">
             <a href="pageQuizz.html">Quizz</a>
         </div>
-        <div id="creer">
-            <a href="creationQuizz.html">Créer un quizz</a>
-        </div>
         <div id="mes_quizz">
             <a href="MesQuizz.html">Mes quizz</a>
+        </div>
+        <div id="creer">
+            <a href="creationQuizz.html">Créer un quizz</a>
         </div>
         <div id="deconnexion">
             <center><a href="GestionUtili.php">Gestion des Utilisateurs</a></center>
