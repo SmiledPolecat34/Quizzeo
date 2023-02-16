@@ -53,7 +53,7 @@ Connexion();
             <a href="MesQuizz.html">Mes quizz</a>
         </div>
         <div id="deconnexion">
-            <a href="GestionUtili.php">Gestion des Utilisateurs</a>
+            <center><a href="GestionUtili.php">Gestion des Utilisateurs</a></center>
         </div>
         <div id="deconnexion"> 
             <a href="Préconnexion.html">Déconnexion</a>
