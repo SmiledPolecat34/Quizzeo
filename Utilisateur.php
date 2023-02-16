@@ -5,7 +5,7 @@ function Supprimer(){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
     $id = $_POST['Id_utilisateur'];
-    $supprimer = 'DELETE Id_utilisateur FROM quizzeo.utilisateur WHERE Id_utilisateur='$id';';
+    // $supprimer = 'DELETE Id_utilisateur FROM quizzeo.utilisateur WHERE Id_utilisateur='$id';';
 }
 Supprimer();
 
@@ -15,12 +15,12 @@ function Modifier(){
     $id = $_POST['Id_utilisateur'];
     
     $modif = "UPDATE `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'";
-    $requete=mysqli_query($modif,$mysqli) or die (mysql_error());
-    if($requete){
-        echo("ok");
-    }else{
-        echo "error";
-    }
+    // $requete=mysqli_query($modif,$mysqli) or die (mysql_error());
+    // if($requete){
+    //     echo("ok");
+    // }else{
+    //     echo "error";
+    // }
 }
 Modifier();
 
