@@ -1,13 +1,16 @@
 <?php
-
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 function Supprimer(){
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
     if (isset($_POST['pseudutilisateuro'])) {
 
         // on recherche le numero du membre à supprimer
-        $modif = 'SELECT Id_utilisateur FROM quizzeo.utilisateur WHERE nom = "'.$_POST["pseudutilisateuro"].'"';
+        $supprimer = 'SELECT Id_utilisateur FROM quizzeo.utilisateur WHERE nom = "'.$_POST["pseudutilisateuro"].'"';
         
         // on lance la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
-        $req = mysql_query($modif) or die('Erreur SQL !<br />'.$modif.'<br />'.mysql_error());
+        $req = mysql_query($supprimer) or die('Erreur SQL !<br />'.$supprimer.'<br />'.mysql_error());
         
         // on recupere le resultat sous forme d'un tableau
         $resultat = mysql_fetch_array($req);
@@ -19,16 +22,16 @@ function Supprimer(){
         mysql_free_result ($req);
         
         // lancement de la requête pour effacer notre membre
-        $modif ='DELETE from quizzeo.utilisateur WHERE nom="'.$_POST['pseudutilisateuro'].'"';
+        $supprimer ='DELETE from quizzeo.utilisateur WHERE nom="'.$_POST['pseudutilisateuro'].'"';
         
         // on exécute la requête (mysql_query) et on affiche un message au cas où la requête ne se passait pas bien (or die)
-        mysql_query($modif) or die('Erreur SQL !'.$modif.'<br />'.mysql_error());
+        mysql_query($supprimer) or die('Erreur SQL !'.$supprimer.'<br />'.mysql_error());
         
         // lancement de la requête pour effacer les disques de notre membre
-        $modif ='DELETE from liste_disque WHERE numero="'.$numero_utilisateur.'"';
+        $supprimer ='DELETE from liste_disque WHERE numero="'.$numero_utilisateur.'"';
         
         // on exécute la requête (mysql_query) et on affiche un message au cas où la requête ne se passait pas bien (or die)
-        mysql_query($modif) or die('Erreur SQL !'.$modif.'<br />'.mysql_error());
+        mysql_query($supprimer) or die('Erreur SQL !'.$supprimer.'<br />'.mysql_error());
         
         // on ferme la connexion à la base
         mysql_close();
@@ -40,6 +43,7 @@ function Supprimer(){
         echo 'La variable de notre formulaire n\'est pas initialisée.';
         }
 }
+Supprimer();
 
 
 
@@ -54,4 +58,10 @@ function Supprimer(){
     <link rel='stylesheet' type='text/css' media='screen' href='GestionUtili.css'>
     <title>QUIZZEO_Gestion_Utilisateur</title>
 </head>
+<body>
+    <!-- <header class="title">
+            <h1>Quizzeo</h1>
+    </header> -->
+
+</body>
 
