@@ -1,0 +1,32 @@
+body{
+    display:flex;
+    background-color: rgb(178, 212, 240);
+    flex-direction: column;
+}
+
+.title{
+    color: black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #137995;
+    width: 100.5%;
+    margin-top: -.5% ;
+    
+}
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    flex-direction: column;
+}
+.questions{
+    background-color: rgba(255, 255, 255, 0.605);
+    width: 50%;
+    font-size: 30px;  
+}
+#case{
+    font-size: 30px;
+}
