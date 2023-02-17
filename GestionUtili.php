@@ -2,15 +2,6 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-    // $id_Utili= 3;
-    // $id_Utili=$_POST['Id_utilisateur'];
-    function SupprimerUtili($id_Utili){
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-        $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE (`Id_utilisateur` = '$id_Utili');");
-        header("Refresh:0");
-        echo "L'utilisateur a été supprimé";
-    }
     
 ?>
 
@@ -29,6 +20,7 @@
             <h1>Quizzeo</h1>
     </header>
     <center><h1>Gestion des Utilisateurs</h1></center>
+    <form action="GestionUtili.php" method="post">
     <h2>Utilisateurs : <br>
         <?php
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -49,7 +41,10 @@
             AfficherProfil();
 
             if(isset($_POST["Supprimer"])){
-                SupprimerUtili($id_Utili);
+                $supp_utili=$_POST["supp1"];
+                $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+                $Supprimer = $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$supp_utili';");
+                header("Refresh:0");
             }
         ?>
     </h2>
@@ -58,7 +53,7 @@
             <label for="modif">
                 Quel utilisateur voulez-vous modifier ?
             </label>
-            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" required=""/>
+            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
         </div>
         <input type='submit' value='Modifier' name='Modifier'>
         
@@ -66,13 +61,14 @@
             <label for="supp">
                 Quel utilisateur voulez-vous supprimer ?
             </label>
-            <input id="supp1" type="text" name="supp1" placeholder="Id de l'utilisateur" required=""/>
+            <input id="supp1" type="text" name="supp1" placeholder="Id de l'utilisateur" />
         </div>
-        <input type='submit' name='submit' value='Supprimer' class="submitsupprimer">
+        <input type='submit' name='Supprimer' value='Supprimer' class="submitsupprimer">
     </div>
     <form class="retour">
         <div >
             <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
         </div>
+    </form>
     </form>
 </body>
