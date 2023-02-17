@@ -57,13 +57,6 @@
         }
     ?>
     </h2>
-    <!-- <form action="Utilisateur.php">
-        <div class="utilisateur"> -->
-            
-
-        <!-- </div>
-    </form> -->
-
     <div class="bouton">
         <div class="accueil">
             <a href="page.php">Accueil</a>
