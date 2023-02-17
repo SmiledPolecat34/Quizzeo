@@ -1,3 +1,19 @@
+.allText:hover{
+    color:bisque;
+}
+.allText:hover > .salut{
+    margin-left: 28px;
+    scale: 1.03;
+}
+
+.allText{
+    font-size: 40px;
+}
+
+.retourProfil:hover{
+    scale: 1.5;
+    background-color: #b21a45;
+}
 body{
     /* background-image: url(https://static.thenounproject.com/png/3993694-200.png);
     background-size: 1px; */
@@ -33,41 +49,135 @@ body{
     
     /* ///////// */
     background-repeat: repeat;
-    background-color: rgb(15, 179, 127);
+    background-color: #137995;
     display: flex;
     justify-content: center;
 }
+
+
 
 #container{
     position: relative;
     margin-top: -.3em;
-    width: 105em;
+    width: 101em;
     height: 63.4em;
-    background-color: rgb(137, 23, 55);
+    background-color: #4A1AB2;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    border-radius: .7%;
 }
+
+
+
+h1{
+    font-size: 45px;
+    transition: all 3s;
+}
+h1:hover{
+    scale: 1.1;
+    color: antiquewhite;
+}
+
+
+
+h2{
+    font-size: 30px;
+}
+
+
+
+.retourProfil{
+    /* margin: 650px 0 0 -40px; */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 120px;
+    background-color: #8fb21a;
+    border-radius: 8%;
+    transition: all .5ms;
+}
+
+
+
+.rubriqueMenu{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    margin: 96px 0 0 -2310px;
+    /* margin: 195.5px 0 0 -1000px; */
+    /* margin-top: 300px; */
+    width: 800px;
+    height: 820px;
+    background-color: #b21a4546;
+    transition: all 1.5s;
+    border-radius: .3%;
+    font-size: 60px;
+}
+.rubriqueMenu:hover{
+margin: 195.5px 0 0 -1100px;
+/* background-color: #b21a45; */
+background-color: #4a1ab27f;
+
+}
+
+
+.rubriqueMenu:hover > .retourProfil{
+    margin: 650px 0 0 240px;
+    transition: all ease-out .5s;
+    scale: .95;
+    /* background-color: #137995; */
+    color: whitesmoke;
+}
+
+.rubriqueMenu:hover > .rubriqueScore{
+    margin: -5px 0 0 700px;
+    font-size: 40px;
+    background-color: #8fb21a;
+}
+
+
+
+.rubriqueScore{
+    position: fixed;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 195.5px 0 0 1250px;
+    width: 500px;
+    height: 600px;
+    background-color: aqua;
+    border-radius: 20%;
+    transition: all 2s;
+}
+
+
 
 .statistiques{
     position: fixed;
     transition: all 2s;
-    margin-top: 5em;
+    margin-top: 6em;
     background-color: #8fb21a;
     background-image: none;
-    width: 89%;
+    width: 85.3%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .statistiques:hover{
-    background-color: aqua;
+    background-color: #137995;
+    color: whitesmoke;
 }
-h1{
-    transition: all 3s;
-}
-h1:hover{
-    scale: 1.2;
-    color: antiquewhite;
+
+
+
+#title1{
+    position: fixed;
+    color: #b21a45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
