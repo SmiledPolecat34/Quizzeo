@@ -23,6 +23,23 @@ function Connexion (){
     }
     
 Connexion();
+
+
+$mdp=$_POST['motDePasse'];
+$role=$_POST['role'];
+$choix=$myslqi->query("SELECT * FROM `quizzeo.utilisateur` WHERE `pseudutilisateuro`='$pseudo' AND `email`='$mail' AND `motDePasse`='$mdp' AND 'role'='$role'; ");
+$resultat=mysql_query($choix);
+
+switch ($role){
+    case "1":
+        echo "1";
+        break;
+    case "2":
+        echo "2";
+        break;
+    default:
+        echo"3";
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +52,9 @@ Connexion();
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <header class="title">
+    <!-- <header class="title">
             <h1>Quizzeo</h1>
-    </header>
+    </header> -->
     <div class="menu">
         <center><h2>Accueil</h2></center>
         <div id="profil">

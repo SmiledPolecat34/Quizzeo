@@ -1,22 +1,3 @@
-<?php
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-
-function AfficherProfil(){
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-    $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
-    if (mysqli_num_rows($Profil) > 0){
-        while ($ligne = mysqli_fetch_assoc($Profil)){
-            echo "- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<br>";
-        }
-    }else{
-        echo "0 resultats";
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,15 +15,46 @@ function AfficherProfil(){
     <center><h1>Gestion des Utilisateurs</h1></center>
     <h2>Utilisateurs : <br>
     <?php
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        
+        function AfficherProfil(){
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+            $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
+            if (mysqli_num_rows($Profil) > 0){
+                while ($ligne = mysqli_fetch_assoc($Profil)){
+                    echo "- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<input type='submit' value='Modifier' name='Modifier'>"."<input type='submit' value='Supprimer' name='Supprimer'>"."<br>";
+                }
+            }else{
+                echo "0 resultats";
+            }
+        }
         AfficherProfil();
     ?>
     </h2>
-    <form action="Utilisateur.php">
-        <div class="utilisateur">
-            <input type="submit" value="Modifier" name="Modifier">
-            <input type="submit" value="Supprimer" name="Supprimer">
-        </div>
-    </form>
+    <!-- <form action="Utilisateur.php">
+        <div class="utilisateur"> -->
+            
+            <?php
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+            
+                $id_Utili= 3;
+                //$id_Utili=$_POST['Id_utilisateur'];
+            function SupprimerUtili($id_Utili){
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE (`Id_utilisateur` = '$id_Utili');");
+                header("Refresh:0");
+                echo "L'utilisateur a été supprimé";
+            }
+            if(isset($_POST["Supprimer"])){
+                SupprimerUtili($id_Utili);
+            }
+            ?>
+        <!-- </div>
+    </form> -->
 
     <div class="bouton">
         <div class="accueil">
