@@ -70,9 +70,9 @@
         </div>
         <input type='submit' name='submit' value='Supprimer' class="submitsupprimer">
     </div>
-    <div class="bouton">
-        <div class="accueil">
-            <a href="page.php">Accueil</a>
+    <form class="retour">
+        <div >
+            <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
         </div>
-    </div>
+    </form>
 </body>
