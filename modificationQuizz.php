@@ -20,7 +20,7 @@
             <?php
             $pseudoco="Tom";
             $mdpco="jesuisquizzeur";
-            $idQuizz="1";
+            $idQuizz="3";
             function ModifierQuizzNom($pseudoco,$mdpco,$idQuizz){
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
@@ -59,7 +59,6 @@
             <?php
             $pseudoco="Tom";
             $mdpco="jesuisquizzeur";
-            $idQuizz="2";
             function ModifierQuizzNiveau($pseudoco,$mdpco,$idQuizz){
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
@@ -103,7 +102,6 @@
             <?php
                         $pseudoco="Tom";
                         $mdpco="jesuisquizzeur";
-                        $idQuizz="2";
                         function ModifierQuizzCategorie($pseudoco,$mdpco,$idQuizz){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                                 $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
@@ -152,7 +150,7 @@
                     while ($ligne = mysqli_fetch_assoc($question)) {
                         echo " Question $i : " . $ligne["intituleQuestion"]. " choix 1 : " . $ligne["choix_1"]. " Choix 2 : " . $ligne["choix_2"]." Choix 3 : " . $ligne["choix_3"]." Choix 4 : " . $ligne["choix_4"]." Reponse : " . $ligne["reponse"].""."\r\n";
                         ?>
-                                <input type="submit" name="debut_quizz" value="Modifier les Questions" class="submitconnexion">
+                                <input type="submit" name="modifier_question" value="Modifier les Questions" class="submitquestion">
                                 <br>
                             <?php 
                             $i++;
