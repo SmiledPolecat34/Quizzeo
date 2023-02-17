@@ -52,10 +52,10 @@ AfficherProfil($pseudo,$mail);
             ?>
         </div>
         <form class="retour">
-        <div >
-            <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
-        </div>
-    </form>
+            <div>
+                <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
+            </div>
+        </form>
     </form>
     <!-- <script src="profil.js"></script>  -->
 </body>
