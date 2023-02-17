@@ -1,26 +1,26 @@
 const quizData = [
     {
-        question: "How old is Franklin ?",
-        a: "18",
-        b: "19",
-        c: "20",
-        d: "21",
+        question: "Quel âge a Franklin ?",
+        a: "18 ans",
+        b: "19 ans",
+        c: "20 ans",
+        d: "21 ans",
         correct: "b",
     },
     {
-        question: "How old is Morgane ?",
-        a: "18",
-        b: "19",
-        c: "20",
-        d: "21",
+        question: "Quel âge a Morgane ?",
+        a: "18 ans",
+        b: "19 ans",
+        c: "20 ans",
+        d: "21 ans",
         correct: "c",
     },
     {
-        question: "How old is Sophie ?",
-        a: "18",
-        b: "19",
-        c: "20",
-        d: "21",
+        question: "Quel âge a Sophie ?",
+        a: "18 ans",
+        b: "19 ans",
+        c: "20 ans",
+        d: "21 ans",
         correct: "a",
     },
     {
@@ -34,7 +34,7 @@ const quizData = [
 ];
 
 const quiz=document.getElementById("quiz");
-const answerEls=document.querySelectorAll(".answer");
+const reponseEls=document.querySelectorAll(".reponse");
 const questionEl=document.getElementById("question");
 const a_text=document.getElementById("a_text");
 const b_text=document.getElementById("b_text");
@@ -48,7 +48,7 @@ let score=0;
 loadQuiz();
 
 function loadQuiz(){
-    deselectAnswers();
+    deselectreponses();
     const currentQuizData=quizData[currentQuiz
     ];
 
@@ -60,33 +60,34 @@ function loadQuiz(){
     d_text.innerText=currentQuizData.d;
 };
 
-function deselectAnswers(){
-    answerEls.forEach((answerEl) => answerEl.checked = false);
+function deselectreponses(){
+    reponseEls.forEach((reponseEl) => reponseEl.checked = false);
 };
 
 
 function getSelected(){
-    let answer;
+    let reponse;
 
-    answerEls.forEach(answerEl => {
-        if(answerEl.checked){
-            answer=answerEl.id;
+    reponseEls.forEach(reponseEl => {
+        if(reponseEl.checked){
+            reponse=reponseEl.id;
         }
     });
-    return answer;
+    return reponse;
 };
 
 submtBtn.addEventListener("click", () => {
-    const answer=getSelected();
-    if(answer){
-        if(answer === quizData[currentQuiz].correct){
+    const pourcentage = score*quizData.length/100;
+    const reponse=getSelected();
+    if(reponse){
+        if(reponse === quizData[currentQuiz].correct){
             score++;
         }
         currentQuiz++;
         if(currentQuiz < quizData.length){
             loadQuiz();
         }else{
-            quiz.innerHTML = `<h2>You answered ${score}/${quizData.length} questions correctly</h2>
+            quiz.innerHTML = `<h2>Tu as un score final de ${score}/${quizData.length}, pour ${pourcentage}% de réponse(s) bonne(s) !</h2>
 
             <button onclick="location.reload()">Reload</button>`;
         }
