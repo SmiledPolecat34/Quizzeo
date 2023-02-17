@@ -24,22 +24,22 @@ function Connexion (){
     
 Connexion();
 
+//recuperer choix
+// $mdp=$_POST['motDePasse'];
+// $role=$_POST['role'];
+// $choix=$myslqi->query("SELECT * FROM `quizzeo.utilisateur` WHERE `pseudutilisateuro`='$pseudo' AND `email`='$mail' AND `motDePasse`='$mdp' AND 'role'='$role'; ");
+// $resultat=mysql_query($choix);
 
-$mdp=$_POST['motDePasse'];
-$role=$_POST['role'];
-$choix=$myslqi->query("SELECT * FROM `quizzeo.utilisateur` WHERE `pseudutilisateuro`='$pseudo' AND `email`='$mail' AND `motDePasse`='$mdp' AND 'role'='$role'; ");
-$resultat=mysql_query($choix);
-
-switch ($role){
-    case "1":
-        echo "1";
-        break;
-    case "2":
-        echo "2";
-        break;
-    default:
-        echo"3";
-}
+// switch ($role){
+//     case "1":
+//         echo "1";
+//         break;
+//     case "2":
+//         echo "2";
+//         break;
+//     default:
+//         echo"3";
+// }
 ?>
 
 <!DOCTYPE html>
