@@ -8,12 +8,8 @@
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE (`Id_utilisateur` = '$id_Utili');");
-        // $mysqli->prepare("DELETE FROM `quizzeo`.`utilisateur` WHERE $id_Utili = ?")->execute(array($id_Utili));
         header("Refresh:0");
         echo "L'utilisateur a été supprimé";
-        // $redirect = "/";
-        // header("Location: {$redirect}");
-        // exit;
     }
     
 ?>
@@ -44,7 +40,7 @@
                 $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
                 if (mysqli_num_rows($Profil) > 0){
                     while ($ligne = mysqli_fetch_assoc($Profil)){
-                        echo "- id : " . $ligne["Id_utilisateur"]."- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<br>";
+                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<br>";
                     }
                 }else{
                     echo "0 resultats";
@@ -57,8 +53,8 @@
             }
         ?>
     </h2>
-    <div>
-    <div id="modifier">
+    <div class="action">
+        <div id="modifier">
             <label for="modif">
                 Quel utilisateur voulez-vous modifier ?
             </label>

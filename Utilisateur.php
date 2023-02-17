@@ -3,33 +3,34 @@
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
     $id_Utili= 3;
-    //$id_Utili=$_POST['Id_utilisateur'];
-function SupprimerUtili($id_Utili){
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-    $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE (`Id_utilisateur` = '$id_Utili');");
-    header("Refresh:0");
-    echo "L'utilisateur a été supprimé";
-}
-if(isset($_POST["supprimer"])){
-    SupprimerUtili($id_Utili);
-}
+//     //$id_Utili=$_POST['Id_utilisateur'];
 
-
-// function ModifierUtili(){
+// function SupprimerUtili($id_Utili){
 //     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 //     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-//     $id = $_POST['Id_utilisateur'];
-    
-//     $modif = "UPDATE `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'";
-//     // $requete=mysqli_query($modif,$mysqli) or die (mysql_error());
-//     // if($requete){
-//     //     echo("ok");
-//     // }else{
-//     //     echo "error";
-//     // }
+//     $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE (`Id_utilisateur` = '$id_Utili');");
+//     header("Refresh:0");
+//     echo "L'utilisateur a été supprimé";
 // }
-// ModifierUtili();
+// if(isset($_POST["supprimer"])){
+//     SupprimerUtili($id_Utili);
+// }
+
+
+function ModifierUtili(){
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+    $id = $_POST['Id_utilisateur'];
+    
+    $modif = "UPDATE `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'";
+    // $requete=mysqli_query($modif,$mysqli) or die (mysql_error());
+    // if($requete){
+    //     echo("ok");
+    // }else{
+    //     echo "error";
+    // }
+}
+ModifierUtili();
 
 ?>   
 
