@@ -34,28 +34,28 @@
     </header>
     <center><h1>Gestion des Utilisateurs</h1></center>
     <h2>Utilisateurs : <br>
-    <?php
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-        
-        function AfficherProfil(){
+        <?php
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-            $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
-            if (mysqli_num_rows($Profil) > 0){
-                while ($ligne = mysqli_fetch_assoc($Profil)){
-                    echo "- id : " . $ligne["Id_utilisateur"]."- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<input type='submit' value='Modifier' name='Modifier'>"."<input type='submit' value='Supprimer' name='Supprimer'>"."<br>";
+            $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+            
+            function AfficherProfil(){
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+                $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
+                if (mysqli_num_rows($Profil) > 0){
+                    while ($ligne = mysqli_fetch_assoc($Profil)){
+                        echo "- id : " . $ligne["Id_utilisateur"]."- nom : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<input type='submit' value='Modifier' name='Modifier'>"."<input type='submit' value='Supprimer' name='Supprimer'>"."<br>";
+                    }
+                }else{
+                    echo "0 resultats";
                 }
-            }else{
-                echo "0 resultats";
             }
-        }
-        AfficherProfil();
-
-        if(isset($_POST["Supprimer"])){
-            SupprimerUtili($id_Utili);
-        }
-    ?>
+            AfficherProfil();
+        
+            if(isset($_POST["Supprimer"])){
+                SupprimerUtili($id_Utili);
+            }
+        ?>
     </h2>
     <div class="bouton">
         <div class="accueil">
