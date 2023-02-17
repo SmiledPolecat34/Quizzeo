@@ -51,11 +51,11 @@ AfficherProfil($pseudo,$mail);
                 echo 'Mail : '. $mail;
             ?>
         </div>
-        <div class="button">
-            <div class="accueil">
-                <a href="page.php">Accueil</a>
-            </div>
+        <form class="retour">
+        <div >
+            <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
         </div>
+    </form>
     </form>
     <!-- <script src="profil.js"></script>  -->
 </body>
