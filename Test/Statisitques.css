@@ -98,9 +98,32 @@ h2{
     height: 120px;
     background-color: #8fb21a;
     border-radius: 8%;
-    transition: all .5ms;
+    transition: all .5s;
+}
+a {
+    background-color: #4A1AB2;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor:pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    border-radius: 0.3rem;
 }
 
+a:hover {
+    background-color: #137995;
+    color: #000;
+}
+
+a:focus{
+    /* To return to the lastet color */
+    outline: none;
+    /* To change the button's color */
+    background-color: green;
+}
 
 
 .rubriqueMenu{
@@ -121,6 +144,7 @@ h2{
 margin: 195.5px 0 0 -1100px;
 /* background-color: #b21a45; */
 background-color: #4a1ab27f;
+height: 100vh;
 
 }
 
@@ -182,29 +206,54 @@ background-color: #4a1ab27f;
     justify-content: center;
     align-items: center;
 }
-@media screen and (max-width:750px) {
+@media screen and (min-width:1px) and (max-width: 1000px) {
+    #container{
+        width: 70em;
+        height: 100vh;
+        overflow-inline: visible;
+    }
     .allText{
-        font-size: 20px;
+        margin: auto 4vh auto auto;
+        display: flex;
+        justify-content: flex-end;
+        /* overflow: auto; */
+        /* font-size: 30px; */
+    }
+    .salut{
+        overflow-inline: visible;
+        font-size: auto;
     }
     .rubriqueMenu:hover{
-        width: 300px;
-        height: 310px;
+        width: 630px;
+        height: 100vh;
         font-size: 30px;
-        background-color: aqua;
-        margin-left: -30px;
+        background-color: #3b0ca17f;
+        margin-left: -670px;
+        color: antiquewhite;
+        overflow-inline: visible;
     }
     .rubriqueScore{
-        /* margin: 195.5px 0 0 500px; */
-        width: 250px;
-        height: 300px;
-        background-color: aqua;
+        margin-left: 1320px;
+        width: 450px;
+        height: 500px;
+        /* background-color: aqua; */
         border-radius: 20%;
         transition: all 2s;
+        overflow-inline: visible;
     }
     .rubriqueMenu:hover > .rubriqueScore{
-        margin: -5px 0 0 300px;
+        margin: -5px 0 0 560px;
         font-size: 20px;
         background-color: #8fb21a;
+        overflow-inline: visible;
     }
-
+    .retourProfil{
+        width: 90px;
+        height: 45px;
+        font-size: 20px;
+        background-color: #8fb21a;
+        border-radius: 8%;
+        transition: all .5s;
+        overflow-inline: visible;
+    }
 }
