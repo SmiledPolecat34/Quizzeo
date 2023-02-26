@@ -55,6 +55,15 @@ body{
     overflow: hidden;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Sassy+Frass&display=swap');
+.dedicace{
+    font-family: 'Sassy Frass', cursive;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 990px;
+    margin-left: 1390px;
+    overflow: hidden;
+}
 
 
 #container{
@@ -206,6 +215,12 @@ height: 100vh;
     justify-content: center;
     align-items: center;
 }
+
+#title1:hover{
+    color: rgb(13, 75, 162);
+    font-size: 38px;
+}
+
 @media screen and (min-width:1px) and (max-width: 1000px) {
     #container{
         width: 70em;

@@ -1,3 +1,19 @@
+
+body{
+    overflow:hidden;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Sassy+Frass&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+.dedicace{
+    /* font-family: 'dancing script', cursive; */
+    font-size: 18px;
+    color: #fff;
+    margin-top: 320px;
+    margin-left: 1700px;
+    overflow: hidden;
+}
+
 h3{
     display: flex;
     align-items: center;
@@ -32,6 +48,9 @@ h3:hover{
     justify-content: flex-start;
     align-items: flex-end;
     background-color: #137995;
+    background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 50px;
+    background-repeat: repeat;
 }
 .rightFont{
     flex-direction: column;
@@ -41,6 +60,9 @@ h3:hover{
     justify-content: flex-start;
     align-items: flex-start;
     background-color: #4A1AB2;
+    background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 17px;
+    background-repeat: repeat;
 }
 
 /* ECRITURE GAUCHE */
@@ -108,7 +130,7 @@ h3:hover{
 
 #Insc{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     font-size: 23px;
     font-family:'Times New Roman', Times, serif;
@@ -116,4 +138,5 @@ h3:hover{
     width: 450px;
     height: 100px;
     background-color: rgba(248, 248, 248, 0.875);
+    overflow: hidden;
 }
