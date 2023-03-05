@@ -197,7 +197,7 @@ function AffichageQuizzQuizzeur ($pseudoco,$mdpco){
         } else {
             echo "Vous n'avez pas encore créé de quizz";
         }
-}
+    }
 //AffichageQuizzQuizzeur ($pseudoco,$mdpco);
 function AffichageQuizz ($pseudoco,$mdpco){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

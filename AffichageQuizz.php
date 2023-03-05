@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="AffichageQuizz.css">
 </head>
 <body>
+<form action="AffichageQuizz.php" method="post">
+
     <header class="title">
         <h1>Quizzeo</h1>
     </header>
@@ -20,7 +22,7 @@
         $i=1;
         echo "$i : ";
         if (mysqli_num_rows($Quizz) > 0) {
-          // Affichage des données de chaque ligne
+          //Displaying data for each row
           while ($ligne = mysqli_fetch_assoc($Quizz)) {
               echo $ligne["intituleQuestion"]."\r\n";
           }}
@@ -31,6 +33,7 @@
             <input type="checkbox" id="case" name="case" checked>
             <label for="case">
               <?php
+                //Display of choice 1 thanks to the database
                   $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                   $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz' order by id asc limit 1;");
                   if (mysqli_num_rows($Quizz) > 0) {
@@ -44,6 +47,7 @@
           <input type="checkbox" id="case" name="case">
           <label for="case">
           <?php
+                //Display of choice 2 thanks to the database
                   $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                   $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz' order by id asc limit 1;");
                   if (mysqli_num_rows($Quizz) > 0) {
@@ -57,6 +61,7 @@
           <input type="checkbox" id="case" name="case">
           <label for="case">
           <?php
+                //Display of choice 3 thanks to the database
                   $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                   $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz' order by id asc limit 1;");
                   if (mysqli_num_rows($Quizz) > 0) {
@@ -70,6 +75,7 @@
           <input type="checkbox" id="case" name="case">
           <label for="case">
           <?php
+                //Display of choice 4 thanks to the database
                   $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                   $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz' order by id asc limit 1;");
                   if (mysqli_num_rows($Quizz) > 0) {
