@@ -18,15 +18,15 @@
                 Nom du quizz :
             </label>
             <?php
-            $pseudoco="Tom";
-            $mdpco="jesuisquizzeur";
-            $idQuizz="3";
+            $pseudoco=$_SESSION['pseudo'];
+            $mdpco=$_SESSION['mdp'];
+            $idQuizz=$_SESSION['id_Quizz'];
             function ModifierQuizzNom($pseudoco,$mdpco,$idQuizz){
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");
                     //If at least one result is found, it displays it
                     if (mysqli_num_rows($Quizz) > 0) {
-                        // Affichage des données de chaque ligne
+                        //Displaying data for each row
                         while ($ligne = mysqli_fetch_assoc($Quizz)) {
                             echo $ligne["titre"]."\r\n";
                             ?>
