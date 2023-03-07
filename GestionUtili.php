@@ -57,6 +57,7 @@
         ?>
     </h2>
     <div class="action">
+        <form action="modificationUtili.php">
         <div id="modifier">
             <label for="modif">
                 Quel utilisateur voulez-vous modifier ?
@@ -64,7 +65,8 @@
             <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
         </div>
         <input type='submit' value='Modifier' name='Modifier'>
-        
+        </form>
+
         <div id="supprimer">
             <label for="supp">
                 Quel utilisateur voulez-vous supprimer ?
@@ -73,10 +75,10 @@
         </div>
         <input type='submit' name='Supprimer' value='Supprimer' class="submitsupprimer">
     </div>
-    <form class="retour">
+    <!-- <form class="retour"> -->
         <div >
             <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
         </div>
-    </form>
+    <!-- </form> -->
     </form>
 </body>
