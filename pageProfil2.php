@@ -2,8 +2,9 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-$pseudo = "franklin";
-$mail = "franklin@test.com";
+    session_start();
+    $pseudo = $_SESSION['pseudo'];
+    $mail=$_SESSION['mail'];
 
 function AfficherProfil($pseudo,$mail){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
