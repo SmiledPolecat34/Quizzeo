@@ -2,6 +2,7 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
+
     
 ?>
 
@@ -44,6 +45,13 @@
                 $supp_utili=$_POST["supp1"];
                 $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
                 $Supprimer = $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$supp_utili';");
+                header("Refresh:0");
+            }
+
+            if(isset($_POST["Modifier"])){
+                $modif_utili=$_POST["modif1"];
+                $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+                $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
                 header("Refresh:0");
             }
         ?>
