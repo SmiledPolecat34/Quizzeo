@@ -16,6 +16,11 @@ function Connexion (){
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
                 $_SESSION['mail']=$row["email"];
+                $id=$mysqli->query("SELECT Id_utilisateur FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                $row=mysqli_fetch_assoc($id);
+                $_SESSION['id']=$row["Id_utilisateur"];
+                $role=$mysqli->query("SELECT role FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                
             }
         } else {
             echo "0 résultats";

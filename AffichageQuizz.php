@@ -86,5 +86,6 @@
           </label>
         </div>
     </div>
+    <script src="QuestionsTest.js"></script>
 </body>
 </html>
