@@ -54,7 +54,13 @@ AfficherProfil($pseudo,$mail);
         </div>
         <form class="retour">
             <div>
-                <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
+                <!-- <input id="retour2" type="button" value="Retour" onclick="history.go(-1)"> -->
+                <input id="retour2" type="submit" value="Retour" name="retour">
+                <?php
+                if(isset($_POST["retour"])){
+                    header("Location: http://localhost/Quizzeo/accueil.php");
+                }
+                ?>
             </div>
         </form>
     </form>
