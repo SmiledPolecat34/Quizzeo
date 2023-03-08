@@ -3,11 +3,8 @@
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
     session_start();
-    $_SESSION['pseudo']=$_POST['pseudo1'];
-    $pseudoco = $_SESSION['pseudo'];
-    $_SESSION['mdp']=$_POST['mdp1'];
-    $mdpco = $_SESSION['mdp'];  
-    
+    $pseudo = $_SESSION['pseudo'];
+    $mail=$_SESSION['mail'];
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +53,7 @@
                 $modif_utili=$_POST["modif1"];
                 $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
                 $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
-                header("Refresh:0");
+                // header("Refresh:0");
             }
         ?>
     </h2>
@@ -66,10 +63,11 @@
             <label for="modif">
                 Quel utilisateur voulez-vous modifier ?
             </label>
-            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
+            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" required=""/>
         </div>
         <!-- <input type='submit' value='Modifier' name='Modifier'> -->
-        <a href="modificationUtili.php">Modifier2</a>
+        <a href="modificationUtili.php" type="submit" name="Modifier" value="Modifier" class="submitmodifier">Modifier</a>
+        <!-- <input type="submit" name="Modifier" value="Modifier" class="submitmodifier"> -->
         </form>
 
         <div id="supprimer">
@@ -82,7 +80,9 @@
     </div>
     <!-- <form class="retour"> -->
         <div >
-            <input id="retour2" type="button" value="Retour" onclick="history.go(-1)">
+            <!-- <input id="retour2" type="button" value="Retour" onclick="history.go(-1)"> -->
+            <a href="page.php" value="Retour"><button>Retour</button></a>
+            
         </div>
     <!-- </form> -->
     </form>

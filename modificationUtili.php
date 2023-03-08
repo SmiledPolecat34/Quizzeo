@@ -22,15 +22,12 @@
                     <?php
 
                         session_start();
-                        $pseudo=$_SESSION['pseudo'];
-                        // $mail=$_SESSION['mail'];
-
-                        // $pseudo="A";
-                        // $mail="m";
-                        // $mdpco="ds";
+                        $pseudo = $_SESSION['pseudo'];
+                        $mail=$_SESSION['mail'];
                         function ModifierPseudo($pseudo){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                              $modif_utili=$_POST["modif1"];
+                            echo $modif_utili;
                                 $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$modif_utili'");
                                 //If at least one result is found, it displays it
                                 if (mysqli_num_rows($Pseudo) > 0) {
@@ -163,7 +160,7 @@
                 ModifierMdp($mdpco)
             ?>      
             <!-- <input id="retour2" type="submit"  name="retour" value="Retour" class="submit-retour" onclick="history.go(-1)"> -->
-            <a href="GestionUtili.php"><button>Retour</button></a>
+            <a href="GestionUtili.php">Retour</a>
         </form>
     </div>
     <script src="CreerQuizz.js"></script> 
