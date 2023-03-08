@@ -65,7 +65,7 @@ function Connexion (){
             <a href="pageProfil2.php" name="Profil">Profil</a>
         </div>
         <div id="quizz">
-            <a href="pageQuizz.html" name="Quizz">Quizz</a>
+            <a href="pageQuizz.php" name="Quizz">Quizz</a>
         </div>
         <div id="mes_quizz">
             <a href="MesQuizz.php" name="MesQuizz">Mes quizz</a>
