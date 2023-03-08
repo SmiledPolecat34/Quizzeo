@@ -31,6 +31,9 @@
                         //             // Affichage des données de chaque ligne
                         //             while ($ligne = mysqli_fetch_assoc($Quizz)) {
                         //                 echo $ligne["titre"]."\r\n";
+                        //             }
+                        //         }
+                        //     }
                     ?>
                     <br />
                     <label for="nom_Quizz">
@@ -42,21 +45,21 @@
             <input type="submit" name="modifier_nomquizz" value="Modifier le nom" class="submitconnexion">     
             <?php
                 //When the button is clicked
-                //      if(isset($_POST["modifier_nomquizz"])){
-                //          //Retrieves the name of the quiz and will modify it in the database
-                //          $nouveauNom=$_POST['nom_Quizz'];
-                //          $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                //          $mysqli->query("UPDATE `quizzeo`.`quizz` SET `titre` = '$nouveauNom' WHERE (`Id_quizz` = '$idQuizz');");
-                //          //Refresh the page once
-                //          header("Refresh:0");
-                //      } 
-                // }
+                    // if(isset($_POST["modifier_nomquizz"])){
+                    //      //Retrieves the name of the quiz and will modify it in the database
+                    //      $nouveauNom=$_POST['nom_Quizz'];
+                    //      $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                    //      $mysqli->query("UPDATE `quizzeo`.`quizz` SET `titre` = '$nouveauNom' WHERE (`Id_quizz` = '$idQuizz');");
+                    //      //Refresh the page once
+                    //      header("Refresh:0");
+                    //  } 
+                
                 
                 //Displays an error message
-                //      } else {
-                //          echo "ERREUR NOM";
-                //      }
-                // }
+                    // else {
+                    //      echo "ERREUR NOM";
+                    // }
+                
                 // ModifierQuizzNom($pseudoco,$mdpco,$idQuizz)
             ?>   
 
@@ -76,6 +79,9 @@
                         //             // Displaying data for each row
                         //             while ($ligne = mysqli_fetch_assoc($Quizz)) {
                         //                 echo $ligne["difficulte"]."\r\n";
+                        //             }
+                        //         }
+                        //     }
                     ?>
                     <br>
                     <label for="niveau">
@@ -101,11 +107,11 @@
                 //                     $mysqli->query("UPDATE `quizzeo`.`quizz` SET `difficulte` = '$nouveauNiveau' WHERE (`Id_quizz` = '$idQuizz');");
                 //                     header("Refresh:0");   
                 //             } 
-                //         }
-                //     } else {
+                        
+                //             else {
                 //         echo "ERREUR NIVEAU";
                 //     }
-                // }
+                
                 // ModifierQuizzNiveau($pseudoco,$mdpco,$idQuizz)
             ?> 
 
@@ -124,6 +130,9 @@
                         //             // Affichage des données de chaque ligne
                         //             while ($ligne = mysqli_fetch_assoc($Quizz)) {
                         //                 echo $ligne["categorie"]."\r\n";
+                        //             }
+                        //         }
+                        //     }
                     ?>
                     <select class="case" name= "categorie" id="categorie">
                         <option value= "sport">Sport</option>
@@ -137,21 +146,21 @@
             <input type="submit" name="modifier_categoriequizz" value="Modifier la catégorie" class="submitconnexion">
             <?php 
                 //When the button is clicked
-                    //     if(isset($_POST["modifier_categoriequizz"])){
-                    //         //Get the new category
-                    //         $nouvelleCategorie=$_POST['categorie'];
-                    //         //Connection to the database
-                    //         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                    //         //Replaces the database category with the new one saved
-                    //         $mysqli->query("UPDATE `quizzeo`.`quizz` SET `categorie` = '$nouvelleCategorie' WHERE (`Id_quizz` = '$idQuizz');");
-                    //         header("Refresh:0");   
-                    //     }
-                    // }
+                        // if(isset($_POST["modifier_categoriequizz"])){
+                        //     //Get the new category
+                        //     $nouvelleCategorie=$_POST['categorie'];
+                        //     //Connection to the database
+                        //     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                        //     //Replaces the database category with the new one saved
+                        //     $mysqli->query("UPDATE `quizzeo`.`quizz` SET `categorie` = '$nouvelleCategorie' WHERE (`Id_quizz` = '$idQuizz');");
+                        //     header("Refresh:0");   
+                        // }
+                    
                 //If no result, this error message is displayed
-                    //     } else {
-                    //         echo "ERREUR CATEGORIE";
-                    //     }
-                    // }
+                        // else {
+                        //     echo "ERREUR CATEGORIE";
+                        // }
+                    
                     // ModifierQuizzCategorie($pseudoco,$mdpco,$idQuizz);
             ?> 
             <?php
@@ -172,6 +181,7 @@
             //         } else {
             //             echo "Veuillez saisir une question valide";
             //         }
+            //     }
             ?>
 
             <div id="nom_Question" class="Crea">
@@ -208,21 +218,21 @@
             //             $question=$mysqli->query("DELETE FROM `quizzeo`.`question` WHERE (`Id_quizz` = '$idQuizz' AND `intituleQuestion` = '$quest');");
             //         }    
                     
-            // }
+            
             // AffichageQuestion($pseudoco,$mdpco,$idQuizz);
             ?>
             <input type="submit" name="supprimer" value="Supprimer le Quizz" class="submit-supprimer">
             <input id="retour2" type="submit"  name="retour" value="Retour" class="submit-retour" onclick="history.go(-1)">
             <?php
             //Deletes the questions and the quiz in the database
-            //     function SupprimerQuizz($idQuizz){
-            //         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-            //         $mysqli->query("DELETE FROM `quizzeo`.`quizz` WHERE (`Id_quizz` = '$idQuizz');");
-            //         $mysqli->query("DELETE FROM `quizzeo`.`question` WHERE (`Id_quizz` = '$idQuizz');");
-            //         header("Refresh:0");
-            //         //envoyer sur la page principale de la gestion de quizz
-            //         echo "Votre quizz à été supprimé";
-            //     } 
+                // function SupprimerQuizz($idQuizz){
+                //     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                //     $mysqli->query("DELETE FROM `quizzeo`.`quizz` WHERE (`Id_quizz` = '$idQuizz');");
+                //     $mysqli->query("DELETE FROM `quizzeo`.`question` WHERE (`Id_quizz` = '$idQuizz');");
+                //     header("Refresh:0");
+                //     //envoyer sur la page principale de la gestion de quizz
+                //     echo "Votre quizz à été supprimé";
+                // } 
             // //When the button is clicked executes the delete quiz and questions function
             // if(isset($_POST["supprimer"])){
             //     SupprimerQuizz($idQuizz);
