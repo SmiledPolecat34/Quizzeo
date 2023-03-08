@@ -8,11 +8,11 @@ function Connexion (){
     $mdpco = $_SESSION['mdp'];    
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-        $resultat=$mysqli->query("SELECT pseudutilisateuro, motDePasse FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+        $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
         if (mysqli_num_rows($resultat) > 0) {
             while ($ligne = mysqli_fetch_assoc($resultat)) {
-                echo " - nom : " . $ligne["pseudutilisateuro"];
+                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"];
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
                 $_SESSION['mail']=$row["email"];
@@ -29,23 +29,21 @@ function Connexion (){
     }
     Connexion();
 
+    // if(isset($_POST["GestionUtili"])){
+    //     $gest_utili=$_POST["GestionUtili"];
+    //     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+    //     $Gestion = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `role` = '$gest_utili';");
+    //     header("Refresh:0");
+    //     switch($gest_utili){
+    //         case 1:
+    //             echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.enabled=false'>Gestion des Utilisateurs</a>";
+    //             break;
+    //         case 2:
+    //             echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.enabled=false'>Gestion des Utilisateurs</a>";
+    //             break;
+    //     }
+    // }
 
-//recuperer choix
-// $mdp=$_POST['motDePasse'];
-// $role=$_POST['role'];
-// $choix=$myslqi->query("SELECT * FROM `quizzeo.utilisateur` WHERE `pseudutilisateuro`='$pseudo' AND `email`='$mail' AND `motDePasse`='$mdp' AND 'role'='$role'; ");
-// $resultat=mysql_query($choix);
-
-// switch ($role){
-//     case "1":
-//         echo "1";
-//         break;
-//     case "2":
-//         echo "2";
-//         break;
-//     default:
-//         echo"3";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -58,28 +56,28 @@ function Connexion (){
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <!-- <header class="title">
+    <header class="title">
             <h1>Quizzeo</h1>
-    </header> -->
+    </header>
     <div class="menu">
         <center><h2>Accueil</h2></center>
         <div id="profil">
-            <a href="pageProfil2.php">Profil</a>
+            <a href="pageProfil2.php" name="Profil">Profil</a>
         </div>
         <div id="quizz">
-            <a href="pageQuizz.html">Quizz</a>
+            <a href="pageQuizz.html" name="Quizz">Quizz</a>
         </div>
         <div id="mes_quizz">
-            <a href="MesQuizz.html">Mes quizz</a>
+            <a href="MesQuizz.html" name="MesQuizz">Mes quizz</a>
         </div>
         <div id="creer">
-            <a href="creationQuizz.html">Créer un quizz</a>
+            <a href="creationQuizz.html" name="CreerQuizz">Créer un quizz</a>
         </div>
         <div id="deconnexion">
-            <center><a href="GestionUtili.php">Gestion des Utilisateurs</a></center>
+            <center><a href="GestionUtili.php" name="GestionUtili">Gestion des Utilisateurs</a></center>
         </div>
         <div id="deconnexion"> 
-            <a href="Préconnexion.html">Déconnexion</a>
+            <a href="Préconnexion.html" name="Deconnexion">Déconnexion</a>
         </div>
     </div>
     <div class="texte">
