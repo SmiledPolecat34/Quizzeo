@@ -65,6 +65,7 @@
         ?>
     </div>
     <input type="submit" name="submit" value="Suivant" class="submit-suivant">
+    
     <!-- <div class="bouton">
         <div class="suivant">
             <a href="Question.php">Suivant</a>

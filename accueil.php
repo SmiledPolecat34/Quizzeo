@@ -39,13 +39,13 @@ session_start();
             <a href="pageProfil2.php">Profil</a>
         </div>
         <div id="quizz">
-            <a href="pageQuizz.html">Quizz</a>
+            <a href="pageQuizz.php">Quizz</a>
         </div>
         <div id="mes_quizz">
-            <a href="MesQuizz.html">Mes quizz</a>
+            <a href="MesQuizz.php">Mes quizz</a>
         </div>
         <div id="creer">
-            <a href="creationQuizz.html">Créer un quizz</a>
+            <a href="creationQuizz.php">Créer un quizz</a>
         </div>
         <div id="deconnexion">
             <center><a href="GestionUtili.php">Gestion des Utilisateurs</a></center>

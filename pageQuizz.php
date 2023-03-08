@@ -140,7 +140,7 @@
     </div>
     <div class="bouton">
         <div class="accueil">
-            <a href="page.html">Accueil</a>
+            <a href="accueil.php">Accueil</a>
         </div>
     </div>  
     <footer class="contacter">

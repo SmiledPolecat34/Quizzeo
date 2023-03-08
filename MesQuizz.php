@@ -38,7 +38,12 @@
                 }
             AffichageQuizzQuizzeur ($pseudoco,$mdpco);
             ?>
-        <input type="submit" name="suivant2" value="Suivant" class="submit-suivant">
+            <div class="bouton">
+        <div class="accueil">
+            <a href="accueil.php">Accueil</a>
+        </div>
+    </div>  
+        <!-- <input type="submit" name="suivant2" value="Suivant" class="submit-suivant"> -->
     </form>
 </body>
 </html>
