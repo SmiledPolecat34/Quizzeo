@@ -73,7 +73,7 @@ function Connexion (){
         <div id="creer">
             <a href="creationQuizz.html" name="CreerQuizz">Créer un quizz</a>
         </div>
-        <div id="deconnexion">
+        <div id="gestionUtili">
             <center><a href="GestionUtili.php" name="GestionUtili">Gestion des Utilisateurs</a></center>
         </div>
         <div id="deconnexion"> 
@@ -96,5 +96,6 @@ function Connexion (){
             <img src="https://www.freeiconspng.com/uploads/yahoo-mail-icon-30.png" alt="" width="160" height="160">
         </div>
     </footer>
+    <script src="page.js"></script>
 </body>
 </html>

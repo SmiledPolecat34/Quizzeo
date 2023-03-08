@@ -1,41 +1,33 @@
 class Utilisateur{
     constructor(){
-        this.profil = document.getElementById("profil")
+        // this.profil = document.getElementById("profil")
         this.quizz = document.getElementById("quizz")
-        this.deconnexion = document.getElementById("deconnexion")
-        this.creer = document.getElementById("creer")
+        // this.deconnexion = document.getElementById("deconnexion")
+        this.gestionUtili = document.getElementById("gestionUtili")
+        // this.creer = document.getElementById("creer")
+        role=parseInt(document.getElementById('role').innerText)+1;
+        
     }
     clickButton(){
         // console.log('this.profil : ', this.profil)
-        this.profil.addEventListener("click",()=>{
-            console.log("profil clicked")
-        })
         this.creer.addEventListener("click",()=>{
-            if (id_utilisateur == 1){
+            if (role == 1){
                 alert ("Vous n'avez pas les droits.");
                 event.preventDefault();
             }
             console.log("creer clicked")
         })
-        this.quizz.addEventListener("click",()=>{
-            console.log("quizz clicked")
-        })
-        this.deconnexion.addEventListener("click",()=>{
-            console.log("deconnexion clicked")
+        this.gestionUtili.addEventListener("click",()=>{
+            if (role == 1 || role == 2){
+                alert ("Vous n'avez pas les droits.");
+                event.preventDefault();
+            }
+            console.log("gestionUtili clicked")
         })
     }
 }
 
-// class Quizzer extends Utilisateur{
-//     constructor(){
-//         this.mes_quizz = document.getElementById("mes_Quizz")
-//     }
-//     clickButton2(){
-//         this.mes_quizz.addEventListener("click",()=>{
-//             console.log("mes_quizz clicked")
-//         })
-//     }
-// }
+
 
 let utilisateur = new Utilisateur()
 utilisateur.clickButton();
