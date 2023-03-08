@@ -68,7 +68,7 @@ function Connexion (){
             <a href="pageQuizz.html" name="Quizz">Quizz</a>
         </div>
         <div id="mes_quizz">
-            <a href="MesQuizz.html" name="MesQuizz">Mes quizz</a>
+            <a href="MesQuizz.php" name="MesQuizz">Mes quizz</a>
         </div>
         <div id="creer">
             <a href="creationQuizz.html" name="CreerQuizz">Créer un quizz</a>
