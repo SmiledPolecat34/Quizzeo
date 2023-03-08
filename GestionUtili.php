@@ -2,7 +2,11 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-
+    session_start();
+    $_SESSION['pseudo']=$_POST['pseudo1'];
+    $pseudoco = $_SESSION['pseudo'];
+    $_SESSION['mdp']=$_POST['mdp1'];
+    $mdpco = $_SESSION['mdp'];  
     
 ?>
 
@@ -64,7 +68,8 @@
             </label>
             <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
         </div>
-        <input type='submit' value='Modifier' name='Modifier'>
+        <!-- <input type='submit' value='Modifier' name='Modifier'> -->
+        <a href="modificationUtili.php">Modifier2</a>
         </form>
 
         <div id="supprimer">

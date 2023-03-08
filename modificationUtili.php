@@ -20,7 +20,15 @@
                     Votre pseudo:
                     </label>
                     <?php
-                        function ModifierPseudo($pseudoco){
+
+                        session_start();
+                        $pseudo=$_SESSION['pseudo'];
+                        // $mail=$_SESSION['mail'];
+
+                        // $pseudo="A";
+                        // $mail="m";
+                        // $mdpco="ds";
+                        function ModifierPseudo($pseudo){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                              $modif_utili=$_POST["modif1"];
                                 $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$modif_utili'");
@@ -58,7 +66,7 @@
                          echo "ERREUR PSEUDO";
                      }
                 
-                ModifierPseudo($pseudoco);
+                ModifierPseudo($pseudo);
             ?>   
 
             <div id="email" class="Crea">
@@ -129,7 +137,7 @@
                     ?>
                     <br />
                     <label for="mdp">
-                        Entrez votre nouvel mdp :
+                        Entrez votre nouveau mdp :
                     </label>
                     <input id="mdp" class="case" type="text" name="mdp" placeholder="Votre mdp"/>
                 </p>
@@ -154,7 +162,8 @@
                 
                 ModifierMdp($mdpco)
             ?>      
-            <input id="retour2" type="submit"  name="retour" value="Retour" class="submit-retour" onclick="history.go(-1)">
+            <!-- <input id="retour2" type="submit"  name="retour" value="Retour" class="submit-retour" onclick="history.go(-1)"> -->
+            <a href="GestionUtili.php"><button>Retour</button></a>
         </form>
     </div>
     <script src="CreerQuizz.js"></script> 
