@@ -1,28 +1,34 @@
 <?php
-// echo "Coucou";
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli("localhost", "root", "", "quizzeo");
-
+session_start();
 function Connexion (){
-    $pseudoco = $_POST['pseudo1'];
-    $mdpco = $_POST['mdp1'];
-        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+    
+    $_SESSION['pseudo']=$_POST['pseudo1'];
+    $pseudoco = $_SESSION['pseudo'];
+    $_SESSION['mdp']=$_POST['mdp1'];
+    $mdpco = $_SESSION['mdp'];    
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $resultat=$mysqli->query("SELECT pseudutilisateuro, motDePasse FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
-        // if (mysqli_num_rows($resultat) > 0) {
-        //     // Affichage des données de chaque ligne
-        //     while ($ligne = mysqli_fetch_assoc($resultat)) {
-        //         echo " - nom : " . $ligne["pseudutilisateuro"]. " " . $ligne["motDePasse"];
-        //     }
-        // } 
-        // else {
-        //     echo "0 résultats";
-        // }
+        if (mysqli_num_rows($resultat) > 0) {
+            while ($ligne = mysqli_fetch_assoc($resultat)) {
+                echo " - nom : " . $ligne["pseudutilisateuro"];
+                $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                $row=mysqli_fetch_assoc($mail);
+                $_SESSION['mail']=$row["email"];
+                $id=$mysqli->query("SELECT Id_utilisateur FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                $row=mysqli_fetch_assoc($id);
+                $_SESSION['id']=$row["Id_utilisateur"];
+                $role=$mysqli->query("SELECT role FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                
+            }
+        } else {
+            echo "0 résultats";
+            header("Location: http://localhost/Quizzeo/Connexion.php");
+        }
     }
-    
-Connexion();
+    Connexion();
+
 
 //recuperer choix
 // $mdp=$_POST['motDePasse'];
