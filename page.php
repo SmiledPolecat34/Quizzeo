@@ -12,7 +12,7 @@ function Connexion (){
 
         if (mysqli_num_rows($resultat) > 0) {
             while ($ligne = mysqli_fetch_assoc($resultat)) {
-                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"];
+                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
                 $_SESSION['mail']=$row["email"];
