@@ -22,7 +22,6 @@
                     $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                     $user = mysqli_fetch_array($idUti);
                     $id_utilisateur = $user["Id_utilisateur"];
-                    echo $id_utilisateur;
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where Id_utilisateur='$id_utilisateur'");
                     if (mysqli_num_rows($Quizz) > 0) {
                         // Affichage des données de chaque ligne

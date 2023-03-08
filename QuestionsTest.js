@@ -32,6 +32,8 @@ const quizData = [
         correct: "a",
     },
 ];
+nombre=parseInt(document.getElementById('variable a passer').innerText)+1
+document.getElementById('variable a passer').innerText="";
 
 const quiz=document.getElementById("quiz");
 const reponseEls=document.querySelectorAll(".reponse");

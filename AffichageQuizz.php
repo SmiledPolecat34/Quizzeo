@@ -16,7 +16,7 @@
     <div class="question">
         <p class="questions">Question n°
         <?php
-        $idQuizz=3;
+        $idQuizz=4;
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz' order by id asc limit 1;");
         $i=1;
