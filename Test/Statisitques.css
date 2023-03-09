@@ -110,7 +110,7 @@ h2{
     transition: all .5s;
 }
 a {
-    background-color: #4A1AB2;
+    background-color: #000000;
     color: #fff;
     border: none;
     display: block;
@@ -144,7 +144,7 @@ a:focus{
     /* margin-top: 300px; */
     width: 800px;
     height: 820px;
-    background-color: #b21a4546;
+    background-color: #137995a5;
     transition: all 1.5s;
     border-radius: .3%;
     font-size: 60px;
@@ -182,7 +182,7 @@ height: 100vh;
     margin: 195.5px 0 0 1250px;
     width: 500px;
     height: 600px;
-    background-color: aqua;
+    background-color: #137995;
     border-radius: 20%;
     transition: all 2s;
 }
@@ -210,7 +210,7 @@ height: 100vh;
 
 #title1{
     position: fixed;
-    color: #b21a45;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;

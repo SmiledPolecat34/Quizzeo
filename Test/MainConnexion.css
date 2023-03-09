@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body{
     overflow:hidden;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Sassy+Frass&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 .dedicace{
     /* font-family: 'dancing script', cursive; */
     font-size: 18px;
     color: #fff;
-    margin-top: 320px;
+    margin-top: 520px;
     margin-left: 1700px;
     overflow: hidden;
+    cursor: no-drop;
 }
+
+.song{
+    overflow: hidden;
+    margin: -70px 1600px 0 0;
+}
+
 
 h3{
     display: flex;
@@ -67,12 +73,20 @@ h3:hover{
 
 /* ECRITURE GAUCHE */
 #title1{
-    color: white;
+
     font-size: 38px;
 }
 #title1:hover{
-    margin-top: 120px;
-    transform: scale(1.2);
+    margin-top: 20px;
+    transform: scale(1.1);
+    transition: all .5s 10ms ease-in;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
     color: black;
     transition: all .5s 10ms ease-in;
 }
@@ -96,14 +110,12 @@ h3:hover{
 
 /* ECRITURE DROITE */
 #title2{
-    color: white;
     font-size: 38px;
 }
 #title2:hover{
-    margin-top: 120px;
-    transform: scale(1.2);
+    margin-top: 20px;
+    transform: scale(1.1);
     transition: all .5s 5ms ease-in;
-    color: black;
 }
 
 .backConnexion{

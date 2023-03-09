@@ -1,3 +1,14 @@
+//Sorry for the french variables,
+//We have to use french variables
+//To facilitate the understanding of the code
+
+//Define tests for data questions
+//4 questions to begin
+//Each question has 4 answers
+//Only one answer is correct
+//The correct answer is defined by the attribute "correct"
+//The value of the attribute "correct" is the id of the correct answer
+//The id of the answer is the first letter of the answer
 const quizData = [
     {
         question: "Quel âge a Franklin ?",
@@ -32,61 +43,85 @@ const quizData = [
         correct: "a",
     },
 ];
-
+//Define variables
+//Recuperation of the HTML elements
+//with the id "quiz", "question" and "submit"
 const quiz=document.getElementById("quiz");
-const reponseEls=document.querySelectorAll(".reponse");
 const questionEl=document.getElementById("question");
+const boutonEnregistrer=document.getElementById("submit");
+//and the class "reponse"
+//for the querySelectorAll method
+const reponseEls=document.querySelectorAll(".reponse");
+//Recuperation of the id of answers' radio buttons
 const a_text=document.getElementById("a_text");
 const b_text=document.getElementById("b_text");
 const c_text=document.getElementById("c_text");
 const d_text=document.getElementById("d_text");
-const submtBtn=document.getElementById("submit");
-
-let currentQuiz=0;
+//Define current quiz and score of the user
+let quizActuel=0;
 let score=0;
 
-loadQuiz();
+//Call the function to load the quiz
+chargerQuiz();
 
-function loadQuiz(){
-    deselectreponses();
-    const currentQuizData=quizData[currentQuiz
+//Define the function to load the quiz
+function chargerQuiz(){
+    //Call the function to deselect the answers
+    deselectionReponses();
+    //Recuperation of the data of the current question
+    //Defined in the array quizData
+    const quizActuelData=quizData[quizActuel
     ];
-
-    questionEl.innerText=currentQuizData.question;
-
-    a_text.innerText=currentQuizData.a;
-    b_text.innerText=currentQuizData.b;
-    c_text.innerText=currentQuizData.c;
-    d_text.innerText=currentQuizData.d;
+    //Display the question
+    questionEl.innerText=quizActuelData.question;
+    //Display the answers
+    a_text.innerText=quizActuelData.a;
+    b_text.innerText=quizActuelData.b;
+    c_text.innerText=quizActuelData.c;
+    d_text.innerText=quizActuelData.d;
 };
-
-function deselectreponses(){
+//Define the function to deselect the answers
+function deselectionReponses(){
+    //For each answer, the checked attribute is set to false
     reponseEls.forEach((reponseEl) => reponseEl.checked = false);
 };
 
-
-function getSelected(){
+//Define the function to get the answer selected by the user
+function avoirSelectionne(){
+    //Define the variable to store the answer
     let reponse;
-
+    //For each answer, if the checked attribute is true
     reponseEls.forEach(reponseEl => {
+        //The variable "reponse" is set to the id of the answer
         if(reponseEl.checked){
             reponse=reponseEl.id;
         }
     });
+    //Return the answer
     return reponse;
 };
-
-submtBtn.addEventListener("click", () => {
+//Define the event for the constant "boutonEnregistrer" to store the score
+boutonEnregistrer.addEventListener("click", () => {
+    //Calculate the score and the percentage of good answers
     const pourcentage = score*quizData.length/100;
-    const reponse=getSelected();
+    //Call the function to get the answer selected by the user
+    const reponse=avoirSelectionne();
+    //If the user has selected an answer
     if(reponse){
-        if(reponse === quizData[currentQuiz].correct){
+        //If the answer is correct
+        if(reponse === quizData[quizActuel].correct){
+            //Add 1 to the score
             score++;
         }
-        currentQuiz++;
-        if(currentQuiz < quizData.length){
-            loadQuiz();
+        //Add 1 to the current question
+        quizActuel++;
+        //If the current question is less than the number of questions
+        if(quizActuel < quizData.length){
+            //Call the function to load the quiz
+            chargerQuiz();
+            //If the current question is equal to the number of questions
         }else{
+            //Display the score and the percentage of good answers
             quiz.innerHTML = `<h2>Tu as un score final de ${score}/${quizData.length}, pour ${pourcentage}% de réponse(s) bonne(s) !</h2>
 
             <button onclick="location.reload()">Reload</button>`;
