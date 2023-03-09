@@ -11,6 +11,7 @@
     <header class="title">
         <h1>Quizzeo</h1>
     </header>
+    <form action="creationQuizz.php" method="post">
     <div class="organisation">
         <div id="Crea" >
             <label for="nom_Quizz">
@@ -20,8 +21,7 @@
         </div>
         <div id="niveau">
             <label for="niveau">
-                Choisissez le niveau de difficulté du quizz :            
-            </label>
+                Choisissez le niveau de difficulté du quizz :            </label>
             <select name= "niveau" id="niveau">
                 <option value= "débutant">Débutant</option>
                 <option value= "facile">Facile</option>
@@ -40,15 +40,38 @@
                 <option value= "cinema">Cinéma</option>
                 <option value= "culture_generale">Culture Generale</option>
                 <option value= "hist_geo">Histoire-géographie</option>
-                <option value= "autres">Autres</option>
             </select>
         </div>
+        <?php
+        session_start();
+        $pseudoco=$_SESSION['pseudo'];
+        $mdpco=$_SESSION['mdp'];
+        function NouveauQuizz($pseudoco,$mdpco){
+            $nomQuizz = $_POST['nom_Quizz'];
+            $niveauQuest=$_POST['niveau'];
+            $categorieQuest=$_POST['categorie'];
+            $dateCreation=date('y-m-d');
+        
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                // $id_utilisateur = $idUti['Id_utilisateur'];
+                $user = mysqli_fetch_array($idUti);
+                $id_utilisateur = $user["Id_utilisateur"];
+                $mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$categorieQuest','$id_utilisateur');");
+        
+        }
+        NouveauQuizz($pseudoco,$mdpco);
+        ?>
     </div>
-    <div class="bouton">
+    <input type="submit" name="submit" value="Suivant" class="submit-suivant">
+    
+    <!-- <div class="bouton">
         <div class="suivant">
-            <a href="creationQuizzSuivant.html">Suivant</a>
+            <a href="Question.php">Suivant</a>
         </div>
-    </div> 
+    </div> -->
+</form> 
     <script src="CreerQuizz.js"></script> 
 </body>
 </html>
