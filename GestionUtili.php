@@ -55,6 +55,8 @@
                 $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
                 // header("Refresh:0");
             }
+
+
         ?>
     </h2>
     <div class="action">
@@ -63,7 +65,7 @@
             <label for="modif">
                 Quel utilisateur voulez-vous modifier ?
             </label>
-            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" required=""/>
+            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
         </div>
         <!-- <input type='submit' value='Modifier' name='Modifier'> -->
         <a href="modificationUtili.php" type="submit" name="Modifier" value="Modifier" class="submitmodifier">Modifier</a>
@@ -77,6 +79,10 @@
             <input id="supp1" type="text" name="supp1" placeholder="Id de l'utilisateur" />
         </div>
         <input type='submit' name='Supprimer' value='Supprimer' class="submitsupprimer">
+        <br>
+        <form action="AjoutUtili.php">
+            <input type='submit' name='Ajouter' value='Ajouter' class="submitajouter">
+        </form>
     </div>
     <!-- <form class="retour"> -->
         <div >
