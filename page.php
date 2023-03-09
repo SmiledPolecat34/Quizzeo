@@ -71,7 +71,7 @@ function Connexion (){
             <a href="MesQuizz.php" name="MesQuizz">Mes quizz</a>
         </div>
         <div id="creer">
-            <a href="creationQuizz.html" name="CreerQuizz">Créer un quizz</a>
+            <a href="creationQuizz.php" name="CreerQuizz">Créer un quizz</a>
         </div>
         <div id="gestionUtili">
             <center><a href="GestionUtili.php" name="GestionUtili">Gestion des Utilisateurs</a></center>
