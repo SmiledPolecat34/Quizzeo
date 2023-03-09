@@ -19,7 +19,7 @@
         <div class="sport">
             <center><h2>Sport</h2>
             <img src="https://www.freepnglogos.com/uploads/sport-png/sport-sports-management-asb-online-34.png" alt="" width="200" height="200"></center>
-            <button type="submit" name="bouton_sport" value="sport"></button>
+            <button type="submit" name="bouton_sport" value="sport">Cliquez ici</button>
         </div>
         <?php
         if(isset($_POST["bouton_sport"])){
@@ -43,7 +43,7 @@
         <div class="musique">
             <center><h2>Musique</h2>
             <img src="https://th.bing.com/th/id/R.82839718b2ad847514d7b559ed326f16?rik=PZfwK6KXpM42CA&riu=http%3a%2f%2fclipart-library.com%2fimages%2f6cp5a94di.png&ehk=U7EUjjy4NZKOnYskPWoFefApBeq%2f8y6sGyPGeCwrEOE%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" width="160" height="160"></center>
-            <button type="submit" name="bouton_musique" value="musique"></button>
+            <button type="submit" name="bouton_musique" value="musique">Cliquez ici</button>
         </div>
         <?php
         if(isset($_POST["bouton_musique"])){
@@ -67,7 +67,7 @@
         <div class="cinema">
             <center><h2>Cinéma</h2>
             <img src="https://th.bing.com/th/id/R.e3b00adadeab8cb91219827e0aa04c12?rik=uoIX4dOMrnuSqw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-VufDdP764o0%2fUNI4eJbXj4I%2fAAAAAAAAKlA%2faXJS5Fa64vo%2fs1600%2fImagens-em-png-Queroimagem.com%2b(37).png&ehk=BnflVETAWIcUfNi9YXUEqVuEtIvTN%2fnqDmsi20%2bnRTY%3d&risl=&pid=ImgRaw&r=0" alt="" width="250" height="250"></center>
-            <button type="submit" name="bouton_cinema" value="cinema"></button>
+            <button type="submit" name="bouton_cinema" value="cinema">Cliquez ici</button>
         </div>
         <?php
         if(isset($_POST["bouton_cinema"])){
@@ -91,7 +91,7 @@
         <div class="culture_generale">
             <center><h2>Culture générale</h2>
             <img src="https://pngimg.com/uploads/book/book_PNG51090.png" alt="" width="200" height="200"></center>
-            <button type="submit" name="bouton_culture_generale" value="culture_generale"></button>
+            <button type="submit" name="bouton_culture_generale" value="culture_generale">Cliquez ici</button>
 
         </div>
         <?php
@@ -116,7 +116,7 @@
         <div class="hist_geo">
             <center><h2>Histoire-Géographie</h2>
             <img src="https://th.bing.com/th/id/R.f720c45993bfa2d2ddf171d755088c31?rik=UUo92yHXLY1GzQ&riu=http%3a%2f%2fidata.over-blog.com%2f1%2f70%2f54%2f14%2flogo_hist_geo.png&ehk=GBN%2bHb5wYCMS6%2bnZUskaTuqLGBDym%2fyThUnMxP4Dwuk%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" width="200" height="130"></center>
-            <button type="submit" name="bouton_hist_geo" value="hist_geo"></button>
+            <button type="submit" name="bouton_hist_geo" value="hist_geo">Cliquez ici</button>
         </div>
         <?php
         if(isset($_POST["bouton_hist_geo"])){
