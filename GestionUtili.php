@@ -5,7 +5,6 @@
     session_start();
     $pseudo = $_SESSION['pseudo'];
     $mail=$_SESSION['mail'];
-    
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +34,7 @@
                 $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
                 if (mysqli_num_rows($Profil) > 0){
                     while ($ligne = mysqli_fetch_assoc($Profil)){
-                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- MDP : ".$ligne["motDePasse"]."<br>";
+                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]."<br>";
                     }
                 }else{
                     echo "0 resultats";
@@ -61,18 +60,20 @@
         ?>
     </h2>
     <div class="action">
-    <form action="modificationUtili.php">
+    <form action="modificationUtili.php" method="post">
             <div id="modifier">
                 <label for="modif">
                     Quel utilisateur voulez-vous modifier ?
                 </label>
                 <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
             </div>
-            <a href="modificationUtili.php" type="submit" name="Modifier" value="Modifier" class="submitmodifier">Modifier</a>
             <?php
+                $utilisateur=1;
+                echo "<a href='modificationUtili.php' type='submit' name='Modifier' value= '$utilisateur' class='submitmodifier'>Modifier</a>";
+            
                 if(isset($_POST["Modifier"])){
                     // $_SESSION['modif_utili'] = $_POST['Modifier'];
-                    $_SESSION['modif_utili'] = 13;
+                    $_SESSION['modif_utili'] = $utilisateur;
                 }
                 
             ?>
