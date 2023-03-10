@@ -61,14 +61,18 @@ $pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisate
             <div class="leftFont">
                 <div id="title1">
                     <h1>
-                        QUIZ
+                        <a href="Préconnexion.html">
+                            QUIZ
+                        </a>
                     </h1>
                 </div>
             </div>
             <div class="rightFont">
                 <div id="title1">
                     <h1>
-                        ZEO
+                        <a href="Préconnexion.html">
+                            ZEO
+                        </a>
                     </h1>
                 </div>
             </div>
