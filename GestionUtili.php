@@ -5,6 +5,7 @@
     session_start();
     $pseudo = $_SESSION['pseudo'];
     $mail=$_SESSION['mail'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -60,15 +61,23 @@
         ?>
     </h2>
     <div class="action">
-        <form action="modificationUtili.php">
-        <div id="modifier">
-            <label for="modif">
-                Quel utilisateur voulez-vous modifier ?
-            </label>
-            <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
-        </div>
+    <form action="modificationUtili.php">
+            <div id="modifier">
+                <label for="modif">
+                    Quel utilisateur voulez-vous modifier ?
+                </label>
+                <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
+            </div>
+            <a href="modificationUtili.php" type="submit" name="Modifier" value="Modifier" class="submitmodifier">Modifier</a>
+            <?php
+                if(isset($_POST["Modifier"])){
+                    // $_SESSION['modif_utili'] = $_POST['Modifier'];
+                    $_SESSION['modif_utili'] = 13;
+                }
+                
+            ?>
         <!-- <input type='submit' value='Modifier' name='Modifier'> -->
-        <a href="modificationUtili.php" type="submit" name="Modifier" value="Modifier" class="submitmodifier">Modifier</a>
+        
         <!-- <input type="submit" name="Modifier" value="Modifier" class="submitmodifier"> -->
         </form>
 

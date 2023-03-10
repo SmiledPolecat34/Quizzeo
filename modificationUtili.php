@@ -16,28 +16,33 @@
         
             <div id="pseudo" class="Crea">
                 <p>
-                    <label for="pseudo">
-                    Votre pseudo:
-                    </label>
                     <?php
-
-                        session_start();
-                        $pseudo = $_SESSION['pseudo'];
-                        $mail=$_SESSION['mail'];
-                        function ModifierPseudo($pseudo){
-                            $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                             $modif_utili=$_POST["modif1"];
-                            echo $modif_utili;
-                                $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$modif_utili'");
-                                //If at least one result is found, it displays it
-                                if (mysqli_num_rows($Pseudo) > 0) {
-                                    // Affichage des données de chaque ligne
-                                    while ($ligne = mysqli_fetch_assoc($Pseudo)) {
-                                        echo $ligne["titre"]."\r\n";
-                                    }
+                    session_start();
+                    $pseudo = $_SESSION['pseudo'];
+                    $mail=$_SESSION['mail'];
+                    // $modif_utili=$_SESSION['modif_utili'];
+                    $_SESSION['modif_utili']=13;
+                    // var_dump($modif_utili);
+                    function ModifierPseudo($pseudo){
+                        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                        $modif_utili=$_SESSION['modif_utili'];
+                        echo "--".$modif_utili;
+                            $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$modif_utili'");
+                            //If at least one result is found, it displays it
+                            if (mysqli_num_rows($Pseudo) > 0) {
+                                // Affichage des données de chaque ligne
+                                while ($ligne = mysqli_fetch_assoc($Pseudo)) {
+                                    echo $ligne["titre"]."\r\n";
                                 }
                             }
+                        }
                     ?>
+                    <label for="pseudo">
+                        <?php
+                        echo "Votre pseudo: ".$pseudo;
+                        ?>
+                    </label>
+                    
                     <br />
                     <label for="pseudo">
                         Entrez un nouveau pseudo :
@@ -51,7 +56,7 @@
                      if(isset($_POST["modifier_pseudo"])){
                          //Retrieves the name of the quiz and will modify it in the database
                          $nouveauPseudo=$_POST['pseudo'];
-                         $modif_utili=$_POST["modif1"];
+                         $modif_utili=$_SESSION['modif_utili'];
                          $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                          $mysqli->query("UPDATE `quizzeo`.`quizz` SET `titre` = '$nouveauPseudo' WHERE Id_utilisateur='$modif_utili';");
                          //Refresh the page once
@@ -68,13 +73,10 @@
 
             <div id="email" class="Crea">
                 <p>
-                    <label for="email">
-                    Votre email:
-                    </label>
-                    <?php
+                <?php
                         function ModifierEmail($mail){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                            $modif_utili=$_POST["modif1"];
+                            $modif_utili=$_SESSION['modif_utili'];
                                 $Email=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$modif_utili'");
                                 //If at least one result is found, it displays it
                                 if (mysqli_num_rows($Email) > 0) {
@@ -85,6 +87,13 @@
                                 }
                             }
                     ?>
+                    <label for="email">
+                    <?php
+                        echo "Votre email: ".$mail;
+                    ?>
+                    
+                    </label>
+                    
                     <br />
                     <label for="email">
                         Entrez votre nouvel email :
@@ -115,13 +124,10 @@
 
             <div id="mdp" class="Crea">
                 <p>
-                    <label for="mdp">
-                    Votre mdp:
-                    </label>
-                    <?php
+                <?php
                         function ModifierMdp($mdpco){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                            $modif_utili=$_POST["modif1"];
+                            $modif_utili=$_SESSION['modif_utili'];
                                 $Mdp=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_utilisateur='$modif_utili'");
                                 //If at least one result is found, it displays it
                                 if (mysqli_num_rows($Mdp) > 0) {
@@ -132,6 +138,13 @@
                                 }
                             }
                     ?>
+                    <label for="mdp">
+                    <?php
+                        echo "Votre mdp: ";
+                    ?>
+                    
+                    </label>
+                    
                     <br />
                     <label for="mdp">
                         Entrez votre nouveau mdp :
@@ -160,7 +173,7 @@
                 ModifierMdp($mdpco)
             ?>      
             <!-- <input id="retour2" type="submit"  name="retour" value="Retour" class="submit-retour" onclick="history.go(-1)"> -->
-            <a href="GestionUtili.php">Retour</a>
+            <a href="GestionUtili.php" class="retour">Retour</a>
         </form>
     </div>
     <script src="CreerQuizz.js"></script> 
