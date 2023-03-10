@@ -12,7 +12,7 @@ function Connexion (){
 
         if (mysqli_num_rows($resultat) > 0) {
             while ($ligne = mysqli_fetch_assoc($resultat)) {
-                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
+                echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
                 $_SESSION['mail']=$row["email"];
@@ -29,20 +29,24 @@ function Connexion (){
     }
     Connexion();
 
-    // if(isset($_POST["GestionUtili"])){
-    //     $gest_utili=$_POST["GestionUtili"];
-    //     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-    //     $Gestion = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `role` = '$gest_utili';");
-    //     header("Refresh:0");
-    //     switch($gest_utili){
-    //         case 1:
-    //             echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.enabled=false'>Gestion des Utilisateurs</a>";
-    //             break;
-    //         case 2:
-    //             echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.enabled=false'>Gestion des Utilisateurs</a>";
-    //             break;
-    //     }
-    // }
+    if(isset($_POST["GestionUtili"])){
+        // $gest_utili=$_POST["GestionUtili"];
+        $gest_utili=1;
+        $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+        $Gestion = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `role` = '$gest_utili';");
+        header("Refresh:0");
+        // $gest_utili=1;
+        switch($gest_utili){
+            case 1:
+                echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.button.disabled=true>Gestion des Utilisateurs</a>";
+                break;
+            case 2:
+                echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.button.disabled=true>Gestion des Utilisateurs</a>";
+                break;
+        }
+    }
+
+    //dans echo faire du js : si role = 1 ou = 2, mettre alerte et bloquer page (reprendre alerte de connexion)
 
 ?>
 
@@ -56,9 +60,9 @@ function Connexion (){
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <header class="title">
+    <!-- <header class="title">
             <h1>Quizzeo</h1>
-    </header>
+    </header> -->
     <div class="menu">
         <center><h2>Accueil</h2></center>
         <div id="profil">

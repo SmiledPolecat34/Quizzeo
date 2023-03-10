@@ -23,7 +23,7 @@
 
                     $id=$_SESSION['modif_utili'];
                     // $id=$_POST['Id_utilisateur'];
-                    echo $id;
+                    // echo $id;
                     // var_dump($id);
                     function ModifierPseudo($id){
                         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
