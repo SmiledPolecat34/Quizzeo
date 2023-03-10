@@ -36,7 +36,7 @@ AfficherProfil($pseudo,$mail);
     <header class="title">
         <h1>Quizzeo</h1>
     </header>
-    <form action="Question.php" method="post">
+    <form action="accueil.php" method="post">
         <div class="titre2">
             <h1>Votre Profil</h1>
         </div>
