@@ -87,7 +87,7 @@
     <!-- <form class="retour"> -->
         <div >
             <!-- <input id="retour2" type="button" value="Retour" onclick="history.go(-1)"> -->
-            <a href="page.php" value="Retour"><button>Retour</button></a>
+            <a href="accueil.php" value="Retour"><button>Retour</button></a>
             
         </div>
     <!-- </form> -->
