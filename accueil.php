@@ -1,23 +1,66 @@
 <?php
 session_start();
 
+function Connexion (){
+    
+    // $_SESSION['pseudo']=$_POST['pseudo1'];
+    $pseudoco = $_SESSION['pseudo'];
+    // $_SESSION['mdp']=$_POST['mdp1'];
+    $mdpco = $_SESSION['mdp'];    
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
-//recuperer choix
-// $mdp=$_POST['motDePasse'];
-// $role=$_POST['role'];
-// $choix=$myslqi->query("SELECT * FROM `quizzeo.utilisateur` WHERE `pseudutilisateuro`='$pseudo' AND `email`='$mail' AND `motDePasse`='$mdp' AND 'role'='$role'; ");
-// $resultat=mysql_query($choix);
+       
+        
+        
+        if (mysqli_num_rows($resultat) > 0) {
+            while ($ligne = mysqli_fetch_assoc($resultat)) {
+                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
+                $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                $row=mysqli_fetch_assoc($mail);
+                $_SESSION['mail']=$row["email"];
+                $id=$mysqli->query("SELECT Id_utilisateur FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                $row=mysqli_fetch_assoc($id);
+                $_SESSION['id']=$row["Id_utilisateur"];
+                $role=$mysqli->query("SELECT role FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
+                
 
-// switch ($role){
-//     case "1":
-//         echo "1";
-//         break;
-//     case "2":
-//         echo "2";
-//         break;
-//     default:
-//         echo"3";
-// }
+                $role=$ligne["role"];
+                // echo $role;
+                switch($role){
+                    case 1:
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                    case 2 :
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
+                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                    case 3 :
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
+                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='GestionUtili.php'><input type='submit' name='GestionUtili' value='GestionUtili' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                }
+                
+            }
+        } else {
+            echo "0 résultats";
+            // header("Location: http://localhost/Quizzeo/Connexion.php");
+        }
+    }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +78,7 @@ session_start();
     </header>
     <div class="menu">
         <center><h2>Accueil</h2></center>
-        <div id="profil">
+        <!-- <div id="profil">
             <a href="pageProfil2.php">Profil</a>
         </div>
         <div id="quizz">
@@ -52,7 +95,10 @@ session_start();
         </div>
         <div id="deconnexion"> 
             <a href="Préconnexion.html">Déconnexion</a>
-        </div>
+        </div> -->
+        <?php
+        Connexion();
+        ?>
     </div>
     <div class="texte">
         <p>Bonjour, et Bienvenue sur notre site Quizzeo. </br></br> Ici, vous pouvez jouer à plusieurs quizz de plusieurs catégories : Sport, Musique, ... <br> Si vous êtes utilisateur, je vous encourage à aller tester nos quizz sur le champs. Grâce à eux vous pourrez apprendre, tester vos connaissances et surtout vous amuser. <br> Si vous êtes des quizzer, j'ai le plaisir de vous annoncer que vous pourrez non seulement faire des quizz, mais également en créer. </br></p>
