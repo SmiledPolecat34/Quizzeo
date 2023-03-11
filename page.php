@@ -10,9 +10,12 @@ function Connexion (){
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
+       
+        
+        
         if (mysqli_num_rows($resultat) > 0) {
             while ($ligne = mysqli_fetch_assoc($resultat)) {
-                echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
+                // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
                 $_SESSION['mail']=$row["email"];
@@ -21,33 +24,40 @@ function Connexion (){
                 $_SESSION['id']=$row["Id_utilisateur"];
                 $role=$mysqli->query("SELECT role FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 
+
+                $role=$ligne["role"];
+                // echo $role;
+                switch($role){
+                    case 1:
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                    case 2 :
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
+                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                    case 3 :
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
+                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='GestionUtili.php'><input type='submit' name='GestionUtili' value='GestionUtili' ></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        break;
+                }
+                
             }
         } else {
             echo "0 résultats";
             header("Location: http://localhost/Quizzeo/Connexion.php");
         }
     }
-    Connexion();
-
-    if(isset($_POST["GestionUtili"])){
-        // $gest_utili=$_POST["GestionUtili"];
-        $gest_utili=1;
-        $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-        $Gestion = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `role` = '$gest_utili';");
-        header("Refresh:0");
-        // $gest_utili=1;
-        switch($gest_utili){
-            case 1:
-                echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.button.disabled=true>Gestion des Utilisateurs</a>";
-                break;
-            case 2:
-                echo"<a href='GestionUtili.php' name='GestionUtili' type='button' onclick='javascript:GestionUtili.button.disabled=true>Gestion des Utilisateurs</a>";
-                break;
-        }
-    }
-
-    //dans echo faire du js : si role = 1 ou = 2, mettre alerte et bloquer page (reprendre alerte de connexion)
-
+    // Connexion();
+    
 ?>
 
 <!DOCTYPE html>
@@ -60,31 +70,40 @@ function Connexion (){
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <header class="title">
+    <!-- <header class="title">
             <h1>Quizzeo</h1>
-    </header>
+    </header> -->
+    
     <div class="menu">
         <center><h2>Accueil</h2></center>
-        <div id="profil">
-            <a href="pageProfil2.php" name="Profil">Profil</a>
+        
+        <!-- <div id="profil">
+            <a href="pageProfil2.php" name="Profil"><button>Profil</button></a>
         </div>
         <div id="quizz">
-            <a href="pageQuizz.php" name="Quizz">Quizz</a>
+            <a href="pageQuizz.php" name="Quizz"><button>Quizz</button></a>
         </div>
         <div id="mes_quizz">
-            <a href="MesQuizz.php" name="MesQuizz">Mes quizz</a>
+            <a href="MesQuizz.php" name="MesQuizz"><button>Mes quizz</button></a>
         </div>
         <div id="creer">
-            <a href="creationQuizz.php" name="CreerQuizz">Créer un quizz</a>
+            <center><a href="creationQuizz.php" name="CreerQuizz"><button>Créer un quizz</button></a></center>
         </div>
-        <div id="gestionUtili">
-            <center><a href="GestionUtili.php" name="GestionUtili">Gestion des Utilisateurs</a></center>
-        </div>
+        <form action="GestionUtili.php" method="post">
+            <div id="gestionUtili"> -->
+                <!-- <center><a href="GestionUtili.php" name="GestionUtili"><button>Gestion des Utilisateurs</button></a></center> -->
+                <!-- <input type="submit" name="gestionUtili" value="GestionUtili"> -->
+                <?php
+                 Connexion();
+                 ?>
+            </div>
+        <!-- </form>
         <div id="deconnexion"> 
-            <a href="Préconnexion.html" name="Deconnexion">Déconnexion</a>
-        </div>
+            <a href="Préconnexion.html" name="Deconnexion"><button>Déconnexion</button></a>
+        </div> -->
     </div>
     <div class="texte">
+        
         <p>Bonjour, et Bienvenue sur notre site Quizzeo. </br></br> Ici, vous pouvez jouer à plusieurs quizz de plusieurs catégories : Sport, Musique, ... <br> Si vous êtes utilisateur, je vous encourage à aller tester nos quizz sur le champs. Grâce à eux vous pourrez apprendre, tester vos connaissances et surtout vous amuser. <br> Si vous êtes des quizzer, j'ai le plaisir de vous annoncer que vous pourrez non seulement faire des quizz, mais également en créer. </br></p>
     </div>
     <footer class="contacter">
