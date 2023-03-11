@@ -60,9 +60,9 @@ function Connexion (){
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <!-- <header class="title">
+    <header class="title">
             <h1>Quizzeo</h1>
-    </header> -->
+    </header>
     <div class="menu">
         <center><h2>Accueil</h2></center>
         <div id="profil">
