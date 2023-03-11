@@ -77,30 +77,10 @@ function Connexion (){
     <div class="menu">
         <center><h2>Accueil</h2></center>
         
-        <!-- <div id="profil">
-            <a href="pageProfil2.php" name="Profil"><button>Profil</button></a>
-        </div>
-        <div id="quizz">
-            <a href="pageQuizz.php" name="Quizz"><button>Quizz</button></a>
-        </div>
-        <div id="mes_quizz">
-            <a href="MesQuizz.php" name="MesQuizz"><button>Mes quizz</button></a>
-        </div>
-        <div id="creer">
-            <center><a href="creationQuizz.php" name="CreerQuizz"><button>Créer un quizz</button></a></center>
-        </div>
-        <form action="GestionUtili.php" method="post">
-            <div id="gestionUtili"> -->
-                <!-- <center><a href="GestionUtili.php" name="GestionUtili"><button>Gestion des Utilisateurs</button></a></center> -->
-                <!-- <input type="submit" name="gestionUtili" value="GestionUtili"> -->
-                <?php
-                 Connexion();
-                 ?>
-            </div>
-        <!-- </form>
-        <div id="deconnexion"> 
-            <a href="Préconnexion.html" name="Deconnexion"><button>Déconnexion</button></a>
-        </div> -->
+        <?php
+         Connexion();
+         ?>
+
     </div>
     <div class="texte">
         
@@ -119,6 +99,6 @@ function Connexion (){
             <img src="https://www.freeiconspng.com/uploads/yahoo-mail-icon-30.png" alt="" width="160" height="160">
         </div>
     </footer>
-    <script src="page.js"></script>
+
 </body>
 </html>
