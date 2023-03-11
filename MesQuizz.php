@@ -39,7 +39,7 @@
             
             AffichageQuizzQuizzeur ($pseudoco,$mdpco);
             ?>
-            <div class="bouton">
+    <div class="bouton">
         <div class="accueil">
             <a href="accueil.php">Accueil</a>
         </div>
