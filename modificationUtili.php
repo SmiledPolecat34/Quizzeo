@@ -23,35 +23,44 @@
 
                     // $id=$_SESSION['modif_utili'];
                     // $id=$_POST['Id_utilisateur'];
-                    $id=$_SESSION["id"];
+                    $id=$_POST["id_utilisateur"];
+                    // echo $id;
                     // $id=12;
-                    echo $id;
+                    // echo gettype($id);
                     // var_dump($id);
                     function ModifierPseudo($id){
                         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                            $Pseudo=$mysqli->query("SELECT pseudutilisateuro FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'");
+
+                            $sql="SELECT pseudutilisateuro FROM `quizzeo`.`utilisateur`WHERE Id_utilisateur='$id'";
+                            $result = mysqli_query($mysqli, $sql);
+                            $actualUser = mysqli_fetch_assoc($result);
+
+                            $Pseudo = $actualUser['pseudutilisateuro'];
+
+                            
+                            
                             //  print_r($Pseudo);
                             //If at least one result is found, it displays it
-                            if (mysqli_num_rows($Pseudo) > 0) {
-                                // Affichage des données de chaque ligne
-                                while ($ligne = mysqli_fetch_assoc($Pseudo)) {
-                                    // echo $ligne["Id_utilisateur"]."\r\n";
-                                }
-                            }
+                            // if (mysqli_num_rows($Pseudo) > 0) {
+                            // //     // Affichage des données de chaque ligne
+                            //     while ($ligne = mysqli_fetch_assoc($Pseudo)) {
+                            //          echo $ligne["Id_utilisateur"]."\r\n";
+                            //      }
+                            //  }
+
+                        echo"<label for='pseudo'>"; 
+                        echo"<label for='nom'>
+                            Pseudo : 
+                        </label>";
+                        echo "<input class='input' type='text' name='pseudo' id='pseudo'  value='$Pseudo'>"; 
                         }
-                    ?>
-                    <label for="pseudo">
-                        <?php
-                        echo "Votre pseudo: ".$Pseudo;
+                    
+                    
                         ?>
                     </label>
                     
-                    <br />
-                    <label for="pseudo">
-                        Entrez un nouveau pseudo :
-                    </label>
-                    <input id="pseudo" class="case" type="text" name="pseudo" placeholder="Votre pseudo"/>
+                    <br/>
                 </p>
             </div>
             <input type="submit" name="modifier_pseudo" value="Modifier le pseudo" class="submitconnexion">     
@@ -60,7 +69,7 @@
                      if(isset($_POST["modifier_pseudo"])){
                          //Retrieves the name of the quiz and will modify it in the database
                          $nouveauPseudo=$_POST['pseudo'];
-                         $modif_utili=$_SESSION['modif_utili'];
+                        //  $modif_utili=$_SESSION['modif_utili'];
                          $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                          $mysqli->query("UPDATE `quizzeo`.`utilisateur` SET `titre` = '$nouveauPseudo' WHERE Id_utilisateur='$id';");
                          //Refresh the page once
@@ -68,9 +77,9 @@
                      } 
                 
                 //Displays an error message
-                     else {
-                         echo "ERREUR PSEUDO";
-                     }
+                    //  else {
+                    //      echo "ERREUR PSEUDO";
+                    //  }
                 
                 ModifierPseudo($id);
             ?>   

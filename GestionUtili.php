@@ -35,9 +35,19 @@
                 if (mysqli_num_rows($Profil) > 0){
                     while ($ligne = mysqli_fetch_assoc($Profil)){
                         $id=$ligne["Id_utilisateur"];
-                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- "."<a href='modificationUtili.php' type='submit' name='Modifier' value='$id' class='submitmodifier'>Modifier</a>"."<br>";
-                        $_SESSION['id']=$id;
-                        // print_r($_SESSION);
+                        // echo "<form action='modificationUtili.php' method='post'>";
+                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]."<br>";
+                        // $_SESSION['id']=$id;
+                        // // print_r($_SESSION);
+                        // echo "</form>";
+                        ?>
+                        <form action='modificationUtili.php' method='post'>
+                            <?php
+                            $id_utilisateur = $ligne['Id_utilisateur'];
+                            echo "<input type='hidden' name='id_utilisateur' class='id_utilisateur' value=$id_utilisateur>" ?>
+                            <button type="submit" name="modify-btn" class="buttonBlue modify-btn">Modifier</button>
+                        </form>
+                        <?php
                     }
                 }else{
                     echo "0 resultats";
@@ -63,27 +73,23 @@
         ?>
     </h2>
     <div class="action">
-    <form action="modificationUtili.php" method="post">
-            <div id="modifier">
-                <label for="modif">
+    <!-- <form action="modificationUtili.php" method="post"> -->
+            <!-- <div id="modifier">
+                <label for="modif1">
                     Quel utilisateur voulez-vous modifier ?
                 </label>
                 <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
-            </div>
-            <?php
-                $utilisateur=1;
-                echo "<a href='modificationUtili.php' type='submit' name='Modifier' value= '$utilisateur' class='submitmodifier'>Modifier</a>";
-            
-                if(isset($_POST["Modifier"])){
-                    // $_SESSION['modif_utili'] = $_POST['Modifier'];
-                    $_SESSION['modif_utili'] = $utilisateur;
-                }
-                
-            ?>
+            </div> -->
+            <!-- <div class="modif">
+                <a href="modificationUtili.php">Modifier</a>
+                <form action="modificationUtili.php" method="post">
+                    <input type="submit" name="modifier" value="Modifier" class="submitmodifier">
+                </form>
+            </div> -->
         <!-- <input type='submit' value='Modifier' name='Modifier'> -->
         
         <!-- <input type="submit" name="Modifier" value="Modifier" class="submitmodifier"> -->
-        </form>
+    <!-- </form> -->
         <div id="supprimer">
             <label for="supp">
                 Quel utilisateur voulez-vous supprimer ?
