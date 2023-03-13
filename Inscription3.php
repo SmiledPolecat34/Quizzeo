@@ -1,6 +1,6 @@
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+// mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+// $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 ?>
 
 <!DOCTYPE html>
@@ -48,19 +48,11 @@ $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     <div id="Insc">
                         <!-- Choix -->
                         <div class="choix">
-                            <!-- <label for="choix">Choix <em>* </em></label>
+                            <label for="choix">Choix <em>* </em></label>
                             <select id="choix">
                                 <option id="quizzeur">Quizzeur</option>
                                 <option id="classique">Utilisateur classique</option>
-                            </select> -->
-                            <div id="Insc" class="choix" name="choix">
-                        <input type="checkbox" id="case" name="case" value="quizzeur">
-                        <label for="case">Quizzeur</label>
-                    </div>
-                    <div  class="choix" id="Insc" name="choix">
-                          <input type="checkbox" id="case" name="case" value="classique" checked>
-                          <label for="case">Utilisateur classique</label>
-                    </div>
+                            </select>
                         </div>
                         <!-- Pseudo -->
                         <div class="pseudo">
