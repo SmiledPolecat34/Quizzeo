@@ -34,7 +34,9 @@
                 $Profil = $mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`;");
                 if (mysqli_num_rows($Profil) > 0){
                     while ($ligne = mysqli_fetch_assoc($Profil)){
-                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]."<br>";
+                        $id=$ligne["Id_utilisateur"];
+                        echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- "."<a href='modificationUtili.php' type='submit' name='Modifier' value='$id' class='submitmodifier'>Modifier</a>"."<br>";
+                        $_SESSION['id']=$id;
                     }
                 }else{
                     echo "0 resultats";
@@ -81,7 +83,6 @@
         
         <!-- <input type="submit" name="Modifier" value="Modifier" class="submitmodifier"> -->
         </form>
-
         <div id="supprimer">
             <label for="supp">
                 Quel utilisateur voulez-vous supprimer ?

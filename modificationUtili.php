@@ -21,18 +21,20 @@
                     // $pseudo = $_SESSION['pseudo'];
                     // $mail=$_SESSION['mail'];
 
-                    $id=$_SESSION['modif_utili'];
+                    // $id=$_SESSION['modif_utili'];
                     // $id=$_POST['Id_utilisateur'];
-                    // echo $id;
+                    // $id=$_SESSION['$id'];
+                    $id=12;
+                    echo $id;
                     // var_dump($id);
                     function ModifierPseudo($id){
                         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                            $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'");
+                            $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`  WHERE Id_utilisateur='$id'");
                             //If at least one result is found, it displays it
                             if (mysqli_num_rows($Pseudo) > 0) {
                                 // Affichage des données de chaque ligne
                                 while ($ligne = mysqli_fetch_assoc($Pseudo)) {
-                                    // echo $ligne["titre"]."\r\n";
+                                    // echo $ligne["Id_utilisateur"]."\r\n";
                                 }
                             }
                         }
