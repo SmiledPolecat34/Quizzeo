@@ -1,50 +1,4 @@
-<?php
-// echo "Coucou";
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
-session_start();
-
-// $_SESSION["pseudutilisateuro"] = $pseudo;
-
-function CreerJoueur (){
-    
-    $choix = $_POST['case'];
-    //var_dump($_POST[$choix]);
-    $mail = $_POST['mail'];
-    $_SESSION["mail"] = $_POST["mail"];
-    echo $mail;
-    $pseudo = $_POST['pseudo'];
-    $datenaissance = $_POST['dateDeNaissance'];
-    $mdp = $_POST['mdp'];
-    if($choix=="quizzeur"){
-        $role = 2;
-        echo ("2");
-    }elseif($choix=="classique"){
-        $role = 1;
-        echo ("1");
-    }
-    if ($role==1){
-        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-        $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
-    }else{
-        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-        $resultat = $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
-    }
-}
-// CreerJoueur();
-
-if(isset($_POST['valider']))
-{
-    CreerJoueur();
-}
-$pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisateuro');
-    $_SESSION['pseudo']=$pseudo;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,3 +70,50 @@ $pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisate
     </footer>
 </body>
 </html>
+<?php
+// echo "Coucou";
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "quizzeo");
+
+session_start();
+
+// $_SESSION["pseudutilisateuro"] = $pseudo;
+
+function CreerJoueur (){
+    
+    $choix = $_POST['case'];
+    //var_dump($_POST[$choix]);
+    $mail = $_POST['mail'];
+    $_SESSION["mail"] = $_POST["mail"];
+    echo $mail;
+    $pseudo = $_POST['pseudo'];
+    $datenaissance = $_POST['dateDeNaissance'];
+    $mdp = $_POST['mdp'];
+    if($choix=="quizzeur"){
+        $role = 2;
+        echo ("2");
+    }elseif($choix=="classique"){
+        $role = 1;
+        echo ("1");
+    }
+    if ($role==1){
+        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
+    }else{
+        //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+        $resultat = $mysqli->query("INSERT INTO `quizzeo`.`utilisateur` (`pseudutilisateuro`, `email`, `motDePasse`, `role`) VALUES ('$pseudo', '$mail', '$mdp', '$role');");
+    }
+}
+// CreerJoueur();
+
+if(isset($_POST['valider']))
+{
+    CreerJoueur();
+}
+$pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisateuro');
+    $_SESSION['pseudo']=$pseudo;
+?>
