@@ -1,4 +1,3 @@
-drop database if exists quizzeo;
 create database if not exists quizzeo;
 use quizzeo;
 CREATE TABLE Utilisateur(

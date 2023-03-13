@@ -1,3 +1,8 @@
+<?php
+// mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+// $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +42,7 @@
                 <video autoplay loop controls src="OnePieceInscription.mp4">
             </div>
         </div>
-        <form action="Inscription.php" method="post">
+        <form action="Connexion.php" method="post">
             <div class="backInscription">
                 <div class ="pageInscription">
                     <div id="Insc">
@@ -61,21 +66,21 @@
                             <label for="mail">
                                 Votre mail:
                             </label>
-                            <input id="mail" type="text" name="mail" placeholder="Adresse mail"/>
+                            <input id="mail" type="mail" name="mail" placeholder="Adresse mail"/>
                         </div>
                         <!-- Date de naissance -->
                         <div class="dateDeNaissance">
                             <label for="dateDeNaissance">
                                 Votre date de naissance:
                             </label>
-                            <input id="dateDeNaissance" type="text" name="dateDeNaissance" placeholder="jj/mm/aaaa"/>
+                            <input id="dateDeNaissance" type="date" name="dateDeNaissance" placeholder="jj/mm/aaaa"/>
                         </div>
                         <!-- Mdp -->
                         <div class="mdp">
                             <label for="pseudo">
                                 Votre mot de passe:
                             </label>
-                            <input id="mdp" type="text" name="mdp"      placeholder="Mot de passe">
+                            <input id="mdp" type="password" name="mdp"      placeholder="Mot de passe">
                         </div>
                         <!-- Valider -->
                         <div class="valider">
@@ -92,8 +97,3 @@
     <!-- <script src="site.js"></script> -->
 </body>
 </html>
-
-<?php
-
-
-?>
