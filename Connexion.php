@@ -62,7 +62,7 @@
                         <p>Designed by Group 2.</p>
                     </div>
                     <div class="song">
-                        <audio src="QuizPrincipal.mp3" controls autoplay loop preload="auto" type="mp3"></audio>
+                        <audio autoplay loop controls src="Test/QuizPrincipal.mp3"></audio>
                     </div>
                 </div>
             </div>

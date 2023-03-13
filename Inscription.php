@@ -35,7 +35,6 @@
             </div>
             <div class="videoOP">
                 <video autoplay loop controls src="OnePieceInscription.mp4">
-                <source src="video.mp4" type="video/mp4">
             </div>
         </div>
         <form action="Inscription.php" method="post">
