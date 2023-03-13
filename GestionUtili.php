@@ -37,6 +37,7 @@
                         $id=$ligne["Id_utilisateur"];
                         echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]." --- "."<a href='modificationUtili.php' type='submit' name='Modifier' value='$id' class='submitmodifier'>Modifier</a>"."<br>";
                         $_SESSION['id']=$id;
+                        // print_r($_SESSION);
                     }
                 }else{
                     echo "0 resultats";

@@ -23,13 +23,15 @@
 
                     // $id=$_SESSION['modif_utili'];
                     // $id=$_POST['Id_utilisateur'];
-                    // $id=$_SESSION['$id'];
-                    $id=12;
+                    $id=$_SESSION["id"];
+                    // $id=12;
                     echo $id;
                     // var_dump($id);
                     function ModifierPseudo($id){
+                        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                            $Pseudo=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur`  WHERE Id_utilisateur='$id'");
+                            $Pseudo=$mysqli->query("SELECT pseudutilisateuro FROM `quizzeo`.`utilisateur` WHERE Id_utilisateur='$id'");
+                            //  print_r($Pseudo);
                             //If at least one result is found, it displays it
                             if (mysqli_num_rows($Pseudo) > 0) {
                                 // Affichage des données de chaque ligne
@@ -41,7 +43,7 @@
                     ?>
                     <label for="pseudo">
                         <?php
-                        echo "Votre pseudo: "/*.$pseudo*/;
+                        echo "Votre pseudo: ".$Pseudo;
                         ?>
                     </label>
                     
@@ -60,7 +62,7 @@
                          $nouveauPseudo=$_POST['pseudo'];
                          $modif_utili=$_SESSION['modif_utili'];
                          $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-                         $mysqli->query("UPDATE `quizzeo`.`quizz` SET `titre` = '$nouveauPseudo' WHERE Id_utilisateur='$id';");
+                         $mysqli->query("UPDATE `quizzeo`.`utilisateur` SET `titre` = '$nouveauPseudo' WHERE Id_utilisateur='$id';");
                          //Refresh the page once
                          header("Refresh:0");
                      } 
