@@ -19,16 +19,28 @@ $mysqli = new mysqli("localhost", "root", "", "quizzeo");
             <div class="leftFont">
                 <div id="title1">
                     <h1>
-                        QUIZ
+                        <a href="Préconnexion.html">
+                            QUIZ
+                        </a>
                     </h1>
                 </div>
             </div>
             <div class="rightFont">
-                <div id="title1">
+                <div id="title2">
                     <h1>
-                        ZEO
+                        <a href="Préconnexion.html">
+                            ZEO
+                        </a>
                     </h1>
                 </div>
+                <div class ="texte">
+                    Tu n'as toujours pas rejoint<br> le monde des quizzeurs ?<br>
+                    Inscris-toi vite !<br>Et rejoins moi<br> pour une grande aventure !
+                </div>
+            </div>
+            <div class="videoOP">
+                <video autoplay loop controls src="OnePieceInscription.mp4">
+                <source src="video.mp4" type="video/mp4">
             </div>
         </div>
         <form action="Connexion.php" method="post">

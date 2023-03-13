@@ -1,3 +1,8 @@
+body{
+    overflow:hidden;
+}
+
+
 .backPart{
     display: flex;
     position: fixed;
@@ -6,7 +11,6 @@
     background-color: rgba(4, 221, 33, 0);
     width: 101%;
     height: 51%;
-
 }
 
 /* PARTIE GAUCHE */
@@ -17,7 +21,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    background-color: #137995;
+    background-color: #4a1ab2aa;
 }
 .rightFont{
     flex-direction: column;
@@ -26,7 +30,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: #4A1AB2;
+    background-color: #137995d2;
+
 }
 
 /* ECRITURE GAUCHE */
@@ -43,14 +48,14 @@
 .bottomLeftFont{
     width: 50%;
     height: 100%;
-    background-color: #137995;
+    background-color: #4a1ab2aa;
     display: flex;
     justify-content: center;
 }
 .bottomRightFont{
     width: 50%;
     height: 100%;
-    background-color: #4A1AB2;
+    background-color: #137995d2;
     display: flex;
     justify-content: center;
 }
@@ -106,3 +111,20 @@
     height: 100px;
     background-color: rgba(248, 248, 248, 0.875);
 }
+
+a{
+    color: #000;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* .imageFont{
+    background-image: url(https://musescore.org/sites/musescore.org/files/ex1_0.png);
+    background-repeat: no-repeat;
+    width: 2000px;
+    height: 1500px;
+    background-color: rgba(165, 42, 42, 0);
+    margin: -900px 0 0 10%;
+    transform: rotate(-25deg);
+} */
