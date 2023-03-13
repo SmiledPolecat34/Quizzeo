@@ -146,7 +146,7 @@ body{
     justify-content: space-around;
 }
 
-@media (max-width:1400px){
+/* @media (max-width:1400px){
     h1{
         font-size: large;
     }
@@ -165,8 +165,13 @@ body{
     .deconnexion{
         font-size: large;
     }
-}
+} */
 
+.boutons{
+    font-size: 300px;
+    width: 200px;
+    height: 200px;
+}
 
 
 

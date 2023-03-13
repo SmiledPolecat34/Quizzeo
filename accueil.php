@@ -3,9 +3,7 @@ session_start();
 
 function Connexion (){
     
-    // $_SESSION['pseudo']=$_POST['pseudo1'];
     $pseudoco = $_SESSION['pseudo'];
-    // $_SESSION['mdp']=$_POST['mdp1'];
     $mdpco = $_SESSION['mdp'];    
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
@@ -38,14 +36,14 @@ function Connexion (){
                         echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
                         echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
                         echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
-                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='creationQuizz.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
                         echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
                         break;
                     case 3 :
                         echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
                         echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
                         echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
-                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
+                        echo "<form action='creationQuizz.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
                         echo "<form action='GestionUtili.php'><input type='submit' name='GestionUtili' value='GestionUtili' ></form>";
                         echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
                         break;

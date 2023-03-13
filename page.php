@@ -29,24 +29,24 @@ function Connexion (){
                 // echo $role;
                 switch($role){
                     case 1:
-                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
-                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
-                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' class='boutons'></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' class='boutons'></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' class='boutons'></form>";
                         break;
                     case 2 :
-                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
-                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
-                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
-                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
-                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' class='boutons'></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' class='boutons'></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' class='boutons'></form>";
+                        echo "<form action='creationQuizz.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' class='boutons'></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' class='boutons'></form>";
                         break;
                     case 3 :
-                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' ></form>";
-                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' ></form>";
-                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' ></form>";
-                        echo "<form action='creationQuizz.php.php'><input type='submit' name='CreerQuizz' value='CreerQuizz' ></form>";
-                        echo "<form action='GestionUtili.php'><input type='submit' name='GestionUtili' value='GestionUtili' ></form>";
-                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' ></form>";
+                        echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' class='boutons'></form>";
+                        echo "<form action='pageQuizz.php'><input type='submit' name='Quizz' value='Quizz' class='boutons'></form>";
+                        echo "<form action='MesQuizz.php'><input type='submit' name='MesQuizz' value='MesQuizz' class='boutons'></form>";
+                        echo "<form action='creationQuizz.php><input type='submit' name='CreerQuizz' value='CreerQuizz' class='boutons'></form>";
+                        echo "<form action='GestionUtili.php'><input type='submit' name='GestionUtili' value='GestionUtili' class='boutons'></form>";
+                        echo "<form action='Préconnexion.html'><input type='submit' name='Deconnexion' value='Deconnexion' class='boutons'></form>";
                         break;
                 }
                 
