@@ -1,40 +1,5 @@
-const quizData = [
-    {
-        question: "Quel âge a Franklin ?",
-        a: "18 ans",
-        b: "19 ans",
-        c: "20 ans",
-        d: "21 ans",
-        correct: "b",
-    },
-    {
-        question: "Quel âge a Morgane ?",
-        a: "18 ans",
-        b: "19 ans",
-        c: "20 ans",
-        d: "21 ans",
-        correct: "c",
-    },
-    {
-        question: "Quel âge a Sophie ?",
-        a: "18 ans",
-        b: "19 ans",
-        c: "20 ans",
-        d: "21 ans",
-        correct: "a",
-    },
-    {
-        question: "Comment s'écrit mon prénom ?",
-        a: "Franklin",
-        b: "Francklin",
-        c: "Franclin",
-        d: "Frankclin",
-        correct: "a",
-    },
-];
-nombre=parseInt(document.getElementById('variable a passer').innerText)+1
+const quizData= parseInt(document.getElementById('variable a passer').innerText)+1;
 document.getElementById('variable a passer').innerText="";
-
 const quiz=document.getElementById("quiz");
 const reponseEls=document.querySelectorAll(".reponse");
 const questionEl=document.getElementById("question");
@@ -46,6 +11,8 @@ const submtBtn=document.getElementById("submit");
 
 let currentQuiz=0;
 let score=0;
+const a=document.getElementById('a')
+a.innerHTML="4";
 
 loadQuiz();
 
