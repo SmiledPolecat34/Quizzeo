@@ -1,0 +1,274 @@
+.allText:hover{
+    color:bisque;
+}
+.allText:hover > .salut{
+    margin-left: 28px;
+    scale: 1.03;
+}
+
+.allText{
+    font-size: 40px;
+}
+
+.retourProfil:hover{
+    scale: 1.5;
+    background-color: #b21a45;
+}
+body{
+    /* background-image: url(https://static.thenounproject.com/png/3993694-200.png);
+    background-size: 1px; */
+    
+    /* ///////// */
+    /* ///////// */
+    /* ///////// */
+    
+    /* background-image: url(https://www.freeiconspng.com/thumbs/triangle-png/black-and-white-triangle-png-13.png);
+    background-size: 1px; */
+    
+    /* ///////// */
+    /* ///////// */
+    /* ///////// */
+    
+    /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Regular_hexagon.svg/2048px-Regular_hexagon.svg.png);
+    background-size: 22px; */
+    
+    /* ///////// */
+    
+    /* background-image: url(https://cdn.pixabay.com/photo/2017/07/21/13/42/octagon-2525760_960_720.png);
+    background-size: .05px; */
+    
+    /* ///////// */
+    
+    background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 17px;
+    
+    /* ///////// */
+    
+    /* background-image: url(https://stock.wikimini.org/w/images/9/9a/Polygone-Octogone.png);
+    background-size: 12px; */
+    
+    /* ///////// */
+    background-repeat: repeat;
+    background-color: #137995;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sassy+Frass&display=swap');
+.dedicace{
+    font-family: 'Sassy Frass', cursive;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 990px;
+    margin-left: 1390px;
+    overflow: hidden;
+}
+
+
+#container{
+    position: relative;
+    margin-top: -.6em;
+    width: 101em;
+    height: 64em;
+    background-color: #4A1AB2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: .7%;
+}
+
+
+
+h1{
+    font-size: 45px;
+    transition: all 3s;
+}
+h1:hover{
+    scale: 1.1;
+    color: antiquewhite;
+}
+
+
+
+h2{
+    font-size: 30px;
+}
+
+
+
+.retourProfil{
+    /* margin: 650px 0 0 -40px; */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 120px;
+    background-color: #8fb21a;
+    border-radius: 8%;
+    transition: all .5s;
+}
+a {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor:pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    border-radius: 0.3rem;
+}
+
+a:hover {
+    background-color: #137995;
+    color: #000;
+}
+
+a:focus{
+    /* To return to the lastet color */
+    outline: none;
+    /* To change the button's color */
+    background-color: green;
+}
+
+
+.rubriqueMenu{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    margin: 96px 0 0 -2310px;
+    /* margin: 195.5px 0 0 -1000px; */
+    /* margin-top: 300px; */
+    width: 800px;
+    height: 820px;
+    background-color: #137995a5;
+    transition: all 1.5s;
+    border-radius: .3%;
+    font-size: 60px;
+}
+.rubriqueMenu:hover{
+margin: 195.5px 0 0 -1100px;
+/* background-color: #b21a45; */
+background-color: #4a1ab27f;
+height: 100vh;
+
+}
+
+
+.rubriqueMenu:hover > .retourProfil{
+    margin: 650px 0 0 240px;
+    transition: all ease-out .5s;
+    scale: .95;
+    /* background-color: #137995; */
+    color: whitesmoke;
+}
+
+.rubriqueMenu:hover > .rubriqueScore{
+    margin: -5px 0 0 700px;
+    font-size: 40px;
+    background-color: #8fb21a;
+}
+
+
+
+.rubriqueScore{
+    position: fixed;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 195.5px 0 0 1250px;
+    width: 500px;
+    height: 600px;
+    background-color: #137995;
+    border-radius: 20%;
+    transition: all 2s;
+}
+
+
+
+.statistiques{
+    position: fixed;
+    transition: all 2s;
+    margin-top: 6em;
+    background-color: #8fb21a;
+    background-image: none;
+    width: 85.3%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statistiques:hover{
+    background-color: #137995;
+    color: whitesmoke;
+}
+
+
+
+#title1{
+    position: fixed;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title1:hover{
+    color: rgb(13, 75, 162);
+    font-size: 38px;
+}
+
+@media screen and (min-width:1px) and (max-width: 1000px) {
+    #container{
+        width: 70em;
+        height: 100vh;
+        overflow-inline: visible;
+    }
+    .allText{
+        margin: auto 4vh auto auto;
+        display: flex;
+        justify-content: flex-end;
+        /* overflow: auto; */
+        /* font-size: 30px; */
+    }
+    .salut{
+        overflow-inline: visible;
+        font-size: auto;
+    }
+    .rubriqueMenu:hover{
+        width: 630px;
+        height: 100vh;
+        font-size: 30px;
+        background-color: #3b0ca17f;
+        margin-left: -670px;
+        color: antiquewhite;
+        overflow-inline: visible;
+    }
+    .rubriqueScore{
+        margin-left: 1320px;
+        width: 450px;
+        height: 500px;
+        /* background-color: aqua; */
+        border-radius: 20%;
+        transition: all 2s;
+        overflow-inline: visible;
+    }
+    .rubriqueMenu:hover > .rubriqueScore{
+        margin: -5px 0 0 560px;
+        font-size: 20px;
+        background-color: #8fb21a;
+        overflow-inline: visible;
+    }
+    .retourProfil{
+        width: 90px;
+        height: 45px;
+        font-size: 20px;
+        background-color: #8fb21a;
+        border-radius: 8%;
+        transition: all .5s;
+        overflow-inline: visible;
+    }
+}

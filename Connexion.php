@@ -1,3 +1,77 @@
+<!-- <?php      
+//   header('Location: <ital>mapage.php</ital>');      
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='MainConnexion.css'>
+    <title>QUIZZEO - connexion</title>
+</head>
+
+<body>
+    <header>
+        <div class ="backPart">       
+            <div class="leftFont">
+                <div id="title1">
+                    <h1>
+                        <a href="Préconnexion.html">
+                            QUIZ
+                        </a>
+                    </h1>
+                </div>
+            </div>
+            <div class="rightFont">
+                <div id="title2">
+                    <h1>
+                        <a href="Préconnexion.html">
+                            ZEO
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <form action="Connexion.php" method="post">
+            <div class="backConnexion">
+                <div class ="pageConnexion">
+                    <h3>Veuillez entrer vos identifiants pour vous connecter.
+                    </h3>
+                    <div id="Insc">
+                        <!-- Pseudo -->
+                        <div class="pseudo">
+                            <label for="pseudo">
+                                Votre pseudo:
+                            </label>
+                            <input id="pseudo" type="text" name="pseudo" placeholder="Pseudo"/>
+                        </div>
+                        <!-- Mdp -->
+                        <div class="mdp">
+                            <label for="pseudo">
+                                Votre mot de passe:
+                            </label>
+                            <input id="mdp" type="password" name="mdp" placeholder="Mot de passe"/>
+                        </div>
+                        <!-- Valider -->
+                        <div class="connexion">
+                            <input type="submit" name="connexion" value="Connexion" />
+                        </div>
+                    </div>
+                    <div class="dedicace">
+                        <p>Designed by Group 2.</p>
+                    </div>
+                    <div class="song">
+                        <audio src="QuizPrincipal.mp3" controls autoplay loop preload="auto" type="mp3"></audio>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </header>
+    <footer>
+    </footer>
+</body>
+</html>
 <?php
 // echo "Coucou";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -37,72 +111,3 @@ if(isset($_POST['valider']))
 }
 $pseudo = $mysqli->query('SELECT * FROM quizzeo.utilisateur WHERE pseudutilisateuro');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' media='screen' href='MainConnexion.css'>
-    <title>QUIZZEO - connexion</title>
-</head>
-
-<body>
-    <header>
-        <div class ="backPart">       
-            <div class="leftFont">
-                <div id="title1">
-                    <h1>
-                        QUIZ
-                    </h1>
-                </div>
-            </div>
-            <div class="rightFont">
-                <div id="title1">
-                    <h1>
-                        ZEO
-                    </h1>
-                </div>
-            </div>
-        </div>
-       
-            <div class="backConnexion">
-                <div class ="pageConnexion">
-                    <h3>Veuillez entrer vos identifiants pour vous connecter.
-                    </h3>
-                    <form class="form" action="page.php" method="post">
-                        <!-- Pseudo -->
-                    <div id="Insc" class="pseudo">
-                        <label for="pseudo">
-                            Votre pseudo:
-                        </label>
-                        <input id="pseudo1" type="text" name="pseudo1" placeholder="Pseudo" required=""/>
-                    </div>
-                    <!-- Mdp -->
-                    <div id="Insc" class="mdp">
-                        <label for="pseudo">
-                            Votre mot de passe:
-                        </label>
-                        <input id="mdp1" type="password" name="mdp1" placeholder="Mot de passe" required=""/>
-                    </div>
-                    <!-- Valider -->
-                        <!-- <div id="Insc" class="connexion">
-                            <a href="page.html">Connexion</a>
-                        </div> -->
-                        <input type="submit" name="submit" value="Connexion" class="submitconnexion">
-                    </form>
-                </div>
-            </div>
-        
-    </header>
-    <section>
-        <article>
-            
-        </article>
-    </section>
-    <footer>
-<!-- C'est moi copyright -->
-    </footer>
-    <script src="Connexion.js"></script>
-</body>
-</html>
