@@ -1,0 +1,130 @@
+body{
+    overflow:hidden;
+}
+
+
+.backPart{
+    display: flex;
+    position: fixed;
+    flex-flow: row wrap;
+    margin: -1% 0 0 -1%;
+    background-color: rgba(4, 221, 33, 0);
+    width: 101%;
+    height: 51%;
+}
+
+/* PARTIE GAUCHE */
+.leftFont{
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #4a1ab2aa;
+}
+.rightFont{
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #137995d2;
+
+}
+
+/* ECRITURE GAUCHE */
+#title1{
+    color: white;
+    font-size: 38px;
+}
+#title1:hover{
+    margin-top: 120px;
+    transform: scale(1.2);
+    color: black;
+    transition: all .5s 10ms ease-in;
+}
+.bottomLeftFont{
+    width: 50%;
+    height: 100%;
+    background-color: #4a1ab2aa;
+    display: flex;
+    justify-content: center;
+}
+.bottomRightFont{
+    width: 50%;
+    height: 100%;
+    background-color: #137995d2;
+    display: flex;
+    justify-content: center;
+}
+.b{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 70px;
+    background-color: rgb(126, 154, 214);
+    font-size: 30px;
+    border-radius: 10%;
+}
+.b:hover{
+    color: rgb(0, 0, 0);
+    transition: all .1s 1ms ease-in;
+    transform: scale(1.5);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ECRITURE DROITE */
+#title2{
+    color: white;
+    font-size: 38px;
+}
+#title2:hover{
+    margin-top: 120px;
+    transform: scale(1.2);
+    transition: all .5s 5ms ease-in;
+    color: black;
+}
+
+.backInscription{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: flex-start;
+    color: #4A1AB2;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 350px 0 0 0;
+    width: 101%;
+    height: 50%;
+}
+
+#Insc{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    width: 650px;
+    height: 100px;
+    background-color: rgba(248, 248, 248, 0.875);
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* .imageFont{
+    background-image: url(https://musescore.org/sites/musescore.org/files/ex1_0.png);
+    background-repeat: no-repeat;
+    width: 2000px;
+    height: 1500px;
+    background-color: rgba(165, 42, 42, 0);
+    margin: -900px 0 0 10%;
+    transform: rotate(-25deg);
+} */
