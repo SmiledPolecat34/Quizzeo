@@ -62,8 +62,6 @@
                 Difficulté du quizz :            
             </label>
             <?php
-            $pseudoco="Tom";
-            $mdpco="jesuisquizzeur";
             function ModifierQuizzNiveau($pseudoco,$mdpco,$idQuizz){
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                 //Database search 
@@ -109,8 +107,6 @@
                 Catégorie du quizz :
             </label>
             <?php
-                        $pseudoco="Tom";
-                        $mdpco="jesuisquizzeur";
                         function ModifierQuizzCategorie($pseudoco,$mdpco,$idQuizz){
                             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                                 $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` WHERE Id_quizz='$idQuizz'");

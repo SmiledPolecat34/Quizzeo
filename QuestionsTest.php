@@ -14,8 +14,8 @@
         <form action="QuestionsTest.php" method="post">
             <?php
             session_start();
-            $_SESSION['idQuizz']=4;
-                $idQuizz=$_SESSION['idQuizz'];
+                $idQuizz=$_SESSION['idarecup'];
+                var_dump($_SESSION);
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                 $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz';");                
                 if($_SESSION['i']==null){
@@ -45,7 +45,6 @@
             
                     
                     <?php
-                    $idQuizz=4;
                     //Display of choice a thanks to the database
                     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz';");
@@ -72,7 +71,6 @@
                 <li>
                     
                     <?php
-                    $idQuizz=4;
                     //Display of choice 2 thanks to the database
                     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz';");
@@ -95,7 +93,6 @@
 
                 </li>
                 <?php
-                    $idQuizz=4;
                     //Display of choice 3 thanks to the database
                     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                     $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz';");
@@ -116,7 +113,6 @@
                 <li>
                     <?php
                                  
-                $idQuizz=4;
                 //Display of choice 4 thanks to the database
                   $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                   $Quizz=$mysqli->query("SELECT * FROM `quizzeo`.`question` WHERE Id_quizz='$idQuizz';");

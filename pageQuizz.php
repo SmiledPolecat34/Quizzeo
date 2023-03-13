@@ -23,24 +23,35 @@
         </div>
         <?php
         session_start();
-if(isset($_POST["bouton_sport"])){
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='sport'");
-    $a=array();
-    while ($ligne = mysqli_fetch_assoc($resultat)) {
-     $id_quiz = $ligne["Id_quizz"];
-     $titre_quiz = $ligne["titre"];
-     $categorie= $ligne["categorie"];
-     $datecreation=$ligne["date_creation"];
-     echo "<form method='post'>";
-     echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
-     echo "<input type='submit' name='submit' value='Jouer le quiz \"$titre_quiz\"'>";
-     echo  "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation.""."\r\n";
-     echo "</form>";
-     echo $id_quiz;
-   }
- }
+            $a=array();
+                if(isset($_POST["bouton_sport"])){
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='sport'");
+                    $h=array();
+                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                        $id_quiz = $ligne["Id_quizz"];
+                        $titre_quiz = $ligne["titre"];
+                        $categorie= $ligne["categorie"];
+                        $datecreation=$ligne["date_creation"];
+                        echo "<form action='QuestionsTest.php' method='post'>";
+                        echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
+                        echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
+                        echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
+                        echo "</form>";
+                        echo "$id_quiz";
+                        array_push($h,$id_quiz);
+                    } 
+                }
+            if(isset($_POST["jouer"])){
+                if($id_quiz = $_POST["id_quiz"]){
+                    echo "ça marche pour le quiz $id_quiz";
+                    header("Location: http://localhost/Quizzeo/QuestionsTest.php?id_quiz=$id_quiz");
+                }else{
+                    echo "ça ne marche pas";
+                }
+            }
+ 
         ?>
         <div class="musique">
             <center><h2>Musique</h2>
@@ -48,24 +59,35 @@ if(isset($_POST["bouton_sport"])){
             <button type="submit" name="bouton_musique" value="musique"></button>
         </div>
         <?php
-if(isset($_POST["bouton_musique"])){
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='musique'");
-    $a=array();
-    while ($ligne = mysqli_fetch_assoc($resultat)) {
-     $id_quiz = $ligne["Id_quizz"];
-     $titre_quiz = $ligne["titre"];
-     $categorie= $ligne["categorie"];
-     $datecreation=$ligne["date_creation"];
-     echo "<form method='post'>";
-     echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
-     echo "<input type='submit' name='submit' value='Jouer le quiz \"$titre_quiz\"'>";
-     echo  "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation.""."\r\n";
-     echo "</form>";
-     echo $id_quiz;
-   }
- }
+            $a=array();
+                if(isset($_POST["bouton_musique"])){
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='musique'");
+                    $j=array();
+                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                        $id_quiz = $ligne["Id_quizz"];
+                        $titre_quiz = $ligne["titre"];
+                        $categorie= $ligne["categorie"];
+                        $datecreation=$ligne["date_creation"];
+                        echo "<form action='QuestionsTest.php' method='post'>";
+                        echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
+                        echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
+                        echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
+                        echo "</form>";
+                        echo "$id_quiz";
+                        array_push($j,$id_quiz);
+                    } 
+                }
+            if(isset($_POST["jouer"])){
+                if($id_quiz = $_POST["id_quiz"]){
+                    echo "ça marche pour le quiz $id_quiz";
+                    header("Location: http://localhost/Quizzeo/QuestionsTest.php?id_quiz=$id_quiz");
+                }else{
+                    echo "ça ne marche pas";
+                }
+            }
+ 
         ?>
         <div class="cinema">
             <center><h2>Cinéma</h2>
@@ -73,24 +95,35 @@ if(isset($_POST["bouton_musique"])){
             <button type="submit" name="bouton_cinema" value="cinema"></button>
         </div>
         <?php
-if(isset($_POST["bouton_cinema"])){
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-     $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='cinema'");
-    $a=array();
-    while ($ligne = mysqli_fetch_assoc($resultat)) {
-     $id_quiz = $ligne["Id_quizz"];
-     $titre_quiz = $ligne["titre"];
-     $categorie= $ligne["categorie"];
-     $datecreation=$ligne["date_creation"];
-     echo "<form method='post'>";
-     echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
-     echo "<input type='submit' name='submit' value='Jouer le quiz \"$titre_quiz\"'>";
-     echo  "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation.""."\r\n";
-     echo "</form>";
-     echo $id_quiz;
-   }
- }  
+            $a=array();
+                if(isset($_POST["bouton_cinema"])){
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='cinema'");
+                    $k=array();
+                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                        $id_quiz = $ligne["Id_quizz"];
+                        $titre_quiz = $ligne["titre"];
+                        $categorie= $ligne["categorie"];
+                        $datecreation=$ligne["date_creation"];
+                        echo "<form action='QuestionsTest.php' method='post'>";
+                        echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
+                        echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
+                        echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
+                        echo "</form>";
+                        echo "$id_quiz";
+                        array_push($k,$id_quiz);
+                    } 
+                }
+            if(isset($_POST["jouer"])){
+                if($id_quiz = $_POST["id_quiz"]){
+                    echo "ça marche pour le quiz $id_quiz";
+                    header("Location: http://localhost/Quizzeo/QuestionsTest.php?id_quiz=$id_quiz");
+                }else{
+                    echo "ça ne marche pas";
+                }
+            }
+ 
         ?>
         <div class="culture_generale">
             <center><h2>Culture générale</h2>
@@ -99,24 +132,35 @@ if(isset($_POST["bouton_cinema"])){
 
         </div>
         <?php
-        if(isset($_POST["bouton_culture_generale"])){
-            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
-            $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='culture_generale'");
             $a=array();
-            while ($ligne = mysqli_fetch_assoc($resultat)) {
-             $id_quiz = $ligne["Id_quizz"];
-             $titre_quiz = $ligne["titre"];
-             $categorie= $ligne["categorie"];
-             $datecreation=$ligne["date_creation"];
-             echo "<form method='post'>";
-             echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
-             echo "<input type='submit' name='submit' value='Jouer le quiz \"$titre_quiz\"'>";
-             echo  "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation.""."\r\n";
-             echo "</form>";
-             echo $id_quiz;
-           }
-         }  
+                if(isset($_POST["bouton_culture_generale"])){
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='culture_generale'");
+                    $l=array();
+                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                        $id_quiz = $ligne["Id_quizz"];
+                        $titre_quiz = $ligne["titre"];
+                        $categorie= $ligne["categorie"];
+                        $datecreation=$ligne["date_creation"];
+                        echo "<form action='QuestionsTest.php' method='post'>";
+                        echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
+                        echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
+                        echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
+                        echo "</form>";
+                        echo "$id_quiz";
+                        array_push($l,$id_quiz);
+                    } 
+                }
+            if(isset($_POST["jouer"])){
+                if($id_quiz = $_POST["id_quiz"]){
+                    echo "ça marche pour le quiz $id_quiz";
+                    header("Location: http://localhost/Quizzeo/QuestionsTest.php?id_quiz=$id_quiz");
+                }else{
+                    echo "ça ne marche pas";
+                }
+            }
+ 
         ?>
         <div class="hist_geo">
             <center><h2>Histoire-Géographie</h2>
@@ -124,29 +168,68 @@ if(isset($_POST["bouton_cinema"])){
             <button type="submit" name="bouton_hist_geo" value="hist_geo"></button>
         </div>
         <?php
+        $a=array();
         if(isset($_POST["bouton_hist_geo"])){
            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $mysqli = new mysqli("localhost", "root", "", "quizzeo");
            $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where categorie='hist_geo'");
-           $a=array();
-           $h=array();
-           $i=1;
-           while ($ligne = mysqli_fetch_assoc($resultat)) {
-            $id_quiz = $ligne["Id_quizz"];
-            $titre_quiz = $ligne["titre"];
-            $categorie= $ligne["categorie"];
-            $datecreation=$ligne["date_creation"];
-            echo "<form method='post'>";
-            echo "<input type='hidden' name='id_quiz' value='$id_quiz'>";
-            echo "<input type='submit' name='submit' value='Jouer le quizz \"$titre_quiz\"'>";
-            echo  "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation.""."\r\n";
-            echo "</form>";
-            echo $id_quiz;
-            header("Location: http://localhost/Quizzeo/QuestionsTest.php");
+         $m=array();
+    while ($ligne = mysqli_fetch_assoc($resultat)) {
+        $id_quiz = $ligne["Id_quizz"];
+        $titre_quiz = $ligne["titre"];
+        $categorie= $ligne["categorie"];
+        $datecreation=$ligne["date_creation"];
+        echo "<form action='QuestionsTest.php' method='post'>";
+        echo "<input type='hidden' name='$id_quiz' value='$id_quiz'>";
+        echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
+        echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
+        echo "</form>";
+        echo "$id_quiz";
+        array_push($m,$id_quiz);
+        
+        } 
+    }
+//     if(isset($_POST["jouer"])){
+//         if($_POST["id_quiz"]=$id_quiz){
+//             echo "ça marche pour le quiz $id_quiz";
+//             header("Location: http://localhost/Quizzeo/QuestionsTest.php?id_quiz=$id_quiz");
+//             $_SESSION['id_Quizz']=$id_quiz;
+//         }else{
+//             echo "ça ne marche pas";
+//         }
+// }
 
-        }
-            
-        }
+
+?>
+                        <div id="Crea" >
+                                <label for="nom_Quizz">
+                                    Entrez un nom pour le Quizz:
+                                </label>
+                                <input id="nom_Quizz" class="case" type="text" name="nom_Quizz" placeholder="Nom du quizz"/>
+                                </div>
+                                <input type="submit" name="jouer_quizz" value="Modifier le nom" class="submitconnexion">
+                                <br>
+                            <?php
+                            //When the button is clicked
+                                if(isset($_POST["jouer_quizz"])){
+                                    //Retrieves the name of the quiz and will select it in the database
+                                    $idQuizz=$_POST['nom_Quizz'];
+                                    $_SESSION['idarecup']=$idQuizz;
+                                    $mysqli = new mysqli("localhost", "root", "", "quizzeo");
+                                    $resultat=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where Id_quizz=$idQuizz");
+                                    $_SESSION['idarecup']=$idQuizz;
+                                    header("Location: http://localhost/Quizzeo/QuestionsTest.php");
+
+                                } 
+                                
+            ?>   
+        </div>
+        <?php
+
+
+
+
+
         $_SESSION['i']=null;        
         ?>
     </div>
