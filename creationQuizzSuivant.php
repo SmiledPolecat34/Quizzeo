@@ -12,7 +12,7 @@
         <h1>Quizzeo</h1>
     </header>
     <div class="organisation">
-        <form action="accueil.php" method="post">
+        <form action="creationQuizzSuivant.php" method="post">
         <div id="Crea">
             <label for="question">
                 Question :
@@ -49,7 +49,9 @@
             <?php
             session_start();
             //Retrieves quiz id
-            $nomQuizz=$_SESSION['idQuizz'];
+            $nomQuizz=$_SESSION['titre'];
+            $categorieQuest=$_SESSION['categorie'];
+            $dateCreation=$_SESSION['date'];
             //Adding a question in database
             function NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation){
                 $intituleQuestion = $_POST['question'];
@@ -63,6 +65,7 @@
                 $idQuizz=$mysqli->query("SELECT * FROM `quizzeo`.`quizz` where titre='$nomQuizz' AND categorie='$categorieQuest' AND date_creation='$dateCreation';");
                 $user = mysqli_fetch_array($idQuizz);
                 $id_quizz = $user["Id_quizz"];
+                $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                 $mysqli->query("INSERT INTO `quizzeo`.`question` (`intituleQuestion`, `choix_1`, `choix_2`, `choix_3`, `choix_4`, `reponse`, `Id_quizz`) VALUES ('$intituleQuestion', '$choix_1', '$choix_2', '$choix_3', '$choix_4','$reponse', '$id_quizz');");
             }
          function Question($nomQuizz,$categorieQuest,$dateCreation){
@@ -70,20 +73,18 @@
                 if(isset($_POST["question_suivante"])){
                     NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
                     header("Location: http://localhost/Quizzeo/creationQuizzSuivant.php");
-                }
-                //Stop adding questions
-                if(isset($_POST["stop_question"])){
-                    NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
-                    header("Location: http://localhost/Quizzeo/Inscription.html");
-                }  
-                
+                }     
         }
         
         //Launches the function
-        while (isset($_POST["question_suivante"])){
+        if (isset($_POST["question_suivante"])){
             Question($nomQuizz,$categorieQuest,$dateCreation);
         }
-            
+        //Stop adding questions
+        elseif(isset($_POST["stop_question"])){
+            NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
+            header("Location: http://localhost/Quizzeo/accueil.php");
+        }   
         
             ?>
         </div>

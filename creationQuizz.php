@@ -61,6 +61,9 @@
                 $quizz=$mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$categorieQuest','$id_utilisateur');");
                 $idQuizz = mysqli_insert_id($mysqli);
                 $_SESSION['idQuizz']=$idQuizz;
+                $_SESSION['categorie']=$categorieQuest;
+                $_SESSION['date']=$dateCreation;
+                $_SESSION['titre']=$nomQuizz;
             }
         ?>
     </div>
