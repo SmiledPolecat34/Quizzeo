@@ -2,19 +2,21 @@
 session_start();
 function Connexion (){
     
+    //Recovery of data entered by the user
     $_SESSION['pseudo']=$_POST['pseudo1'];
     $pseudoco = $_SESSION['pseudo'];
     $_SESSION['mdp']=$_POST['mdp1'];
-    $mdpco = $_SESSION['mdp'];    
+    $mdpco = $_SESSION['mdp'];
+        //Connection to the database
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
         $resultat=$mysqli->query("SELECT * FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
 
        
-        
-        
+        //Logged-in user data retrieval
         if (mysqli_num_rows($resultat) > 0) {
             while ($ligne = mysqli_fetch_assoc($resultat)) {
+                //user display
                 // echo "- Id : " . $ligne["Id_utilisateur"]." - nom : " . $ligne["pseudutilisateuro"]." - role : " .$ligne["role"];
                 $mail=$mysqli->query("SELECT email FROM quizzeo.utilisateur where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 $row=mysqli_fetch_assoc($mail);
@@ -27,6 +29,7 @@ function Connexion (){
 
                 $role=$ligne["role"];
                 // echo $role;
+                //System for managing access rights to the platform according to the role of the user
                 switch($role){
                     case 1:
                         echo "<form action='pageProfil2.php'><input type='submit' name='Profil' value='Profil' class='boutons'></form>";
