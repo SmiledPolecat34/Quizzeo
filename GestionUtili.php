@@ -54,10 +54,11 @@
             AfficherProfil();
 
             //If the "Supprimer"'s button is clicked, the user is deleted of the database 
-            if(isset($_POST["Supprimer"])){
+            if(isset($_POST["supprimer"])){
                 $supp_utili=$_POST["supp1"];
                 $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
                 $Supprimer = $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$supp_utili';");
+                header("Location:http://localhost/Quizzeo/GestionUtili.php");
                 header("Refresh:0");
             }
 
@@ -95,7 +96,8 @@
             </label>
             <input id="supp1" type="text" name="supp1" placeholder="Id de l'utilisateur" />
         </div>
-        <input type='submit' name='Supprimer' value='Supprimer' class="submitsupprimer">
+        <input type='submit' name='supprimer' value='Supprimer' class="submitsupprimer">
+        <!-- <a href="GestionUtili.php" type="submit" name="supprimer" value="Supprimer">Supprimer</a> -->
         <br>
         <form action="AjoutUtili.php">
             <input type='submit' name='Ajouter' value='Ajouter' class="submitajouter">
