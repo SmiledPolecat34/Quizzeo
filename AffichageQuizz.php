@@ -14,7 +14,7 @@
         <h1>Quizzeo</h1>
     </header>
     <div class="question">
-        <p class="questions">Question n°
+        <p class="questions">Question nÂ°
         <?php
         $idQuizz=4;
         $mysqli = new mysqli("localhost", "root", "", "quizzeo");
