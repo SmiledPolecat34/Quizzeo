@@ -39,7 +39,7 @@
                         echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
                         echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
                         echo "</form>";
-                        echo "$id_quiz";
+                        echo "Id : $id_quiz";
                         array_push($h,$id_quiz);
                     } 
                 }
@@ -75,7 +75,7 @@
                         echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
                         echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
                         echo "</form>";
-                        echo "$id_quiz";
+                        echo "Id : $id_quiz";
                         array_push($j,$id_quiz);
                     } 
                 }
@@ -111,7 +111,7 @@
                         echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
                         echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
                         echo "</form>";
-                        echo "$id_quiz";
+                        echo "Id : $id_quiz";
                         array_push($k,$id_quiz);
                     } 
                 }
@@ -148,7 +148,7 @@
                         echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
                         echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
                         echo "</form>";
-                        echo "$id_quiz";
+                        echo "Id : $id_quiz";
                         array_push($l,$id_quiz);
                     } 
                 }
@@ -184,7 +184,7 @@
         echo "<input type='submit' name='jouer' value='Jouer le quizz \"$titre_quiz\"'>";
         echo "Titre : ".$titre_quiz." Catégorie : ".$categorie." Date de création : ".$datecreation."\r\n";
         echo "</form>";
-        echo "$id_quiz";
+        echo "Id : $id_quiz";
         array_push($m,$id_quiz);
         
         } 
