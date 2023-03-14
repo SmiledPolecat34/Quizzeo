@@ -50,6 +50,8 @@
             <?php
             session_start();
             $nomQuizz=$_SESSION['idQuizz'];
+            
+            //Function permit us to create new question, the answers and choices of quizz
             function NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation){
                 $intituleQuestion = $_POST['question'];
                 $choix_1 = $_POST['choix1'];

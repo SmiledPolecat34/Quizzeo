@@ -43,15 +43,20 @@
             </select>
         </div>
         <?php
+        //Function to start a session
         session_start();
+
+        //Take pseudo and password of the user
         $pseudoco=$_SESSION['pseudo'];
         $mdpco=$_SESSION['mdp'];
         function NouveauQuizz($pseudoco,$mdpco){
+            //Take the informations of user 
             $nomQuizz = $_POST['nom_Quizz'];
             $niveauQuest=$_POST['niveau'];
             $categorieQuest=$_POST['categorie'];
             $dateCreation=date('y-m-d');
         
+            //Connection to the database and insert the informations of the user and the quizz
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                 $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
@@ -66,11 +71,6 @@
     </div>
     <input type="submit" name="submit" value="Suivant" class="submit-suivant">
     
-    <!-- <div class="bouton">
-        <div class="suivant">
-            <a href="Question.php">Suivant</a>
-        </div>
-    </div> -->
 </form> 
     <script src="CreerQuizz.js"></script> 
 </body>
