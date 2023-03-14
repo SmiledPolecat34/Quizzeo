@@ -6,6 +6,7 @@
     $pseudo = $_SESSION['pseudo'];
     $mail=$_SESSION['mail'];
 
+    //Function that permit us to display the profil of the player 
 function AfficherProfil($pseudo,$mail){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
