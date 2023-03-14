@@ -35,11 +35,9 @@
                 if (mysqli_num_rows($Profil) > 0){
                     while ($ligne = mysqli_fetch_assoc($Profil)){
                         $id=$ligne["Id_utilisateur"];
-                        // echo "<form action='modificationUtili.php' method='post'>";
+                       
                         echo "- Id : " . $ligne["Id_utilisateur"]." --- pseudo : " . $ligne["pseudutilisateuro"]." --- Email : ".$ligne["email"]."<br>";
-                        // $_SESSION['id']=$id;
-                        // // print_r($_SESSION);
-                        // echo "</form>";
+                        
                         ?>
                         <form action='modificationUtili.php' method='post'>
                             <?php
@@ -63,12 +61,12 @@
                 header("Refresh:0");
             }
 
-            if(isset($_POST["Modifier"])){
-                $modif_utili=$_POST["modif1"];
-                $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-                $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
-                // header("Refresh:0");
-            }
+            // if(isset($_POST["Modifier"])){
+            //     $modif_utili=$_POST["modif1"];
+            //     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
+            //     $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
+            //     // header("Refresh:0");
+            // }
 
 
         ?>
