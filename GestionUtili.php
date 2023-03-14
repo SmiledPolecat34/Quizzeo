@@ -54,42 +54,22 @@
             AfficherProfil();
 
             //If the "Supprimer"'s button is clicked, the user is deleted of the database 
+            
             if(isset($_POST["supprimer"])){
                 $supp_utili=$_POST["supp1"];
+                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                 $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
                 $Supprimer = $mysqli->query("DELETE FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$supp_utili';");
-                header("Location:http://localhost/Quizzeo/GestionUtili.php");
+                // header("Location: GestionUtili.php");
                 header("Refresh:0");
             }
-
-            // if(isset($_POST["Modifier"])){
-            //     $modif_utili=$_POST["modif1"];
-            //     $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
-            //     $Modifier =$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` WHERE `Id_utilisateur` = '$modif_utili';");
-            //     // header("Refresh:0");
-            // }
 
 
         ?>
     </h2>
     <div class="action">
-    <!-- <form action="modificationUtili.php" method="post"> -->
-            <!-- <div id="modifier">
-                <label for="modif1">
-                    Quel utilisateur voulez-vous modifier ?
-                </label>
-                <input id="modif1" type="text" name="modif1" placeholder="Id de l'utilisateur" />
-            </div> -->
-            <!-- <div class="modif">
-                <a href="modificationUtili.php">Modifier</a>
-                <form action="modificationUtili.php" method="post">
-                    <input type="submit" name="modifier" value="Modifier" class="submitmodifier">
-                </form>
-            </div> -->
-        <!-- <input type='submit' value='Modifier' name='Modifier'> -->
-        
-        <!-- <input type="submit" name="Modifier" value="Modifier" class="submitmodifier"> -->
-    <!-- </form> -->
+
+    <form  method="post">
         <div id="supprimer">
             <label for="supp">
                 Quel utilisateur voulez-vous supprimer ?
@@ -98,17 +78,15 @@
         </div>
         <input type='submit' name='supprimer' value='Supprimer' class="submitsupprimer">
         <!-- <a href="GestionUtili.php" type="submit" name="supprimer" value="Supprimer">Supprimer</a> -->
+        </form>
         <br>
         <form action="AjoutUtili.php">
             <input type='submit' name='Ajouter' value='Ajouter' class="submitajouter">
         </form>
     </div>
-    <!-- <form class="retour"> -->
         <div >
-            <!-- <input id="retour2" type="button" value="Retour" onclick="history.go(-1)"> -->
             <a href="accueil.php" value="Retour"><button>Retour</button></a>
-            
         </div>
-    <!-- </form> -->
+   
     </form>
 </body>
