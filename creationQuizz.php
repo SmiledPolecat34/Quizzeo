@@ -43,34 +43,41 @@
             </select>
         </div>
         <?php
-        //Function to start a session
         session_start();
-
-        //Take pseudo and password of the user
         $pseudoco=$_SESSION['pseudo'];
         $mdpco=$_SESSION['mdp'];
+        //Saves information to the database
         function NouveauQuizz($pseudoco,$mdpco){
-            //Take the informations of user 
             $nomQuizz = $_POST['nom_Quizz'];
             $niveauQuest=$_POST['niveau'];
             $categorieQuest=$_POST['categorie'];
             $dateCreation=date('y-m-d');
-        
-            //Connection to the database and insert the informations of the user and the quizz
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
                 $idUti=$mysqli->query("SELECT * FROM `quizzeo`.`utilisateur` where pseudutilisateuro='$pseudoco' AND motDePasse='$mdpco';");
                 // $id_utilisateur = $idUti['Id_utilisateur'];
                 $user = mysqli_fetch_array($idUti);
                 $id_utilisateur = $user["Id_utilisateur"];
-                $mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$categorieQuest','$id_utilisateur');");
-        
-        }
-        NouveauQuizz($pseudoco,$mdpco);
+                $quizz=$mysqli->query("INSERT INTO `quizzeo`.`quizz` (`titre`, `difficulte`, `date_creation`, `categorie`, `Id_utilisateur`) VALUES ('$nomQuizz', '$niveauQuest', '$dateCreation', '$categorieQuest','$id_utilisateur');");
+                $idQuizz = mysqli_insert_id($mysqli);
+                $_SESSION['idQuizz']=$idQuizz;
+            }
         ?>
     </div>
     <input type="submit" name="submit" value="Suivant" class="submit-suivant">
-    
+    <?php
+    //When the button is pressed, launches the function to create a quiz and takes it to the question creation page
+    if(isset($_POST['submit'])){
+        NouveauQuizz($pseudoco,$mdpco);
+        header("Location: http://localhost/Quizzeo/creationQuizzSuivant.php");
+    }
+
+    ?>
+    <!-- <div class="bouton">
+        <div class="suivant">
+            <a href="Question.php">Suivant</a>
+        </div>
+    </div> -->
 </form> 
     <script src="CreerQuizz.js"></script> 
 </body>

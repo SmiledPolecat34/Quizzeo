@@ -12,9 +12,8 @@
         <h1>Quizzeo</h1>
     </header>
     <div class="organisation">
-        <form action="Question.php" method="post">
+        <form action="accueil.php" method="post">
         <div id="Crea">
-            <!-- boucle tant que i < nb_question -->
             <label for="question">
                 Question :
             </label>
@@ -49,9 +48,9 @@
 
             <?php
             session_start();
+            //Retrieves quiz id
             $nomQuizz=$_SESSION['idQuizz'];
-            
-            //Function permit us to create new question, the answers and choices of quizz
+            //Adding a question in database
             function NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation){
                 $intituleQuestion = $_POST['question'];
                 $choix_1 = $_POST['choix1'];
@@ -67,12 +66,12 @@
                 $mysqli->query("INSERT INTO `quizzeo`.`question` (`intituleQuestion`, `choix_1`, `choix_2`, `choix_3`, `choix_4`, `reponse`, `Id_quizz`) VALUES ('$intituleQuestion', '$choix_1', '$choix_2', '$choix_3', '$choix_4','$reponse', '$id_quizz');");
             }
          function Question($nomQuizz,$categorieQuest,$dateCreation){
-        
-            
+                //If the button is pressed, starts the function
                 if(isset($_POST["question_suivante"])){
                     NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
                     header("Location: http://localhost/Quizzeo/creationQuizzSuivant.php");
                 }
+                //Stop adding questions
                 if(isset($_POST["stop_question"])){
                     NouvelleQuestion ($nomQuizz,$categorieQuest,$dateCreation);
                     header("Location: http://localhost/Quizzeo/Inscription.html");
@@ -80,9 +79,12 @@
                 
         }
         
+        //Launches the function
+        while (isset($_POST["question_suivante"])){
+            Question($nomQuizz,$categorieQuest,$dateCreation);
+        }
+            
         
-        
-        Question($nomQuizz,$categorieQuest,$dateCreation);
             ?>
         </div>
         </form>
