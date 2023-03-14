@@ -55,6 +55,7 @@
             }
             AfficherProfil();
 
+            //If the "Supprimer"'s button is clicked, the user is deleted of the database 
             if(isset($_POST["Supprimer"])){
                 $supp_utili=$_POST["supp1"];
                 $mysqli = new mysqli ("localhost", "root", "", "quizzeo");
