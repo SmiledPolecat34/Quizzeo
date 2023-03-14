@@ -1,14 +1,14 @@
 <?php
-// echo "Coucou";
+
+//Connection to the database
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "root", "", "quizzeo");
 
 session_start();
 
-// $_SESSION["pseudutilisateuro"] = $pseudo;
-
 function CreerJoueur (){
     
+    //Recovery of data entered by the user
     $choix = $_POST['case'];
     //var_dump($_POST[$choix]);
     $mail = $_POST['mail'];
@@ -17,6 +17,8 @@ function CreerJoueur (){
     $pseudo = $_POST['pseudo'];
     $datenaissance = $_POST['dateDeNaissance'];
     $mdp = $_POST['mdp'];
+
+    //Analysis of the role chosen by the user
     if($choix=="quizzeur"){
         $role = 2;
         echo ("2");
@@ -24,6 +26,8 @@ function CreerJoueur (){
         $role = 1;
         echo ("1");
     }
+
+    //Insertion of the new user in the database according to his role
     if ($role==1){
         //$joueur = new Utilisateur($mail, $pseudo, $datenaissance, $mdp);
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
